@@ -1,89 +1,61 @@
-// app/page.tsx
 import React from 'react';
-import Link from 'next/link';
 
-const HomePage = () => {
-  return (
-    <div className="flex min-h-screen bg-gray-100">
-      {/* Left Side Image Placeholder */}
-      <div
-        className="hidden lg:block relative w-[40%] h-[90vh] mx-auto my-auto bg-cover bg-center rounded-lg ml-12"
-        style={{ backgroundImage: "url('/soccer-player-action-stadium.jpg')" }}
-      >
-        {/* Return to Website Link with Blur and Padding */}
-        <div className="absolute top-4 left-4 bg-black bg-opacity-50 rounded-md p-2 backdrop-blur-md">
-          <Link href="/" className="text-white text-xs hover:text-blue-300">Return to website</Link>
+const LandingPage: React.FC = () => {
+    return (
+        <div className="relative w-full max-w-[1440px] bg-white">
+            {/* Header Section */}
+            <div className="absolute w-full h-[157px] bg-gray-800 rounded-t-[48px]">
+                <div className="flex justify-center items-center gap-9 absolute w-[627px] h-[24px] left-1/2 transform -translate-x-1/2 top-[67px]">
+                    <div className="flex items-center gap-1">
+                        <span className="text-white text-[16px] font-normal">Essentials</span>
+                        <svg className="w-[16px] h-[16px]" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M8 12l-4-4h8z" />
+                        </svg>
+                    </div>
+                    <div className="flex items-center gap-1">
+                        <span className="text-white text-[16px] font-normal">Dashboards</span>
+                        <svg className="w-[16px] h-[16px]" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M8 12l-4-4h8z" />
+                        </svg>
+                    </div>
+                    <div className="flex items-center gap-1">
+                        <span className="text-white text-[16px] font-normal">Why choose DSA</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                        <span className="text-white text-[16px] font-normal">Marketplace</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                        <span className="text-white text-[16px] font-normal">Reports</span>
+                    </div>
+                </div>
+            </div>
+
+            {/* Main Content */}
+            <div className="absolute w-full h-[698px] bg-gray-50">
+                <div className="flex flex-col items-center justify-center h-full">
+                    <h1 className="text-white text-[64px] font-bold">Unleashing potential across Africa</h1>
+                    <p className="text-white text-[22px] font-normal">Uncovering Africa’s rising stars through data and dedication.</p>
+                    <button className="mt-4 px-6 py-2 bg-yellow-400 rounded-lg text-gray-800 font-semibold">Get Started</button>
+                </div>
+            </div>
+
+            {/* Responsive Design */}
+            <div className="flex flex-col md:flex-row justify-between p-4">
+                <div className="flex flex-col items-center w-full md:w-1/3 p-4">
+                    <h2 className="text-gray-800 text-[40px] font-bold">Gallery</h2>
+                    <div className="w-full h-[291px] bg-blue-900 rounded-lg"></div>
+                </div>
+                <div className="flex flex-col items-center w-full md:w-1/3 p-4">
+                    <h2 className="text-gray-800 text-[40px] font-bold">Testimonials</h2>
+                    <div className="w-full h-[291px] bg-blue-900 rounded-lg"></div>
+                </div>
+                <div className="flex flex-col items-center w-full md:w-1/3 p-4">
+                    <h2 className="text-gray-800 text-[40px] font-bold">Join Us</h2>
+                    <div className="w-full h-[291px] bg-blue-900 rounded-lg"></div>
+                </div>
+            </div>
         </div>
-
-        {/* Overlay for the image */}
-        <div className="h-full bg-black opacity-50 rounded-lg"></div>
-        {/* Text Overlay */}
-        <div className="absolute bottom-0 left-0 right-0 p-4 text-center">
-          <div className="bg-white bg-opacity-40 backdrop-blur-md rounded-lg p-4">
-            <p className="text-white mb-2">Let's get started</p>
-            <p className="text-white">Sign up to join the network that discovers top talent across all positions of the beautiful game!</p>
-          </div>
-        </div>
-      </div>
-
-      {/* Right Side Form */}
-      <div className="flex items-center justify-center w-full lg:w-2/3 p-8">
-        <div className="bg-white rounded-lg shadow-lg p-8 max-w-md w-full">
-          <div className="flex justify-between items-center mb-6">
-            <img src="/DSA-logo.png" alt="Logo" className="h-10" /> {/* Logo */}
-          </div>
-          <h2 className="text-2xl font-bold mb-4">Create an account</h2>
-                    {/* Added Login Link */}
-                    <p className="mt-4 mb-4 text-left text-sm text-gray-600">
-            Already have an account? <Link href="/login" className="text-blue-500 hover:text-blue-700">Login</Link>.
-          </p>
-          <form>
-            <div className="flex mb-4">
-              <div className="w-1/2 pr-2">
-                <label className="block text-sm font-medium text-gray-700">First name</label>
-                <input type="text" placeholder="Enter your first name" className="mt-1 block w-full border border-gray-300 rounded-md p-2" />
-              </div>
-              <div className="w-1/2 pl-2">
-                <label className="block text-sm font-medium text-gray-700">Last name</label>
-                <input type="text" placeholder="Enter your last name" className="mt-1 block w-full border border-gray-300 rounded-md p-2" />
-              </div>
-            </div>
-            <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700">Email Address</label>
-              <input type="email" placeholder="Enter your email address" className="mt-1 block w-full border border-gray-300 rounded-md p-2" />
-            </div>
-            <div className="flex mb-4">
-              <div className="w-1/2 pr-2">
-                <label className="block text-sm font-medium text-gray-700">Password</label>
-                <input type="password" placeholder="Enter your password" className="mt-1 block w-full border border-gray-300 rounded-md p-2" />
-              </div>
-              <div className="w-1/2 pl-2">
-                <label className="block text-sm font-medium text-gray-700">Confirm password</label>
-                <input type="password" placeholder="Confirm your password" className="mt-1 block w-full border border-gray-300 rounded-md p-2" />
-              </div>
-            </div>
-            <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700">Nationality</label>
-              <select className="mt-1 block w-full border border-gray-300 rounded-md p-2">
-                <option>Select nationality</option>
-                {/* Add more options as needed */}
-              </select>
-            </div>
-            <div className="flex items-center mb-4">
-              <input type="checkbox" className="mr-2" />
-              <label className="text-sm text-gray-600">I agree with <a href="#" className="text-blue-500">Terms of Service</a>.</label>
-            </div>
-            <button type="submit" className="w-full bg-gray-600 text-white font-bold py-2 rounded-md hover:bg-gray-700">Create account</button>
-            <div className="flex items-center justify-center mt-4">
-              <span className="text-gray-500">Or</span>
-            </div>
-            <button className="w-full bg-gray-300 text-gray-700 font-bold py-2 rounded-md mt-2 hover:bg-gray-400">Sign up with Google</button>
-          </form>
-
-        </div>
-      </div>
-    </div>
-  );
+    );
 };
 
-export default HomePage;
+export default LandingPage;
