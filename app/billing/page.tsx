@@ -125,7 +125,7 @@ function App() {
                 <h1 className="text-4xl font-bold text-blue-900">Upgrade to Pro!</h1>
               </div>
 
-              <p className="text-gray-700 leading-relaxed max-w-full">
+              <p className="text-gray-700 leading-relaxed">
                 Whether you're a rising star, a seasoned scout, or a forward-thinking agency, Digital Scouting Africa has the tools you need to shine. Choose the plan that matches your ambitions and unlock opportunities that take you closer to greatness.
               </p>
 

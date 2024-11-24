@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import { ChevronDown, LogOut } from 'lucide-react'
+import { useRouter } from 'next/navigation';
 
 interface NavItem {
   label: string
@@ -13,6 +14,7 @@ interface NavItem {
 export default function BillingHistoryPage() {
   const [essentialsOpen, setEssentialsOpen] = useState(false)
   const [dashboardsOpen, setDashboardsOpen] = useState(false)
+  const router = useRouter();
 
   const navItems: NavItem[] = [
     { label: 'Essentials', href: '#', hasDropdown: true },
@@ -30,6 +32,10 @@ export default function BillingHistoryPage() {
     { label: 'FAQs', href: '#' },
     { label: 'Pricing', href: '#' },
   ]
+
+  const handleSubscriptionPlanClick = () => {
+    router.push('/pricing');
+  };
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -82,6 +88,10 @@ export default function BillingHistoryPage() {
                   )}
                 </div>
               ))}
+
+              <button onClick={handleSubscriptionPlanClick} className="text-blue-600 hover:text-blue-800">
+                Subscription plan
+              </button>
             </nav>
           </div>
           <div className="flex items-center space-x-4">
@@ -114,7 +124,7 @@ export default function BillingHistoryPage() {
         <div className="max-w-7xl mx-auto">
           {/* Breadcrumb */}
           <nav className="flex space-x-2 text-sm mb-6">
-            <a href="#" className="text-gray-500 hover:text-gray-700">Subscription plan</a>
+            <a href="#" className="text-gray-500 hover:text-gray-700" onClick={handleSubscriptionPlanClick}>Subscription plan</a>
             <span className="text-gray-500">•</span>
             <span className="text-blue-700 font-medium">Billing History</span>
           </nav>

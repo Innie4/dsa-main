@@ -1,7 +1,20 @@
+"use client";
+
 import React from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 const LoginPage = () => {
+  const router = useRouter();
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Add your login logic here (e.g., API call)
+
+    // Redirect to the page.tsx after successful login
+    router.push('/landing-page');
+  };
+
   return (
     <div className="flex min-h-screen bg-gray-100">
       {/* Left Side Image Placeholder */}
@@ -19,7 +32,7 @@ const LoginPage = () => {
         
         {/* Text Overlay */}
         <div className="absolute bottom-0 left-0 right-0 p-4 text-center">
-        <div className="bg-white bg-opacity-40 backdrop-blur-md rounded-lg p-4">
+          <div className="bg-white bg-opacity-40 backdrop-blur-md rounded-lg p-4">
             <h2 className="text-white text-lg font-bold">Let’s scout!</h2>
             <p className="text-white">Welcome back to the field! Discover talents, connect, and stay updated on rising stars.</p>
           </div>
@@ -34,14 +47,14 @@ const LoginPage = () => {
           </div>
           <h2 className="text-2xl font-bold mb-4">Welcome back 👋</h2>
           <p className="text-sm text-gray-600 mb-4">New to the team? <Link href="/signup" className="text-blue-500 hover:text-blue-700">Sign up</Link></p>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="mb-4">
               <label className="block text-sm font-medium text-gray-700">Email Address</label>
-              <input type="email" placeholder="Enter your email address" className="mt-1 block w-full border border-gray-300 rounded-md p-2" />
+              <input type="email" placeholder="Enter your email address" className="mt-1 block w-full border border-gray-300 rounded-md p-2" required />
             </div>
             <div className="mb-4">
               <label className="block text-sm font-medium text-gray-700">Password</label>
-              <input type="password" placeholder="Enter your password" className="mt-1 block w-full border border-gray-300 rounded-md p-2" />
+              <input type="password" placeholder="Enter your password" className="mt-1 block w-full border border-gray-300 rounded-md p-2" required />
             </div>
             <div className="flex items-center mb-4">
               <input type="checkbox" className="mr-2" />

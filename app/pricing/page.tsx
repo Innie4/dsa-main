@@ -206,7 +206,7 @@ function App() {
       </div>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-gray-400 py-12 mt-16 rounded-t-xl">
+      <footer className="bg-gray-900 text-gray-400 py-12 mt-16 rounded-t-3xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center mb-4 md:mb-0">

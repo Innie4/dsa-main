@@ -1,8 +1,22 @@
 // app/page.tsx
-import React from 'react';
+"use client";
+
+import React, { useState } from 'react';
 import Link from 'next/link';
+import { Eye, EyeOff } from 'lucide-react'; // Import icons from lucide-react
 
 const HomePage = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const toggleConfirmPasswordVisibility = () => {
+    setShowConfirmPassword(!showConfirmPassword);
+  };
+
   return (
     <div className="flex min-h-screen bg-gray-100">
       {/* Left Side Image Placeholder */}
@@ -12,7 +26,7 @@ const HomePage = () => {
       >
         {/* Return to Website Link with Blur and Padding */}
         <div className="absolute top-4 left-4 bg-black bg-opacity-50 rounded-md p-2 backdrop-blur-md">
-          <Link href="/" className="text-white text-xs hover:text-blue-300">Return to website</Link>
+          <Link href="./page" className="text-white text-xs hover:text-blue-300">Return to website</Link>
         </div>
 
         {/* Overlay for the image */}
@@ -33,8 +47,8 @@ const HomePage = () => {
             <img src="/DSA-logo.png" alt="Logo" className="h-10" /> {/* Logo */}
           </div>
           <h2 className="text-2xl font-bold mb-4">Create an account</h2>
-                    {/* Added Login Link */}
-                    <p className="mt-4 mb-4 text-left text-sm text-gray-600">
+          {/* Added Login Link */}
+          <p className="mt-4 mb-4 text-left text-sm text-gray-600">
             Already have an account? <Link href="/login" className="text-blue-500 hover:text-blue-700">Login</Link>.
           </p>
           <form>
@@ -53,20 +67,48 @@ const HomePage = () => {
               <input type="email" placeholder="Enter your email address" className="mt-1 block w-full border border-gray-300 rounded-md p-2" />
             </div>
             <div className="flex mb-4">
-              <div className="w-1/2 pr-2">
+              <div className="w-1/2 pr-2 relative">
                 <label className="block text-sm font-medium text-gray-700">Password</label>
-                <input type="password" placeholder="Enter your password" className="mt-1 block w-full border border-gray-300 rounded-md p-2" />
+                <input
+                  type={showPassword ? 'text' : 'password'}
+                  placeholder="Enter your password"
+                  className="mt-1 block w-full border border-gray-300 rounded-md p-2 text-sm"
+                />
+                <button type="button" onClick={togglePasswordVisibility} className="absolute right-2 top-1/2 transform -translate-y-1/2 flex items-center mt-2.5 mr-2">
+                  {showPassword ? <EyeOff className="h-5 w-5 text-gray-600" /> : <Eye className="h-5 w-5 text-gray-600" />}
+                </button>
               </div>
-              <div className="w-1/2 pl-2">
+              <div className="w-1/2 pl-2 relative">
                 <label className="block text-sm font-medium text-gray-700">Confirm password</label>
-                <input type="password" placeholder="Confirm your password" className="mt-1 block w-full border border-gray-300 rounded-md p-2" />
+                <input
+                  type={showConfirmPassword ? 'text' : 'password'}
+                  placeholder="Confirm password"
+                  className="mt-1 block w-full border border-gray-300 rounded-md p-2 text-sm"
+                />
+                <button type="button" onClick={toggleConfirmPasswordVisibility} className="absolute right-2 top-1/2 transform -translate-y-1/2 flex items-center mt-2.5 mr-1">
+                  {showConfirmPassword ? <EyeOff className="h-5 w-5 text-gray-600" /> : <Eye className="h-5 w-5 text-gray-600" />}
+                </button>
               </div>
             </div>
             <div className="mb-4">
               <label className="block text-sm font-medium text-gray-700">Nationality</label>
-              <select className="mt-1 block w-full border border-gray-300 rounded-md p-2">
+              <select className="mt-1 block w-full border border-gray-300 rounded-md p-2 overflow-y-auto max-h-40">
                 <option>Select nationality</option>
-                {/* Add more options as needed */}
+                <option value="benin">Benin</option>
+                <option value="burkina_faso">Burkina Faso</option>
+                <option value="cape_verde">Cape Verde</option>
+                <option value="ivory_coast">Ivory Coast</option>
+                <option value="gambia">Gambia</option>
+                <option value="ghana">Ghana</option>
+                <option value="guinea">Guinea</option>
+                <option value="guinea_bissau">Guinea-Bissau</option>
+                <option value="liberia">Liberia</option>
+                <option value="mali">Mali</option>
+                <option value="niger">Niger</option>
+                <option value="nigeria">Nigeria</option>
+                <option value="senegal">Senegal</option>
+                <option value="sierra_leone">Sierra Leone</option>
+                <option value="togo">Togo</option>
               </select>
             </div>
             <div className="flex items-center mb-4">
@@ -79,7 +121,6 @@ const HomePage = () => {
             </div>
             <button className="w-full bg-gray-300 text-gray-700 font-bold py-2 rounded-md mt-2 hover:bg-gray-400">Sign up with Google</button>
           </form>
-
         </div>
       </div>
     </div>

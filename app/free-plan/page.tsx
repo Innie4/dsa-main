@@ -2,11 +2,17 @@
 
 import React, { useState } from 'react';
 import { ChevronDown, LogOut, User, Sticker, Menu, X } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 function App() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('subscription');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const router = useRouter();
+
+  const handleBillingHistoryClick = () => {
+    router.push('/billing-history');
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-blue-900">
@@ -89,7 +95,7 @@ function App() {
               <a href="#" className="text-blue-600 hover:text-blue-800">Teams</a>
               <a href="#" className="text-blue-600 hover:text-blue-800">Players</a>
               <a href="#" className="text-blue-600 font-semibold">Scouts</a>
-              <a href="#" className="text-blue-600 hover:text-blue-800">My Subscription</a>
+              <button onClick={handleBillingHistoryClick} className="text-blue-600 hover:text-blue-800">My Subscription</button>
             </div>
           </div>
         )}
@@ -116,7 +122,7 @@ function App() {
                   ? 'text-blue-600 font-semibold'
                   : 'text-gray-400 hover:text-gray-300'
               }`}
-              onClick={() => setActiveTab('billing')}
+              onClick={handleBillingHistoryClick}
             >
               Billing History
             </button>

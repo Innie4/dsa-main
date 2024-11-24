@@ -3,9 +3,11 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 const VerificationPage = () => {
   const [code, setCode] = useState(['', '', '', '', '', '']); // State to hold the 6-digit code
+  const router = useRouter();
 
   const handleChange = (index: number, value: string) => {
     const newCode = [...code];
@@ -26,6 +28,14 @@ const VerificationPage = () => {
       }
     }
   };
+
+  const handleContinue = () => {
+    // Redirect to the new password page
+    router.push('/new-password');
+  };
+
+  // Check if the code is fully entered
+  const isCodeComplete = code.every(digit => digit !== '');
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
@@ -56,8 +66,10 @@ const VerificationPage = () => {
             ))}
           </div>
           <button
-            type="submit"
-            className="w-full bg-blue-600 text-white font-bold py-2 rounded-md hover:bg-blue-700 transition duration-200"
+            type="button"
+            onClick={handleContinue}
+            disabled={!isCodeComplete} // Disable button if code is not complete
+            className={`w-full text-white font-bold py-2 rounded-md transition duration-200 ${isCodeComplete ? 'bg-blue-600 hover:bg-blue-700' : 'bg-gray-400 cursor-not-allowed'}`} // Change class based on code completion
           >
             Continue
           </button>

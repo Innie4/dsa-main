@@ -3,17 +3,25 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation'; // Import useRouter
 
 const NewPasswordPage = () => {
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const router = useRouter(); // Initialize useRouter
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Add your password reset logic here
     console.log('New Password:', newPassword);
     console.log('Confirm Password:', confirmPassword);
+
+    // Redirect to the login page after resetting the password
+    router.push('/login'); // Change this to your actual login page path
   };
+
+  // Check if passwords match
+  const passwordsMatch = newPassword === confirmPassword;
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
@@ -53,7 +61,8 @@ const NewPasswordPage = () => {
             </div>
             <button
               type="submit"
-              className="w-full bg-blue-600 text-white font-bold py-2 rounded-md hover:bg-blue-700 transition duration-200"
+              disabled={!passwordsMatch} // Disable button if passwords do not match
+              className={`w-full text-white font-bold py-2 rounded-md transition duration-200 ${passwordsMatch ? 'bg-blue-600 hover:bg-blue-700' : 'bg-gray-400 cursor-not-allowed'}`} // Change class based on password match
             >
               Reset password
             </button>

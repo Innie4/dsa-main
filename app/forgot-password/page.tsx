@@ -1,8 +1,18 @@
 // app/reset-password.tsx
+"use client";
+
 import React from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 const ResetPasswordPage = () => {
+  const router = useRouter();
+
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    router.push('/password-verification');
+  };
+
   return (
     <div className="flex flex-col min-h-screen bg-white">
       {/* Header */}
@@ -18,7 +28,7 @@ const ResetPasswordPage = () => {
           <p className="text-sm text-gray-600 text-center mb-6">
             We just need your registered email to send you your password reset code to it.
           </p>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="mb-4">
               <label className="block text-sm font-medium text-gray-700">Email Address</label>
               <input
