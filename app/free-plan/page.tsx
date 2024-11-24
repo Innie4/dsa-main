@@ -1,0 +1,216 @@
+"use client";
+
+import React, { useState } from 'react';
+import { ChevronDown, LogOut, User, Sticker, Menu, X } from 'lucide-react';
+
+function App() {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState('subscription');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-blue-900">
+      {/* Navigation */}
+      <nav className="bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex items-center justify-between h-16">
+            <div className="flex items-center mr-8">
+              <img src="/DSA-logo.png" alt="Digital Scouting Academy" className="h-9" />
+            </div>
+
+            <div className="hidden md:flex items-center space-x-6">
+              <div className="hidden md:flex items-center space-x-6">
+                <button className="text-blue-600 hover:text-blue-800 flex items-center">
+                  Essentials <ChevronDown className="ml-1 h-4 w-4" />
+                </button>
+                <button className="text-blue-600 hover:text-blue-800 flex items-center">
+                  Dashboards <ChevronDown className="ml-1 h-4 w-4" />
+                </button>
+                <a href="#" className="text-blue-600 hover:text-blue-800">Teams</a>
+                <a href="#" className="text-blue-600 hover:text-blue-800">Players</a>
+                <a href="#" className="text-blue-600 font-semibold">Scouts</a>
+              </div>
+
+              <a href="#" className="text-blue-600 hover:text-blue-800">
+                My Subscription
+              </a>
+              
+              <div className="relative">
+                <button 
+                  className="flex items-center space-x-3"
+                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                >
+                  <img
+                    src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80"
+                    alt="Samson Adenuga"
+                    className="h-10 w-10 rounded-full border-2 border-yellow-400"
+                  />
+                  <div className="text-left">
+                    <div className="text-blue-600">Samson Adenuga</div>
+                    <div className="text-sm text-gray-400">Profile</div>
+                  </div>
+                  <ChevronDown className="h-4 w-4 text-gray-400" />
+                </button>
+
+                {isDropdownOpen && (
+                  <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-1">
+                    <a href="#" className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                      <User className="mr-2 h-4 w-4" />
+                      Profile
+                    </a>
+                    <a href="#" className="flex items-center px-4 py-2 text-sm text-red-600 hover:bg-gray-100">
+                      <LogOut className="mr-2 h-4 w-4" />
+                      Logout
+                    </a>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Hamburger Menu for Small Screens */}
+            <div className="md:hidden">
+              <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-blue-600">
+                {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Hamburger Menu Items */}
+        {isMenuOpen && (
+          <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-1 z-10">
+            <div className="flex flex-col space-y-2 p-4">
+              <button className="text-blue-600 hover:text-blue-800 flex items-center">
+                Essentials <ChevronDown className="ml-1 h-4 w-4" />
+              </button>
+              <button className="text-blue-600 hover:text-blue-800 flex items-center">
+                Dashboards <ChevronDown className="ml-1 h-4 w-4" />
+              </button>
+              <a href="#" className="text-blue-600 hover:text-blue-800">Teams</a>
+              <a href="#" className="text-blue-600 hover:text-blue-800">Players</a>
+              <a href="#" className="text-blue-600 font-semibold">Scouts</a>
+              <a href="#" className="text-blue-600 hover:text-blue-800">My Subscription</a>
+            </div>
+          </div>
+        )}
+      </nav>
+
+      {/* Main Content */}
+      <main className="w-full px-4 py-8 bg-white">
+        {/* Tabs */}
+        <div className="mb-6">
+          <div className="flex space-x-8">
+            <button
+              className={`pb-4 ${
+                activeTab === 'subscription'
+                  ? 'text-blue-600 font-semibold'
+                  : 'text-gray-400 hover:text-gray-300'
+              }`}
+              onClick={() => setActiveTab('subscription')}
+            >
+              Subscription plan
+            </button>
+            <button
+              className={`pb-4 ${
+                activeTab === 'billing'
+                  ? 'text-blue-600 font-semibold'
+                  : 'text-gray-400 hover:text-gray-300'
+              }`}
+              onClick={() => setActiveTab('billing')}
+            >
+              Billing History
+            </button>
+          </div>
+        </div>
+
+        <p className="text-gray-500 text-lg mb-8">
+          View your subscription plans here.
+        </p>
+
+        {/* Subscription Details */}
+        <div className="grid md:grid-cols-2 gap-12 mb-8">
+          <div className="space-y-6">
+            <div className="flex space-x-12">
+              <div>
+                <div className="text-black-500 mb-1">Start date:</div>
+                <div className="text-black-500">Jan. 2025</div>
+              </div>
+              <div>
+                <div className="text-black-500 mb-1">End date:</div>
+                <div className="text-black-500">Jan. 2026</div>
+              </div>
+            </div>
+
+            {/* Progress Bar Section */}
+            <div className="mb-8">
+              <div className="flex items-center justify-between mb-2">
+                {/* Optional: Add any additional text here */}
+              </div>
+              <div className="relative w-7/8 h-4 bg-gray-200 rounded">
+                <div className="absolute top-0 left-0 h-4 bg-blue-600 rounded" style={{ width: '50%' }}></div>
+              </div>
+            </div>
+
+            {/* Current Plan */}
+            <div className="bg-blue-900 rounded-lg p-6">
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center space-x-2 w-full">
+                  <Sticker className="h-5 w-5 text-yellow-400" />
+                  <span className="text-yellow-400 font-semibold">FREE</span>
+                  <div className="flex-grow h-1 bg-yellow-400 ml-2" /> {/* Horizontal line beside FREE */}
+                </div>
+              </div>
+              <div className="flex justify-between items-center">
+                <div className="text-2xl font-bold text-white">₦ 0.00 <span className="text-sm text-gray-300 mb-4"> per month</span></div>
+                <button className="bg-yellow-400 text-blue-900 px-4 py-2 rounded-md font-semibold hover:bg-yellow-500 transition-colors">
+                  Upgrade plan
+                </button>
+              </div>
+            </div>
+
+            <p className="text-black-500 leading-relaxed">
+              Take the first step toward your football dreams—at no cost. Showcase your talent, 
+              and start connecting with scouts and agencies. It's your gateway to opportunities.
+            </p>
+          </div>
+
+          {/* Image with reduced height */}
+          <div className="rounded-2xl overflow-hidden h-96"> {/* Set a specific height */}
+            <img
+              src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+              alt="Football equipment"
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      </main>
+
+            {/* Footer */}
+            <footer className="bg-gray-900 text-gray-400 py-12 mt-16 rounded-t-xl">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className="flex items-center mb-4 md:mb-0">
+            <img src="/dsalogo5.png" alt="Digital Scouting Academy" className="h-9" />
+            </div>
+            <div className="flex space-x-6">
+              <a href="#" className="hover:text-white">Essentials</a>
+              <a href="#" className="hover:text-white">Dashboards</a>
+              <a href="#" className="hover:text-white">Contact us</a>
+              <a href="#" className="hover:text-white">FAQs</a>
+              <a href="#" className="hover:text-white">Pricing</a>
+            </div>
+          </div>
+          <div className="mt-8 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+            <div className="flex space-x-4 justify-end">
+              <a href="#" className="text-sm hover:text-yellow-300 text-yellow-500">Privacy Policy</a>
+              <span className="text-yellow-500">and</span>
+              <a href="#" className="text-sm hover:text-yellow-300 text-yellow-500">Terms of Use</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+export default App;

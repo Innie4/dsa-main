@@ -116,14 +116,14 @@ function App() {
       {/* Hero Section */}
       <div className="relative overflow-hidden bg-gradient-to-r from-lightblue-200 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="md:flex lg:flex justify-between items-center">
+          <div className="flex justify-between items-center">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
               We've got that perfect plan for<br />all our ballers!
             </h1>
             <img
               src="Blurred-Ball.png"
               alt="Soccer Ball"
-              className="md:w-[330px] lg:w-[380px] md:h-[245px] lg:h-[245px] w-full object-cover rounded-full"
+              className="w-[330px] h-[245px] object-cover rounded-full"
             />
           </div>
 
@@ -193,6 +193,15 @@ function App() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Background Soccer Ball */}
+        <div className="absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2 opacity-10">
+          <img
+            src="https://images.unsplash.com/photo-1614632537197-38a17061c2bd?auto=format&fit=crop&w=500"
+            alt="Soccer Ball"
+            className="w-96 h-96 object-cover rounded"
+          />
         </div>
       </div>
 
