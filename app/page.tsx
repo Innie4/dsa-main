@@ -19,7 +19,7 @@ const LandingPage: React.FC = () => {
                 Unleashing potential across Africa
               </h1>
               <p className="text-gray-200 mb-8">
-                Discovering Africa's rising stars through data and dedication
+                Discovering Africa&apos;s rising stars through data and dedication
               </p>
               <Link href="/signup">
                 <button className="bg-[#F7BF56] hover:bg-[#fab942] text-black px-6 py-3 rounded-lg font-medium">
@@ -222,14 +222,14 @@ const LandingPage: React.FC = () => {
               ...in his own words
             </h3>
             <p className="text-gray-500 italic">
-              "Using the scouting insights, I discovered my strengths in
+              Using the scouting insights, I discovered my strengths in
               defensive positioning and improved my ball control, which helped
               me stand out on the field. The detailed feedback I received showed
               me areas I hadn’t focused on before, like timing my runs and
               adjusting my positioning to create more opportunities for my
               teammates. This new perspective has not only improved my game but
               also boosted my confidence and determination to push myself even
-              further."
+              further.
             </p>
           </div>
         </div>
