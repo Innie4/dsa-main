@@ -1,12 +1,12 @@
 // app/verification/page.tsx
 "use client";
 
-import React, { useState } from 'react';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import React, { useState } from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const VerificationPage = () => {
-  const [code, setCode] = useState(['', '', '', '', '', '']); // State to hold the 6-digit code
+  const [code, setCode] = useState(["", "", "", "", "", ""]); // State to hold the 6-digit code
   const router = useRouter();
 
   const handleChange = (index: number, value: string) => {
@@ -16,14 +16,18 @@ const VerificationPage = () => {
 
     // Move to the next input if the current one is filled
     if (value && index < 5) {
-      const nextInput = document.querySelector(`input[data-index="${index + 1}"]`);
-      if (nextInput) {
+      const nextInput = document.querySelector(
+        `input[data-index="${index + 1}"]`
+      );
+      if (nextInput instanceof HTMLInputElement) {
         nextInput.focus();
       }
     } else if (!value && index > 0) {
       // Move to the previous input if the current one is empty
-      const prevInput = document.querySelector(`input[data-index="${index - 1}"]`);
-      if (prevInput) {
+      const prevInput = document.querySelector(
+        `input[data-index="${index - 1}"]`
+      );
+      if (prevInput instanceof HTMLInputElement) {
         prevInput.focus();
       }
     }
@@ -31,18 +35,21 @@ const VerificationPage = () => {
 
   const handleContinue = () => {
     // Redirect to the new password page
-    router.push('/new-password');
+    router.push("/new-password");
   };
 
   // Check if the code is fully entered
-  const isCodeComplete = code.every(digit => digit !== '');
+  const isCodeComplete = code.every((digit) => digit !== "");
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
       {/* Header */}
       <header className="flex items-center justify-between py-4 px-4">
-        <img src="/DSA-logo.png" alt="Logo" className="h-12" /> {/* Replace with your logo path */}
-        <div className="text-sm text-gray-600">© Copyright 2024. All Rights Reserved</div>
+        <img src="/DSA-logo.png" alt="Logo" className="h-12" />{" "}
+        {/* Replace with your logo path */}
+        <div className="text-sm text-gray-600">
+          © Copyright 2024. All Rights Reserved
+        </div>
       </header>
 
       {/* Main Content */}
@@ -69,12 +76,18 @@ const VerificationPage = () => {
             type="button"
             onClick={handleContinue}
             disabled={!isCodeComplete} // Disable button if code is not complete
-            className={`w-full text-white font-bold py-2 rounded-md transition duration-200 ${isCodeComplete ? 'bg-blue-600 hover:bg-blue-700' : 'bg-gray-400 cursor-not-allowed'}`} // Change class based on code completion
+            className={`w-full text-white font-bold py-2 rounded-md transition duration-200 ${
+              isCodeComplete
+                ? "bg-blue-600 hover:bg-blue-700"
+                : "bg-gray-400 cursor-not-allowed"
+            }`} // Change class based on code completion
           >
             Continue
           </button>
           <div className="text-center mt-4">
-            <Link href="#" className="text-blue-500 hover:text-blue-700">Resend code</Link>
+            <Link href="#" className="text-blue-500 hover:text-blue-700">
+              Resend code
+            </Link>
           </div>
         </div>
       </main>
