@@ -145,7 +145,7 @@ function App() {
                 {/* Optional: Add any additional text here */}
               </div>
               <div className="relative w-7/8 h-4 bg-gray-200 rounded">
-                <div className="absolute top-0 left-0 h-4 bg-blue-600 rounded" style={{ width: '10%' }}></div>
+                <div className="absolute top-0 left-0 h-4 bg-blue-600 rounded" style={{ width: '75%' }}></div>
               </div>
             </div>
 
@@ -154,19 +154,19 @@ function App() {
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center space-x-2 w-full">
                   <Sticker className="h-5 w-5 text-yellow-400" />
-                  <span className="text-yellow-400 font-semibold">FREE</span>
+                  <span className="text-yellow-400 font-semibold">PRO</span>
                   <div className="flex-grow h-1 bg-yellow-400 ml-2" /> {/* Horizontal line beside FREE */}
                 </div>
               </div>
               <div className="flex justify-between items-center">
-                <div className="text-2xl font-bold text-white">₦ 0.00 <span className="text-sm text-gray-300 mb-4"> per month</span></div>
+                <div className="text-2xl font-bold text-white">₦ 5,000.00 <span className="text-sm text-gray-300 mb-4"> per month</span></div>
                 <button className="bg-yellow-400 text-blue-900 px-4 py-2 rounded-md font-semibold hover:bg-yellow-500 transition-colors">
                   Upgrade plan
                 </button>
               </div>
             </div>
 
-            <p className="text-black-500 leading-relaxed mt-4">
+            <p className="text-black-500 leading-relaxed mb-4">
               Take the first step toward your football dreams—at no cost. Showcase your talent, 
               and start connecting with scouts and agencies. It's your gateway to opportunities.
             </p>
@@ -183,12 +183,12 @@ function App() {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-gray-400 py-12 mt-16 rounded-t-xl">
+            {/* Footer */}
+            <footer className="bg-gray-900 text-gray-400 py-12 mt-16 rounded-t-3xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center mb-4 md:mb-0">
-              <img src="/dsalogo5.png" alt="Digital Scouting Academy" className="h-9" />
+            <img src="/dsalogo5.png" alt="Digital Scouting Academy" className="h-9" />
             </div>
             <div className="flex space-x-6">
               <a href="#" className="hover:text-white">Essentials</a>
