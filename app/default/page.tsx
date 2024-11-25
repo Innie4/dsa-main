@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
+import Link from 'next/link';
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -46,12 +47,16 @@ function Header() {
           >
             Reports
           </a>
-          <button className="text-sm text-[#122483] hover:text-[#122483] px-4 py-2 rounded-lg border border-[#122483]">
-            Login
-          </button>
-          <button className="text-sm bg-[#122483] text-white px-4 py-2 rounded-lg hover:bg-[#0a1650]">
-            Sign up
-          </button>
+          <Link href="/login">
+            <button className="text-sm text-[#122483] hover:text-[#122483] px-4 py-2 rounded-lg border border-[#122483]">
+              Login
+            </button>
+          </Link>
+          <Link href="/signup">
+            <button className="text-sm bg-[#122483] text-white px-4 py-2 rounded-lg hover:bg-[#0a1650]">
+              Sign up
+            </button>
+          </Link>
         </div>
       </nav>
 
@@ -98,12 +103,17 @@ function Header() {
           >
             Reports
           </a>
-          <button className="text-sm text-[#122483] hover:text-[#122483] px-4 py-2 rounded-lg border border-[#122483]">
-            Login
-          </button>
-          <button className="text-sm bg-[#122483] text-white px-4 py-2 rounded-lg hover:bg-[#0a1650]">
-            Sign up
-          </button>
+          
+          <Link href="/login">
+            <button className="text-sm text-[#122483] hover:text-[#122483] px-4 py-2 rounded-lg border border-[#122483]">
+              Login
+            </button>
+          </Link>
+          <Link href="/signup">
+            <button className="text-sm bg-[#122483] text-white px-4 py-2 rounded-lg hover:bg-[#0a1650]">
+              Sign up
+            </button>
+          </Link>
         </div>
       </div>
     </div>
