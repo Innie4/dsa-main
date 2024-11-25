@@ -1,7 +1,8 @@
 import React from "react";
-import Header, { Footer } from "./default/page";
+import Header from "./default/page";
 import Gallery from "./gallery/page";
-import Link from 'next/link';
+import Link from "next/link";
+import { Footer } from "./default/footer";
 
 const LandingPage: React.FC = () => {
   return (
@@ -19,7 +20,8 @@ const LandingPage: React.FC = () => {
                 Unleashing potential across Africa
               </h1>
               <p className="text-gray-200 mb-8">
-                Discovering Africa&apos;s rising stars through data and dedication
+                Discovering Africa&apos;s rising stars through data and
+                dedication
               </p>
               <Link href="/signup">
                 <button className="bg-[#F7BF56] hover:bg-[#fab942] text-black px-6 py-3 rounded-lg font-medium">
