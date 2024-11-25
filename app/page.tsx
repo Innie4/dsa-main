@@ -64,9 +64,9 @@ const LandingPage: React.FC = () => {
         </section>
 
         {/* Metrics */}
-        <section className="bg-white py-10">
+        <section className="bg-white py-10 w-full overflow-hidden">
           <h2 className="text-3xl font-bold text-[#122483] mb-8">Our Reach</h2>
-          <div className="flex space-x-8">
+          <div className="md:flex lg:flex space-x-8">
             <div className="text-black">
               <span className="text-6xl font-bold">90%</span>
               <p className="text-gray-400 mt-2">players signing for clubs</p>
