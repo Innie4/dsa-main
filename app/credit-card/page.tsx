@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { ChevronDown, ChevronUp, Shield, Users, Bell, Settings, ExternalLink, Menu, X, Book, UserCheck, AlertTriangle, Sticker, CreditCard, Building } from 'lucide-react';
+import { ChevronDown, Menu, X, Sticker, CreditCard, Building } from 'lucide-react';
 
 interface FormData {
   name: string;

@@ -1,7 +1,8 @@
 import React from "react";
-import Header, { Footer } from "./default/page";
+import Header from "./default/page";
 import Gallery from "./gallery/page";
-import Link from 'next/link';
+import Link from "next/link";
+import { Footer } from "./default/footer";
 
 const LandingPage: React.FC = () => {
   return (
@@ -16,10 +17,10 @@ const LandingPage: React.FC = () => {
           <div className="container mx-auto px-4 py-20">
             <div className="max-w-2xl">
               <h1 className="text-4xl font-bold text-white mb-4">
-                Unleashing potential across Africa
+                Unleashing potential <br /> across Africa
               </h1>
-              <p className="text-gray-200 mb-8">
-                Discovering Africa's rising stars through data and dedication
+              <p className="text-gray-200 mb-8 backdrop-blur-md bg-white/30 p-1 rounded w-1/2">
+                Discovering Africa&apos;s rising stars through <br /> data and dedication
               </p>
               <Link href="/signup">
                 <button className="bg-[#F7BF56] hover:bg-[#fab942] text-black px-6 py-3 rounded-lg font-medium">
@@ -62,9 +63,9 @@ const LandingPage: React.FC = () => {
         </section>
 
         {/* Metrics */}
-        <section className="bg-white py-10">
+        <section className="bg-white py-10 w-full overflow-hidden">
           <h2 className="text-3xl font-bold text-[#122483] mb-8">Our Reach</h2>
-          <div className="flex space-x-8">
+          <div className="md:flex lg:flex space-x-8">
             <div className="text-black">
               <span className="text-6xl font-bold">90%</span>
               <p className="text-gray-400 mt-2">players signing for clubs</p>
@@ -222,14 +223,14 @@ const LandingPage: React.FC = () => {
               ...in his own words
             </h3>
             <p className="text-gray-500 italic">
-              "Using the scouting insights, I discovered my strengths in
+              Using the scouting insights, I discovered my strengths in
               defensive positioning and improved my ball control, which helped
               me stand out on the field. The detailed feedback I received showed
               me areas I hadn’t focused on before, like timing my runs and
               adjusting my positioning to create more opportunities for my
               teammates. This new perspective has not only improved my game but
               also boosted my confidence and determination to push myself even
-              further."
+              further.
             </p>
           </div>
         </div>

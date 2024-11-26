@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { ChevronDown, ChevronUp, HelpCircle, Mail, Sticker } from 'lucide-react';
+import { ChevronDown, ChevronUp, HelpCircle, Mail } from 'lucide-react';
 
 interface FAQItem {
   question: string;

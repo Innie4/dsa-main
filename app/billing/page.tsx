@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import { ChevronDown, ChevronUp, Shield, Users, Bell, Settings, ExternalLink, Menu, X, Book, UserCheck, AlertTriangle, CreditCard, Building } from 'lucide-react';
+import { Shield, Settings, Menu, X, Book, UserCheck, AlertTriangle, CreditCard, Building } from 'lucide-react';
 
 interface Section {
   id: string;
@@ -12,10 +12,7 @@ interface Section {
 
 function App() {
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
-  const [isDarkMode, setIsDarkMode] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set(['welcome']));
-  const [accepted, setAccepted] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState<string>(''); // Define paymentMethod state
 
   const sections: Section[] = [
@@ -59,15 +56,6 @@ function App() {
     },
   ];
 
-  const toggleSection = (sectionId: string) => {
-    const newExpanded = new Set(expandedSections);
-    if (newExpanded.has(sectionId)) {
-      newExpanded.delete(sectionId);
-    } else {
-      newExpanded.add(sectionId);
-    }
-    setExpandedSections(newExpanded);
-  };
 
   return (
     <div className="min-h-screen bg-white">
