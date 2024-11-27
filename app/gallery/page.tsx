@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 
 const Gallery = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [, setCurrentIndex] = useState(0);
   const [images, setImages] = useState([
     "./gallery1.png",
     "./gallery2.png",
@@ -34,7 +34,7 @@ const Gallery = () => {
     });
   };
 
-  const updateImages = (index) => {
+  const updateImages = (index: number) => {
     setImages([
       images[index],
       images[(index + 1) % images.length],

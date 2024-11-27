@@ -124,7 +124,6 @@ export default function PlayerProfile() {
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
       {/* Header */}
-
 <header className="bg-white border-b">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="flex justify-between items-center h-16">
@@ -191,7 +190,7 @@ export default function PlayerProfile() {
       {/* Main Content */}
       <main className="flex-1 max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Player Info */}
-        <div className=" rounded-lg  overflow-visible">
+        <div className="bg-white rounded-lg shadow overflow-hidden">
           <div className="md:flex">
             <div className="relative md:w-1/3">
               <Image
