@@ -43,7 +43,9 @@ const LoginPage = () => {
       <div className="flex items-center justify-center w-full lg:w-1/2 p-4">
         <div className="bg-white rounded-lg shadow-lg p-8 max-w-md w-full">
           <div className="flex justify-between items-center mb-6">
-            <img src="/DSA-logo.png" alt="Logo" className="h-10" /> {/* Logo */}
+            <Link href="/">
+              <img src="/DSA-logo.png" alt="Logo" className="h-10 cursor-pointer" /> {/* Logo */}
+            </Link>
           </div>
           <h2 className="text-2xl font-bold mb-4">Welcome back 👋</h2>
           <p className="text-sm text-gray-600 mb-4">New to the team? <Link href="/signup" className="text-blue-500 hover:text-blue-700">Sign up</Link></p>

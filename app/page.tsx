@@ -17,11 +17,10 @@ const LandingPage: React.FC = () => {
           <div className="container mx-auto px-4 py-20">
             <div className="max-w-2xl">
               <h1 className="text-4xl font-bold text-white mb-4">
-                Unleashing potential across Africa
+                Unleashing potential <br /> across Africa
               </h1>
-              <p className="text-gray-200 mb-8">
-                Discovering Africa&apos;s rising stars through data and
-                dedication
+              <p className="text-gray-200 mb-8 backdrop-blur-md bg-white/30 p-1 rounded w-1/2">
+                Discovering Africa&apos;s rising stars through <br /> data and dedication
               </p>
               <Link href="/signup">
                 <button className="bg-[#F7BF56] hover:bg-[#fab942] text-black px-6 py-3 rounded-lg font-medium">
@@ -64,9 +63,9 @@ const LandingPage: React.FC = () => {
         </section>
 
         {/* Metrics */}
-        <section className="bg-white py-10">
+        <section className="bg-white py-10 w-full overflow-hidden">
           <h2 className="text-3xl font-bold text-[#122483] mb-8">Our Reach</h2>
-          <div className="flex space-x-8">
+          <div className="md:flex lg:flex space-x-8">
             <div className="text-black">
               <span className="text-6xl font-bold">90%</span>
               <p className="text-gray-400 mt-2">players signing for clubs</p>
