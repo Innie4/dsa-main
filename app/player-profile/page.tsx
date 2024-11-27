@@ -124,7 +124,7 @@ export default function PlayerProfile() {
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
       {/* Header */}
-      // app/player-profile/page.tsx
+
 <header className="bg-white border-b">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="flex justify-between items-center h-16">
@@ -175,18 +175,23 @@ export default function PlayerProfile() {
 </header>
 
       {/* Breadcrumb */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-        <nav className="flex space-x-2 text-sm text-gray-500">
-          <Link href="#" className="hover:text-gray-700">Players</Link>
-          <span>/</span>
-          <span className="text-gray-900">Destiny Chambers</span>
-        </nav>
-      </div>
+<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+  <nav className="flex items-center space-x-2 text-sm text-gray-500">
+    <Link href="/player-page" className="hover:text-gray-700 flex items-center">
+      <span className="w-2 h-2 bg-blue-900 rounded-full mr-1"></span> {/* Dot */}
+      Players
+    </Link>
+    <Link href="#" className="hover:text-gray-700 flex items-center">
+      <span className="w-2 h-2 bg-blue-900 rounded-full mr-1"></span> {/* Dot */}
+      Destiny Chambers
+    </Link>
+  </nav>
+</div>
 
       {/* Main Content */}
       <main className="flex-1 max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Player Info */}
-        <div className="bg-white rounded-lg shadow overflow-hidden">
+        <div className=" rounded-lg  overflow-visible">
           <div className="md:flex">
             <div className="relative md:w-1/3">
               <Image
@@ -348,7 +353,7 @@ export default function PlayerProfile() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white mt-12">
+      <footer className="bg-gray-900 text-white mt-12 rounded-t-3xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="flex-shrink-0">

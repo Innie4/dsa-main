@@ -6,10 +6,10 @@ import { Footer } from "./default/footer";
 
 const LandingPage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-white">
-      <Header />
-      {/* Hero Section */}
-      <div className="md:px-20 lg:px-20 p-4">
+    <div className="md:px-20 lg:px-20 p-4">
+      <div className="min-h-screen bg-white">
+        <Header />
+        {/* Hero Section */}
         <section
           className="relative h-96 bg-cover bg-center rounded-xl"
           style={{ backgroundImage: `url('./pitch.png')` }}
@@ -20,7 +20,8 @@ const LandingPage: React.FC = () => {
                 Unleashing potential <br /> across Africa
               </h1>
               <p className="text-gray-200 mb-8 backdrop-blur-md bg-white/30 p-1 rounded w-1/2">
-                Discovering Africa&apos;s rising stars through <br /> data and dedication
+                Discovering Africa&apos;s rising stars through <br /> data and
+                dedication
               </p>
               <Link href="/signup">
                 <button className="bg-[#F7BF56] hover:bg-[#fab942] text-black px-6 py-3 rounded-lg font-medium">
