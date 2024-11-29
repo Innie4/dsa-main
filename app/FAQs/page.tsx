@@ -61,22 +61,34 @@ function App() {
             </div>
             <div className="flex items-center space-x-4">
               <button className="text-gray-600 hover:text-gray-900">
-                Essentials
+              <a href="player-page" className="text-gray-700 hover:text-blue-800">
+                  Essentials
+                </a>
               </button>
               <button className="text-gray-600 hover:text-gray-900">
-                Dashboards
+              <a href="analytics" className="text-gray-600 hover:text-blue-800">
+                  Dashboards
+                </a>
               </button>
               <button className="text-gray-600 hover:text-gray-900">
-                Why choose us
+              <a href="why-choose-us" className="text-gray-600 hover:text-blue-800">
+                  Why choose Us
+                </a>
               </button>
               <button className="text-gray-600 hover:text-gray-900">
-                Marketplace
+              <a href="marketplace" className="text-gray-600 hover:text-blue-800">
+                  Marketplace
+                </a>
               </button>
-              <button className="px-4 py-2 text-blue-600 hover:text-blue-700">
-                Login
+              <button className="px-4 py-2 text-gray-600 hover:text-blue-700">
+              <a href="login" className="text-gray-600 hover:text-blue-800">
+                  Login
+                </a>
               </button>
               <button className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
-                Sign up
+                <a href="signup" className="text-white hover:text-blue-800">
+                  Sign Up
+                </a>
               </button>
             </div>
           </div>
@@ -174,7 +186,7 @@ function App() {
             </form>
             <p className="text-blue-200 text-sm mt-4">
               We care about your data in our{" "}
-              <a href="#" className="text-yellow-400 hover:text-yellow-300">
+              <a href="privacy-policy" className="text-yellow-400 hover:text-yellow-300">
                 privacy policy
               </a>
               .
@@ -195,19 +207,19 @@ function App() {
               />
             </div>
             <div className="flex space-x-6">
-              <a href="#" className="hover:text-white">
+              <a href="player-page" className="hover:text-white">
                 Essentials
               </a>
-              <a href="#" className="hover:text-white">
+              <a href="analytics" className="hover:text-white">
                 Dashboards
               </a>
-              <a href="#" className="hover:text-white">
+              <a href="contact-us" className="hover:text-white">
                 Contact us
               </a>
-              <a href="#" className="hover:text-white">
+              <a href="FAQs" className="hover:text-white">
                 FAQs
               </a>
-              <a href="#" className="hover:text-white">
+              <a href="pricing" className="hover:text-white">
                 Pricing
               </a>
             </div>
@@ -215,14 +227,14 @@ function App() {
           <div className="mt-8 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
             <div className="flex space-x-4 justify-end">
               <a
-                href="#"
+                href="privacy-policy"
                 className="text-sm hover:text-yellow-300 text-yellow-500"
               >
                 Privacy Policy
               </a>
               <span className="text-yellow-500">and</span>
               <a
-                href="#"
+                href="terms-of-use"
                 className="text-sm hover:text-yellow-300 text-yellow-500"
               >
                 Terms of Use

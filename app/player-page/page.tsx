@@ -1,119 +1,119 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
-import { ChevronDown, ChevronUp, LogOut } from 'lucide-react'
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { ChevronDown, ChevronUp, LogOut } from "lucide-react";
 
 // Types
 type Player = {
-  id: number
-  name: string
-  image: string
-  nationality: string
-  age: number
-  position: string
-  club: string
-  roles: string[]
-}
+  id: number;
+  name: string;
+  image: string;
+  nationality: string;
+  age: number;
+  position: string;
+  club: string;
+  roles: string[];
+};
 
 type NavItem = {
-  label: string
-  href: string
-  hasDropdown?: boolean
-}
+  label: string;
+  href: string;
+  hasDropdown?: boolean;
+};
 
 // Sample data
 const players: Player[] = [
   {
     id: 1,
     name: "Destiny Chambers",
-    image: "/placeholder.svg",
+    image: "/DestinyChambers.png",
     nationality: "Nigeria",
     age: 23,
     position: "Midfielder",
     club: "Rangers FC",
-    roles: ["DM", "AM", "CM"]
+    roles: ["DM", "AM", "CM"],
   },
   {
     id: 2,
     name: "Champion Ogunekpon",
-    image: "/placeholder.svg",
+    image: "/ChampionOgunekpon.png",
     nationality: "Nigeria",
     age: 20,
     position: "Striker",
     club: "Union Stars",
-    roles: ["CF", "SS"]
+    roles: ["CF", "SS"],
   },
   {
     id: 3,
     name: "Oluwa Joe",
-    image: "/placeholder.svg",
+    image: "/OluwaJoe.png",
     nationality: "Nigeria",
     age: 24,
     position: "Midfielder",
     club: "Yellow Rangers",
-    roles: ["AM", "CM"]
+    roles: ["AM", "CM"],
   },
   {
     id: 4,
     name: "Gideon Akpan",
-    image: "/placeholder.svg",
+    image: "/GideonAkpan.png",
     nationality: "Nigeria",
     age: 17,
     position: "Midfielder",
     club: "Rangers FC",
-    roles: ["DM", "AM", "CM"]
+    roles: ["DM", "AM", "CM"],
   },
   {
     id: 5,
     name: "Udo Ugo",
-    image: "/placeholder.svg",
+    image: "/UdoUgo.png",
     nationality: "Nigeria",
     age: 25,
     position: "Midfielder",
     club: "Jos City Stars",
-    roles: ["DM", "CM"]
+    roles: ["DM", "CM"],
   },
   {
     id: 6,
     name: "Hassan Zai",
-    image: "/placeholder.svg",
+    image: "/HassanZai.png",
     nationality: "Nigeria",
     age: 25,
     position: "Goalkeeper",
     club: "Highflyers United",
-    roles: ["GK"]
+    roles: ["GK"],
   },
   {
     id: 7,
     name: "Azeez Abubakar",
-    image: "/placeholder.svg",
+    image: "/AzeezAbubakar.png",
     nationality: "Nigeria",
     age: 23,
     position: "Defender",
     club: "Asokiti  Stars",
-    roles: ["CB", "DM"]
+    roles: ["CB", "DM"],
   },
   {
     id: 8,
     name: "Ezinne Mazinwe",
-    image: "/placeholder.svg",
+    image: "/EzinneMazinwe.png",
     nationality: "Nigeria",
     age: 22,
     position: "Fullback",
     club: "Rangers FC",
-    roles: ["RB"]
+    roles: ["RB"],
   },
   {
     id: 9,
     name: "Olu Abu",
-    image: "/placeholder.svg",
+    image: "/OluAbu.png",
     nationality: "Nigeria",
     age: 20,
     position: "Striker",
     club: "Union Stars",
-    roles: ["CF"]
+    roles: ["CF"],
   },
   {
     id: 10,
@@ -123,36 +123,36 @@ const players: Player[] = [
     age: 19,
     position: "Midfielder",
     club: "Blue Rivers United",
-    roles: ["DM", "AM", "CM"]
+    roles: ["DM", "AM", "CM"],
   },
   // Add more players as needed...
-]
+];
 
 const navItems: NavItem[] = [
-  { label: "Essentials", href: "#", hasDropdown: true },
-  { label: "Dashboards", href: "#", hasDropdown: true },
-  { label: "Teams", href: "#" },
-  { label: "Players", href: "#" },
-  { label: "Scouts", href: "#" },
-  { label: "Competitions", href: "#" },
-]
+  { label: "Essentials", href: "player-page", hasDropdown: true },
+  { label: "Dashboards", href: "analytics", hasDropdown: true },
+  { label: "Teams", href: "teams" },
+  { label: "Players", href: "player-page" },
+  { label: "Scouts", href: "scouts" },
+  { label: "Competitions", href: "competitions" },
+];
 
 const footerLinks = [
-  { label: "Essentials", href: "#" },
-  { label: "Dashboards", href: "#" },
-  { label: "Contact us", href: "#" },
-  { label: "FAQs", href: "#" },
-  { label: "Pricing", href: "#" },
-]
+  { label: "Essentials", href: "player-page" },
+  { label: "Dashboards", href: "analytics" },
+  { label: "Contact us", href: "contact-us" },
+  { label: "FAQs", href: "FAQs" },
+  { label: "Pricing", href: "pricing" },
+];
 
 // app/player-page/page.tsx
 export default function PlayersDashboard() {
-  const [showAllPlayers, setShowAllPlayers] = useState(false)
+  const [showAllPlayers, setShowAllPlayers] = useState(false);
 
-  const displayedPlayers = showAllPlayers ? players : players.slice(0, 10)
+  const displayedPlayers = showAllPlayers ? players : players.slice(0, 10);
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
+    <div className="min-h-screen flex flex-col bg-gray-50 text-black">
       {/* Header */}
       <header className="bg-white border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -197,7 +197,10 @@ export default function PlayersDashboard() {
                 />
                 <div className="text-sm">
                   <p className="font-medium text-gray-900">Samson Adenuga</p>
-                  <Link href="#" className="text-red-600 hover:text-red-700 text-xs flex items-center">
+                  <Link
+                    href="login"
+                    className="text-red-600 hover:text-red-700 text-xs flex items-center"
+                  >
                     <LogOut className="h-3 w-3 mr-1" />
                     Logout
                   </Link>
@@ -238,7 +241,9 @@ export default function PlayersDashboard() {
                       height={40}
                       className="rounded-full"
                     />
-                    <span className="font-medium text-gray-900">{player.name}</span>
+                    <span className="font-medium text-gray-900">
+                      {player.name}
+                    </span>
                   </div>
                   <div className="flex items-center">
                     <span className="flex items-center">
@@ -277,7 +282,7 @@ export default function PlayersDashboard() {
             onClick={() => setShowAllPlayers(!showAllPlayers)}
             className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-900 hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
           >
-            {showAllPlayers ? 'Show Less' : 'View all players'}
+            {showAllPlayers ? "Show Less" : "View all players"}
             {showAllPlayers ? (
               <ChevronUp className="ml-2 h-4 w-4" />
             ) : (
@@ -305,12 +310,16 @@ export default function PlayersDashboard() {
           </div>
           {/* Privacy Policy and Terms of Use */}
           <div className="text-sm text-gray-400 mt-4 text-right">
-            <Link href="#" className="hover:text-gray-300">Privacy Policy</Link>
+            <Link href="privacy-policy" className="hover:text-gray-300">
+              Privacy Policy
+            </Link>
             <span className="mx-2">and</span>
-            <Link href="#" className="hover:text-gray-300">Terms of Use</Link>
+            <Link href="terms-of-use" className="hover:text-gray-300">
+              Terms of Use
+            </Link>
           </div>
         </div>
       </footer>
     </div>
-  )
+  );
 }

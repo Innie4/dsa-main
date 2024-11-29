@@ -77,15 +77,19 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className=" bg-white ">
       {/* Navbar */}
-      <nav className="bg-white shadow-sm flex justify-between items-center h-16 px-4">
-        <div className="flex items-center">
-          <img
-            src="/DSA-logo.png"
-            alt="Digital Scouting Academy"
-            className="h-9"
-          />
+      <nav className=" bg-white flex justify-between items-center h-16 px-4">
+        <div className="flex items-center ">
+        <a href="/" className="hover:text-white cursor-pointer">
+           
+           <img
+             src="/DSA-logo.png"
+             alt="Digital Scouting Academy"
+             className="h-9"
+           />
+
+           </a>
         </div>
         <div className="md:hidden">
           <button onClick={() => setIsMenuOpen(true)}>
@@ -93,12 +97,18 @@ function App() {
           </button>
         </div>
         <div className="hidden md:flex items-center space-x-8">
-          <button className="text-sm text-gray-700 hover:text-[#122483] transition-colors">
-            Essentials
-          </button>
-          <button className="text-sm text-gray-700 hover:text-[#122483] transition-colors">
-            Dashboards
-          </button>
+          <a
+            href="/marketplace"
+            className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
+          >
+            Marketplace
+          </a>
+          <a
+            href="/competitions"
+            className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
+          >
+            Competitions
+          </a>
           <a
             href="#"
             className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
@@ -115,7 +125,7 @@ function App() {
             href="#"
             className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
           >
-            Reports
+           Competitions
           </a>
           <button className="text-sm text-[#122483] hover:text-[#122483] px-4 py-2 rounded-lg border border-[#122483]">
             Login
@@ -145,39 +155,50 @@ function App() {
           </button>
         </div>
         <div className="flex flex-col p-4 space-y-4">
-          <button className="text-sm text-gray-700 hover:text-[#122483] transition-colors">
-            Essentials
-          </button>
-          <button className="text-sm text-gray-700 hover:text-[#122483] transition-colors">
-            Dashboards
-          </button>
           <a
-            href="#"
+            href="/player-page"
+            className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
+          >
+            Essentials
+          </a>
+          <a
+            href="/analytics"
+            className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
+          >
+            Dashboard
+          </a>
+          <a
+            href="/why-choose-us"
             className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
           >
             Why choose DSA
           </a>
           <a
-            href="#"
+            href="/marketplace"
             className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
           >
             Marketplace
           </a>
           <a
-            href="#"
+            href="/competitions"
             className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
           >
-            Reports
+            Competitions
           </a>
-          <button className="text-sm text-[#122483] hover:text-[#122483] px-4 py-2 rounded-lg border border-[#122483]">
+          <a
+            href="/login"
+            className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
+          >
             Login
-          </button>
-          <button className="text-sm bg-[#122483] text-white px-4 py-2 rounded-lg hover:bg-[#0a1650]">
-            Sign up
-          </button>
+          </a>
+          <a
+            href="/signup"
+            className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
+          >
+            Signup
+          </a>
         </div>
       </div>
-
       {/* Main Content */}
       <main className="container mx-auto px-4 pt-24 pb-12">
         <div className="max-w-3xl mx-auto">
@@ -240,10 +261,10 @@ function App() {
           </div>
 
           {/* Footer */}
-          <footer className="bg-gray-900 text-gray-400 py-12 mt-16 w-full rounded-t-xl">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="flex flex-col md:flex-row justify-between items-center">
-                <div className="flex items-center mb-4 md:mb-0">
+          <footer className="bg-gray-900 text-gray-400 py-12 mt-16 rounded-t-3xl">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className="flex items-center mb-4 md:mb-0">
                   <img
                     src="/dsalogo5.png"
                     alt="Digital Scouting Academy"

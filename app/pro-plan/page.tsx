@@ -21,33 +21,37 @@ function App() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center mr-8">
+            <a href="/" className="text-gray-700 font-semibold">
+                 
+
               <img
                 src="/DSA-logo.png"
                 alt="Digital Scouting Academy"
                 className="h-9"
               />
+                              </a>
             </div>
 
             <div className="hidden md:flex items-center space-x-6">
               <div className="hidden md:flex items-center space-x-6">
-                <button className="text-blue-600 hover:text-blue-800 flex items-center">
+                <button className="text-gray-700 hover:text-blue-800 flex items-center">
                   Essentials <ChevronDown className="ml-1 h-4 w-4" />
                 </button>
-                <button className="text-blue-600 hover:text-blue-800 flex items-center">
+                <button className="text-gray-700 hover:text-blue-800 flex items-center">
                   Dashboards <ChevronDown className="ml-1 h-4 w-4" />
                 </button>
-                <a href="#" className="text-blue-600 hover:text-blue-800">
+                <a href="teams" className="text-gray-700 hover:text-blue-800">
                   Teams
                 </a>
-                <a href="#" className="text-blue-600 hover:text-blue-800">
+                <a href="player-page" className="text-gray-700 hover:text-blue-800">
                   Players
                 </a>
-                <a href="#" className="text-blue-600 font-semibold">
+                <a href="scouts" className="text-gray-700 font-semibold">
                   Scouts
                 </a>
               </div>
 
-              <a href="#" className="text-blue-600 hover:text-blue-800">
+              <a href="pricing" className="text-gray-700 hover:text-blue-800">
                 My Subscription
               </a>
 
@@ -57,12 +61,12 @@ function App() {
                   onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                 >
                   <img
-                    src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80"
+                    src="samson.png"
                     alt="Samson Adenuga"
                     className="h-10 w-10 rounded-full border-2 border-yellow-400"
                   />
                   <div className="text-left">
-                    <div className="text-blue-600">Samson Adenuga</div>
+                    <div className="text-gray-700">Samson Adenuga</div>
                     <div className="text-sm text-gray-400">Profile</div>
                   </div>
                   <ChevronDown className="h-4 w-4 text-gray-400" />
@@ -71,14 +75,14 @@ function App() {
                 {isDropdownOpen && (
                   <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-1">
                     <a
-                      href="#"
+                      href="profile"
                       className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                     >
                       <User className="mr-2 h-4 w-4" />
                       Profile
                     </a>
                     <a
-                      href="#"
+                      href="login"
                       className="flex items-center px-4 py-2 text-sm text-red-600 hover:bg-gray-100"
                     >
                       <LogOut className="mr-2 h-4 w-4" />
@@ -109,23 +113,27 @@ function App() {
         {isMenuOpen && (
           <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-1 z-10">
             <div className="flex flex-col space-y-2 p-4">
-              <button className="text-blue-600 hover:text-blue-800 flex items-center">
-                Essentials <ChevronDown className="ml-1 h-4 w-4" />
+              <button className=" hover:text-blue-800 flex items-center">
+              <a href="player-page" className="text-gray-700 hover:text-blue-800">
+               Essentials
+              </a> <ChevronDown className="ml-1 h-4 w-4" />
               </button>
-              <button className="text-blue-600 hover:text-blue-800 flex items-center">
-                Dashboards <ChevronDown className="ml-1 h-4 w-4" />
+              <button className="text-gray-600 hover:text-blue-800 flex items-center">
+              <a href="teams" className="text-gray-700 hover:text-blue-800">
+                Dropdown
+              </a> <ChevronDown className="ml-1 h-4 w-4" />
               </button>
-              <a href="#" className="text-blue-600 hover:text-blue-800">
+              <a href="teams" className="text-gray-700 hover:text-blue-800">
                 Teams
               </a>
-              <a href="#" className="text-blue-600 hover:text-blue-800">
+              <a href="player-page" className="text-gray-700 hover:text-blue-800">
                 Players
               </a>
-              <a href="#" className="text-blue-600 font-semibold">
+              <a href="scouts" className="text-gray-700 font-semibold">
                 Scouts
               </a>
               <a
-                href="#"
+                href="pricing"
                 className="text-blue-600 hover:text-blue-800"
                 onClick={handleBillingHistoryClick}
               >
@@ -209,7 +217,9 @@ function App() {
                   <span className="text-sm text-gray-300 mb-4"> per month</span>
                 </div>
                 <button className="bg-yellow-400 text-blue-900 px-4 py-2 rounded-md font-semibold hover:bg-yellow-500 transition-colors">
-                  Upgrade plan
+                <a href="credit-card" className="text-blue-600 hover:text-blue-800">
+                  Upgrade Plan
+                </a>
                 </button>
               </div>
             </div>
@@ -246,19 +256,19 @@ function App() {
               />
             </div>
             <div className="flex space-x-6">
-              <a href="#" className="hover:text-white">
+              <a href="player-page" className="hover:text-white">
                 Essentials
               </a>
-              <a href="#" className="hover:text-white">
+              <a href="analytics" className="hover:text-white">
                 Dashboards
               </a>
-              <a href="#" className="hover:text-white">
+              <a href="contact-us" className="hover:text-white">
                 Contact us
               </a>
-              <a href="#" className="hover:text-white">
+              <a href="FAQs" className="hover:text-white">
                 FAQs
               </a>
-              <a href="#" className="hover:text-white">
+              <a href="pricing" className="hover:text-white">
                 Pricing
               </a>
             </div>
@@ -266,14 +276,14 @@ function App() {
           <div className="mt-8 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
             <div className="flex space-x-4 justify-end">
               <a
-                href="#"
+                href="privacy-policy"
                 className="text-sm hover:text-yellow-300 text-yellow-500"
               >
                 Privacy Policy
               </a>
               <span className="text-yellow-500">and</span>
               <a
-                href="#"
+                href="terms-of-use"
                 className="text-sm hover:text-yellow-300 text-yellow-500"
               >
                 Terms of Use
