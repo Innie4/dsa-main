@@ -27,7 +27,7 @@ const HomePage = () => {
         {/* Return to Website Link with Blur and Padding */}
         <div className="absolute top-4 left-4 bg-black bg-opacity-50 rounded-md p-2 backdrop-blur-md">
           <Link
-            href="./page"
+            href="/"
             className="text-white text-xs hover:text-blue-300"
           >
             Return to website
@@ -49,10 +49,16 @@ const HomePage = () => {
       </div>
 
       {/* Right Side Form */}
-      <div className="flex items-center justify-center w-full lg:w-2/3 p-8">
-        <div className="bg-white rounded-lg shadow-lg p-8 max-w-md w-full">
-          <div className="flex justify-between items-center mb-6">
-            <img src="/DSA-logo.png" alt="Logo" className="h-10" /> {/* Logo */}
+      <div className="flex items-center justify-center w-full lg:w-2/3 p-8"> 
+      <div className="p-8 w-full max-w-2xl"> {/* Added max-width for better form control */}
+      <div className="flex justify-between items-center mb-6">
+  <Link href="/">
+    <img 
+      src="/DSA-logo.png" 
+      alt="Digital Scouting Africa Logo" 
+      className="h-10 cursor-pointer" 
+    />
+  </Link>
           </div>
           <h2 className="text-2xl font-bold mb-4">Create an account</h2>
           {/* Added Login Link */}
@@ -175,7 +181,7 @@ const HomePage = () => {
             </div>
             <button
               type="submit"
-              className="w-full bg-gray-600 text-white font-bold py-2 rounded-md hover:bg-gray-700"
+              className="w-full bg-gray-300 text-gray-700 font-bold py-2 rounded-md hover:bg-gray-400"
             >
               Create account
             </button>

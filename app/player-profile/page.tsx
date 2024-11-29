@@ -29,12 +29,12 @@ interface VideoHighlight {
 
 // Navigation items
 const navItems: NavItem[] = [
-  { label: "Essentials", href: "#", hasDropdown: true },
-  { label: "Dashboards", href: "#", hasDropdown: true },
-  { label: "Teams", href: "#" },
-  { label: "Players", href: "#" },
-  { label: "Scouts", href: "#" },
-  { label: "Competitions", href: "#" },
+  { label: "Essentials", href: "player-page", hasDropdown: true },
+  { label: "Dashboards", href: "analytics", hasDropdown: true },
+  { label: "Teams", href: "teams" },
+  { label: "Players", href: "player-page" },
+  { label: "Scouts", href: "scouts" },
+  { label: "Competitions", href: "competitions" },
 ]
 
 // Performance data
@@ -111,11 +111,11 @@ const statsBoxes: StatBox[] = [
 
 // Video highlights
 const highlights: VideoHighlight[] = [
-  { id: "1", duration: "03:30", thumbnail: "/placeholder.svg", opponent: "Union Stars" },
-  { id: "2", duration: "02:15", thumbnail: "/placeholder.svg", opponent: "Jos City Stars" },
-  { id: "3", duration: "04:55", thumbnail: "/placeholder.svg", opponent: "Asokiti Stars" },
-  { id: "4", duration: "05:00", thumbnail: "/placeholder.svg", opponent: "Blue Rivers United" },
-  { id: "5", duration: "01:00", thumbnail: "/placeholder.svg", opponent: "Highflyers United" },
+  { id: "1", duration: "03:30", thumbnail: "/Highlight1.png", opponent: "Union Stars" },
+  { id: "2", duration: "02:15", thumbnail: "/Highlight.png", opponent: "Jos City Stars" },
+  { id: "3", duration: "04:55", thumbnail: "/Highlight3.png", opponent: "Asokiti Stars" },
+  { id: "4", duration: "05:00", thumbnail: "/Highlight4.png", opponent: "Blue Rivers United" },
+  { id: "5", duration: "01:00", thumbnail: "/Highlight5.png", opponent: "Highflyers United" },
 ]
 
 export default function PlayerProfile() {
@@ -162,7 +162,7 @@ export default function PlayerProfile() {
           />
           <div className="text-sm">
             <p className="font-medium text-gray-900">Samson Adenuga</p>
-            <Link href="#" className="text-red-600 hover:text-red-700 text-xs flex items-center">
+            <Link href="login" className="text-red-600 hover:text-red-700 text-xs flex items-center">
               <LogOut className="h-3 w-3 mr-1" />
               Logout
             </Link>
@@ -180,7 +180,7 @@ export default function PlayerProfile() {
       <span className="w-2 h-2 bg-blue-900 rounded-full mr-1"></span> {/* Dot */}
       Players
     </Link>
-    <Link href="#" className="hover:text-gray-700 flex items-center">
+    <Link href="player-profile" className="hover:text-gray-700 flex items-center">
       <span className="w-2 h-2 bg-blue-900 rounded-full mr-1"></span> {/* Dot */}
       Destiny Chambers
     </Link>
@@ -357,7 +357,7 @@ export default function PlayerProfile() {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="flex-shrink-0">
               <Image
-                src="/placeholder.svg"
+                src="/dsalogo5.png"
                 alt="Digital Scouting Africa"
                 width={40}
                 height={40}
@@ -365,16 +365,16 @@ export default function PlayerProfile() {
               />
             </div>
             <nav className="flex space-x-6">
-              <Link href="#" className="text-sm text-gray-300 hover:text-white">Essentials</Link>
-              <Link href="#" className="text-sm text-gray-300 hover:text-white">Dashboards</Link>
-              <Link href="#" className="text-sm text-gray-300 hover:text-white">Contact us</Link>
-              <Link href="#" className="text-sm text-gray-300 hover:text-white">FAQs</Link>
-              <Link href="#" className="text-sm text-gray-300 hover:text-white">Pricing</Link>
+              <Link href="player-page" className="text-sm text-gray-300 hover:text-white">Essentials</Link>
+              <Link href="analytics" className="text-sm text-gray-300 hover:text-white">Dashboards</Link>
+              <Link href="contact-us" className="text-sm text-gray-300 hover:text-white">Contact us</Link>
+              <Link href="FAQs" className="text-sm text-gray-300 hover:text-white">FAQs</Link>
+              <Link href="pricing" className="text-sm text-gray-300 hover:text-white">Pricing</Link>
             </nav>
             <div className="text-sm text-gray-400">
-              <Link href="#" className="hover:text-gray-300">Privacy Policy</Link>
+              <Link href="privacy-policy" className="hover:text-gray-300">Privacy Policy</Link>
               {' and '}
-              <Link href="#" className="hover:text-gray-300">Terms of Use</Link>
+              <Link href="terms-of-use" className="hover:text-gray-300">Terms of Use</Link>
             </div>
           </div>
         </div>

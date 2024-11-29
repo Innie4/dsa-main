@@ -9,13 +9,17 @@ function Header() {
   return (
     <div className=" bg-white">
       {/* Navbar */}
-      <nav className="bg-white shadow-sm flex justify-between items-center h-16 px-4">
+      <nav className="bg-white flex justify-between items-center h-16 px-4">
         <div className="flex items-center">
-          <img
-            src="/DSA-logo.png"
-            alt="Digital Scouting Academy"
-            className="h-9"
-          />
+        <a href="/" className="hover:text-white cursor-pointer">
+           
+           <img
+             src="/DSA-logo.png"
+             alt="Digital Scouting Academy"
+             className="h-9"
+           />
+
+           </a>
         </div>
         <div className="md:hidden">
           <button onClick={() => setIsMenuOpen(true)}>
@@ -23,29 +27,35 @@ function Header() {
           </button>
         </div>
         <div className="hidden md:flex items-center space-x-8">
-          <button className="text-sm text-gray-700 hover:text-[#122483] transition-colors">
+        <a
+            href="player-page"
+            className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
+          >
             Essentials
-          </button>
-          <button className="text-sm text-gray-700 hover:text-[#122483] transition-colors">
-            Dashboards
-          </button>
+          </a>
           <a
-            href="#"
+            href="analytics"
+            className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
+          >
+            Dashboard
+          </a>
+          <a
+            href="/why-choose-us"
             className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
           >
             Why choose DSA
           </a>
           <a
-            href="#"
+            href="/marketplace"
             className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
           >
             Marketplace
           </a>
           <a
-            href="#"
+            href="/competitions"
             className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
           >
-            Reports
+           Competitions
           </a>
           <Link href="/login">
             <button className="text-sm text-[#122483] hover:text-[#122483] px-4 py-2 rounded-lg border border-[#122483]">
@@ -78,30 +88,36 @@ function Header() {
             <X className="h-6 w-6 text-gray-700" />
           </button>
         </div>
-        <div className="flex flex-col p-4 space-y-4">
-          <button className="text-sm text-gray-700 hover:text-[#122483] transition-colors">
+        <div className="flex flex-col p-4 space-y-6">
+        <a
+            href="/player-page"
+            className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
+          >
             Essentials
-          </button>
-          <button className="text-sm text-gray-700 hover:text-[#122483] transition-colors">
-            Dashboards
-          </button>
+          </a>
           <a
-            href="#"
+            href="/analytics"
+            className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
+          >
+            Dashboard
+          </a>
+          <a
+            href="/why-choose-us"
             className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
           >
             Why choose DSA
           </a>
           <a
-            href="#"
+            href="/marketplace"
             className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
           >
             Marketplace
           </a>
           <a
-            href="#"
+            href="/competitions"
             className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
           >
-            Reports
+            Competitions
           </a>
           
           <Link href="/login">

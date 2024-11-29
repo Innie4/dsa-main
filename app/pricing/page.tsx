@@ -24,34 +24,54 @@ function App() {
         </div>
         <div className="hidden md:flex items-center space-x-8">
           <button className="text-sm text-gray-700 hover:text-[#122483] transition-colors">
+          <a
+            href="player-page"
+            className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
+          >
             Essentials
+          </a>
           </button>
           <button className="text-sm text-gray-700 hover:text-[#122483] transition-colors">
+          <a
+            href="analytics"
+            className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
+          >
             Dashboards
+          </a>
           </button>
           <a
-            href="#"
+            href="why-choose-us"
             className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
           >
             Why choose DSA
           </a>
           <a
-            href="#"
+            href="marketplace"
             className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
           >
             Marketplace
           </a>
           <a
-            href="#"
+            href="competitions"
             className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
           >
-            Reports
+            Competitions
           </a>
           <button className="text-sm text-[#122483] hover:text-[#122483] px-4 py-2 rounded-lg border border-[#122483]">
+          <a
+            href="login"
+            className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
+          >
             Login
+          </a>
           </button>
           <button className="text-sm bg-[#122483] text-white px-4 py-2 rounded-lg hover:bg-[#0a1650]">
-            Sign up
+          <a
+            href="signup"
+            className="text-sm text-white-700 hover:text-[#122483] transition-colors"
+          >
+            Sign Up
+          </a>
           </button>
         </div>
       </nav>
@@ -76,35 +96,51 @@ function App() {
         </div>
         <div className="flex flex-col p-4 space-y-4">
           <button className="text-sm text-gray-700 hover:text-[#122483] transition-colors">
+          <a
+            href="player-page"
+            className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
+          >
             Essentials
+          </a>
           </button>
           <button className="text-sm text-gray-700 hover:text-[#122483] transition-colors">
+          <a
+            href="analytics"
+            className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
+          >
             Dashboards
+          </a>
           </button>
           <a
-            href="#"
+            href="why-choose-us"
             className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
           >
             Why choose DSA
           </a>
           <a
-            href="#"
+            href="marketplace"
             className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
           >
             Marketplace
           </a>
           <a
-            href="#"
+            href="competitions"
             className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
           >
-            Reports
+            Competitions
           </a>
-          <button className="text-sm text-[#122483] hover:text-[#122483] px-4 py-2 rounded-lg border border-[#122483]">
+          <a
+            href="login"
+            className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
+          >
             Login
-          </button>
-          <button className="text-sm bg-[#122483] text-white px-4 py-2 rounded-lg hover:bg-[#0a1650]">
-            Sign up
-          </button>
+          </a>
+          <a
+            href="signup"
+            className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
+          >
+            Sign Up
+          </a>
         </div>
       </div>
 
@@ -137,7 +173,12 @@ function App() {
                 <span className="text-gray-500 ml-2">/per month</span>
               </div>
               <button className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition flex items-center justify-center group">
-                Get Started
+              <a
+            href="free-plan"
+            className="text-sm text-white hover:text-[#122483] transition-colors"
+          >
+            Get Started
+          </a>
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </button>
               <div className="mt-8">
@@ -173,7 +214,12 @@ function App() {
                 <span className="text-gray-500 ml-2">/per month</span>
               </div>
               <button className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition flex items-center justify-center group">
-                Get Started
+              <a
+            href="pro-plan"
+            className="text-sm text-white hover:text-[#122483] transition-colors"
+          >
+            Get Started
+          </a>
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </button>
               <div className="mt-8">
@@ -201,7 +247,7 @@ function App() {
         </div>
 
         {/* Background Soccer Ball */}
-        <div className="absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2 opacity-10">
+        <div className="display-none absolute top-1/2 right-0 transform translate-x-1/2 -translate-y-1/2 opacity-10">
           <img
             src="https://images.unsplash.com/photo-1614632537197-38a17061c2bd?auto=format&fit=crop&w=500"
             alt="Soccer Ball"
@@ -222,19 +268,19 @@ function App() {
               />
             </div>
             <div className="flex space-x-6">
-              <a href="#" className="hover:text-white">
+              <a href="player-page" className="hover:text-white">
                 Essentials
               </a>
-              <a href="#" className="hover:text-white">
+              <a href="analytics" className="hover:text-white">
                 Dashboards
               </a>
-              <a href="#" className="hover:text-white">
+              <a href="contact-us" className="hover:text-white">
                 Contact us
               </a>
-              <a href="#" className="hover:text-white">
+              <a href="FAQs" className="hover:text-white">
                 FAQs
               </a>
-              <a href="#" className="hover:text-white">
+              <a href="pricing" className="hover:text-white">
                 Pricing
               </a>
             </div>
@@ -242,14 +288,14 @@ function App() {
           <div className="mt-8 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
             <div className="flex space-x-4 justify-end">
               <a
-                href="#"
+                href="privacy-policy"
                 className="text-sm hover:text-yellow-300 text-yellow-500"
               >
                 Privacy Policy
               </a>
               <span className="text-yellow-500">and</span>
               <a
-                href="#"
+                href="terms-of-use"
                 className="text-sm hover:text-yellow-300 text-yellow-500"
               >
                 Terms of Use

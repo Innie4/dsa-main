@@ -53,34 +53,54 @@ function App() {
         </div>
         <div className="hidden md:flex items-center space-x-8">
           <button className="text-sm text-gray-700 hover:text-[#122483] transition-colors">
+          <a
+            href="player-page"
+            className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
+          >
             Essentials
+          </a>
           </button>
           <button className="text-sm text-gray-700 hover:text-[#122483] transition-colors">
+          <a
+            href="analytics"
+            className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
+          >
             Dashboards
+          </a>
           </button>
           <a
-            href="#"
+            href="why-choose-us"
             className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
           >
             Why choose DSA
           </a>
           <a
-            href="#"
+            href="marketplace"
             className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
           >
             Marketplace
           </a>
           <a
-            href="#"
+            href="competitions"
             className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
           >
-            Reports
+            Competitions
           </a>
           <button className="text-sm text-[#122483] hover:text-[#122483] px-4 py-2 rounded-lg border border-[#122483]">
+          <a
+            href="login"
+            className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
+          >
             Login
+          </a>
           </button>
           <button className="text-sm bg-[#122483] text-white px-4 py-2 rounded-lg hover:bg-[#0a1650]">
-            Sign up
+          <a
+            href="signup"
+            className="text-sm text-white hover:text-[#122483] transition-colors"
+          >
+            Sign Up
+          </a>
           </button>
         </div>
       </nav>
@@ -104,37 +124,56 @@ function App() {
           </button>
         </div>
         <div className="flex flex-col p-4 space-y-4">
-          <button className="text-sm text-gray-700 hover:text-[#122483] transition-colors">
-            Essentials
-          </button>
-          <button className="text-sm text-gray-700 hover:text-[#122483] transition-colors">
-            Dashboards
-          </button>
+
           <a
-            href="#"
+            href="player-page"
+            className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
+          >
+            Essentials
+          </a>
+    
+    
+          <a
+            href="analytics"
+            className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
+          >
+            Dashboards
+          </a>
+
+          <a
+            href="why-choose-us"
             className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
           >
             Why choose DSA
           </a>
           <a
-            href="#"
+            href="marketplace"
             className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
           >
             Marketplace
           </a>
           <a
-            href="#"
+            href="competitions"
             className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
           >
-            Reports
+            Competitions
           </a>
           <button className="text-sm text-[#122483] hover:text-[#122483] px-4 py-2 rounded-lg border border-[#122483]">
+          <a
+            href="login"
+            className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
+          >
             Login
+          </a>
           </button>
           <button className="text-sm bg-[#122483] text-white px-4 py-2 rounded-lg hover:bg-[#0a1650]">
-            Sign up
-          </button>
-        </div>
+          <a
+            href="signup"
+            className="text-sm text-white hover:text-[#122483] transition-colors"
+          >
+            Sign Up
+          </a>
+          </button>        </div>
       </div>
 
       {/* Main Content */}

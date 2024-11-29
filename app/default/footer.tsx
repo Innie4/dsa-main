@@ -6,26 +6,30 @@ export function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center mb-4 md:mb-0">
+            <a href="/" className="hover:text-white cursor-pointer">
+           
               <img
                 src="/dsalogo5.png"
                 alt="Digital Scouting Academy"
                 className="h-9"
               />
+ 
+              </a>
             </div>
             <div className="flex space-x-6">
-              <a href="#" className="hover:text-white">
+              <a href="player-page" className="hover:text-white">
                 Essentials
               </a>
-              <a href="#" className="hover:text-white">
+              <a href="analytics" className="hover:text-white">
                 Dashboards
               </a>
-              <a href="#" className="hover:text-white">
+              <a href="contact-us" className="hover:text-white">
                 Contact us
               </a>
-              <a href="#" className="hover:text-white">
+              <a href="FAQs" className="hover:text-white">
                 FAQs
               </a>
-              <a href="#" className="hover:text-white">
+              <a href="pricing" className="hover:text-white">
                 Pricing
               </a>
             </div>
@@ -33,14 +37,14 @@ export function Footer() {
           <div className="mt-8 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
             <div className="flex space-x-4 justify-end">
               <a
-                href="#"
+                href="/privacy-policy"
                 className="text-sm hover:text-yellow-300 text-yellow-500"
               >
                 Privacy Policy
               </a>
               <span className="text-yellow-500">and</span>
               <a
-                href="#"
+                href="/terms-of-use"
                 className="text-sm hover:text-yellow-300 text-yellow-500"
               >
                 Terms of Use

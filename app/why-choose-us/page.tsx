@@ -28,14 +28,15 @@ export default function WhyChooseUs() {
   // State
   const [essentialsOpen, setEssentialsOpen] = useState(false)
   const [dashboardsOpen, setDashboardsOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   // Navigation items
   const navItems: NavItem[] = [
     { label: 'Essentials', href: '#', hasDropdown: true },
     { label: 'Dashboards', href: '#', hasDropdown: true },
     { label: 'Why choose us', href: '#', isActive: true },
-    { label: 'Competitions', href: '#' },
-    { label: 'Marketplace', href: '#' },
+    { label: 'Competitions', href: 'competitions' },
+    { label: 'Marketplace', href: 'marketplace' },
   ]
 
   // Example players data
@@ -44,7 +45,7 @@ export default function WhyChooseUs() {
       id: '1',
       name: 'Orban Gift',
       age: 22,
-      image: '/placeholder.svg',
+      image: '/orban.png',
       club: 'Olympique Lyon',
       position: 'CF',
       height: '178m',
@@ -55,7 +56,7 @@ export default function WhyChooseUs() {
       id: '2',
       name: 'Mohammed Kudus',
       age: 24,
-      image: '/placeholder.svg',
+      image: '/kudus.png',
       club: 'West Ham United',
       position: 'AM',
       height: '177m',
@@ -66,12 +67,78 @@ export default function WhyChooseUs() {
       id: '3',
       name: 'Victor Boniface',
       age: 23,
-      image: '/placeholder.svg',
+      image: '/boniface.png',
       club: 'Bayer 04 Leverkusen',
       position: 'CF',
-      height: '190m',
+      height: '1.90m',
       playerAgent: 'Aneke/PNG',
       citizenship: 'Nigerian'
+    },
+    {
+      id: '4',
+      name: 'Samuel Kalu',
+      age: 27,
+      image: '/kalu.png',
+      club: '-',
+      position: 'RW',
+      height: '1.77m',
+      playerAgent: 'YSI Footbal Devs.',
+      citizenship: 'Nigerian'
+    },
+    {
+      id: '5',
+      name: 'Alhassan Yusuf',
+      age: 24,
+      image: '/yusuf.png',
+      club: 'New England Revolution',
+      position: 'CM',
+      height: '1.73m',
+      playerAgent: 'KAI Footbal',
+      citizenship: 'Nigerian'
+    },
+    {
+      id: '6',
+      name: 'Terem Moffi',
+      age: 25,
+      image: '/moffi.png',
+      club: 'OGC Nice',
+      position: 'CF',
+      height: '1.88m',
+      playerAgent: 'Elite Project Football',
+      citizenship: 'Nigerian'
+    },
+    {
+      id: '7',
+      name: 'Paul Onuachu',
+      age: 30,
+      image: '/onuachu.png',
+      club: 'Southampton FC',
+      position: 'CF',
+      height: '2.01m',
+      playerAgent: 'CMG Sports',
+      citizenship: 'Nigerian'
+    },
+    {
+      id: '8',
+      name: 'Frank Onyeka',
+      age: 26,
+      image: '/onyeka.png',
+      club: 'FC Augsburg',
+      position: 'CM',
+      height: '1.83m',
+      playerAgent: 'Wonder Sports',
+      citizenship: 'Nigerian'
+    },
+    {
+      id: '9',
+      name: 'Mohammed Salisu',
+      age: 25,
+      image: '/salisu.png',
+      club: 'AS Monaco',
+      position: 'CB',
+      height: '1.88m',
+      playerAgent: 'CAA Stellar',
+      citizenship: 'Ghanaian'
     },
     // Add remaining players...
   ]
@@ -79,16 +146,17 @@ export default function WhyChooseUs() {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Header */}
-      <header className="bg-white py-4 px-6 border-b">
+      <header className="bg-white py-4 px-6 border-b ">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center space-x-8">
             <Image
-              src="/placeholder.svg"
+              src="/DSA-logo.png"
               alt="Digital Scouting Africa Logo"
               width={40}
               height={40}
               className="w-10 h-10"
             />
+            
             <nav className="hidden md:flex items-center space-x-6">
               {navItems.map((item, index) => (
                 <div
@@ -114,11 +182,11 @@ export default function WhyChooseUs() {
                   </a>
                   {item.hasDropdown && (item.label === 'Essentials' ? essentialsOpen : dashboardsOpen) && (
                     <div className="absolute top-full left-0 w-48 bg-white shadow-lg rounded-md py-2 z-50">
-                      <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                        Option 1
+                      <a href="player-page" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                        Player Page
                       </a>
-                      <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                        Option 2
+                      <a href="player-profile" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                        Player Profile
                       </a>
                     </div>
                   )}
@@ -128,14 +196,16 @@ export default function WhyChooseUs() {
           </div>
           <div className="flex items-center space-x-4">
             <button className="px-4 py-2 text-blue-700 border border-blue-700 rounded-md hover:bg-blue-50">
-              Login
+            <a href="login">Login</a>
             </button>
             <button className="px-4 py-2 bg-blue-700 text-white rounded-md hover:bg-blue-800">
-              Sign up
+             <a href="signup">Sign up</a>
             </button>
           </div>
         </div>
       </header>
+
+      
 
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-green-500 to-blue-800 py-20">
@@ -162,13 +232,13 @@ export default function WhyChooseUs() {
       </section>
 
       {/* Players Examples Section */}
-      <section className="py-12 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="py-12 bg-gray-50 ">
+        <div className="max-w-7xl mx-auto px-6 ">
           <h2 className="text-2xl font-bold mb-8">A few examples</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
             {players.map((player) => (
-              <div key={player.id} className="bg-white rounded-lg p-6 shadow-sm">
-                <div className="flex items-start space-x-4">
+              <div key={player.id} className="bg-white rounded-lg p-6 shadow-sm border border-blue-500">
+                <div className="flex items-start space-x-4  ">
                   <Image
                     src={player.image}
                     alt={player.name}
@@ -234,7 +304,7 @@ export default function WhyChooseUs() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <Image
-              src="/placeholder.svg"
+              src="/dsalogo5.png"
               alt="Digital Scouting Africa Logo"
               width={40}
               height={40}
@@ -247,15 +317,15 @@ export default function WhyChooseUs() {
               <div className="flex items-center">
                 Dashboards <ChevronDown className="ml-1 h-4 w-4" />
               </div>
-              <a href="#" className="hover:text-gray-300">Contact us</a>
-              <a href="#" className="hover:text-gray-300">FAQs</a>
-              <a href="#" className="hover:text-gray-300">Pricing</a>
+              <a href="contact-us" className="hover:text-gray-300">Contact us</a>
+              <a href="FAQs" className="hover:text-gray-300">FAQs</a>
+              <a href="pricing" className="hover:text-gray-300">Pricing</a>
             </nav>
           </div>
           <div className="text-right text-sm text-gray-400 mt-4">
-            <a href="#" className="hover:text-white">Privacy Policy</a>
+            <a href="privacy-policy" className="hover:text-white">Privacy Policy</a>
             {' '}and{' '}
-            <a href="#" className="hover:text-white">Terms of Use</a> 
+            <a href="/terms-of-use" className="hover:text-white">Terms of Use</a> 
           </div>
         </div>
       </footer>

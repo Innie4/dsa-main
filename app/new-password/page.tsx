@@ -26,7 +26,12 @@ const NewPasswordPage = () => {
     <div className="flex flex-col min-h-screen bg-white">
       {/* Header */}
       <header className="flex items-center justify-between py-4 px-4">
-        <img src="/DSA-logo.png" alt="Logo" className="h-12" />{" "}
+      <a
+            href="/"
+            className="text-sm text-white hover:text-[#122483] transition-colors cursor-pointer"
+          >
+          <img src="/DSA-logo.png" alt="Logo" className="h-12 cursor-pointer" />{" "}
+          </a>
         {/* Replace with your logo path */}
         <div className="text-sm text-gray-600">
           © Copyright 2024. All Rights Reserved

@@ -81,15 +81,19 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className=" bg-white ">
       {/* Navbar */}
-      <nav className="bg-white shadow-sm flex justify-between items-center h-16 px-4">
-        <div className="flex items-center">
-          <img
-            src="/DSA-logo.png"
-            alt="Digital Scouting Academy"
-            className="h-9"
-          />
+      <nav className=" bg-white flex justify-between items-center h-16 px-4">
+        <div className="flex items-center ">
+        <a href="/" className="hover:text-white cursor-pointer">
+           
+           <img
+             src="/DSA-logo.png"
+             alt="Digital Scouting Academy"
+             className="h-9"
+           />
+
+           </a>
         </div>
         <div className="md:hidden">
           <button onClick={() => setIsMenuOpen(true)}>
@@ -119,7 +123,7 @@ function App() {
             href="#"
             className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
           >
-            Reports
+            Competitions
           </a>
           <button className="text-sm text-[#122483] hover:text-[#122483] px-4 py-2 rounded-lg border border-[#122483]">
             Login
@@ -149,42 +153,54 @@ function App() {
           </button>
         </div>
         <div className="flex flex-col p-4 space-y-4">
-          <button className="text-sm text-gray-700 hover:text-[#122483] transition-colors">
-            Essentials
-          </button>
-          <button className="text-sm text-gray-700 hover:text-[#122483] transition-colors">
-            Dashboards
-          </button>
           <a
-            href="#"
+            href="/player-page"
+            className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
+          >
+            Essentials
+          </a>
+          <a
+            href="/analytics"
+            className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
+          >
+            Dashboard
+          </a>
+          <a
+            href="/why-choose-us"
             className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
           >
             Why choose DSA
           </a>
           <a
-            href="#"
+            href="/marketplace"
             className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
           >
             Marketplace
           </a>
           <a
-            href="#"
+            href="/competitions"
             className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
           >
-            Reports
+            Competitions
           </a>
-          <button className="text-sm text-[#122483] hover:text-[#122483] px-4 py-2 rounded-lg border border-[#122483]">
+          <a
+            href="/login"
+            className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
+          >
             Login
-          </button>
-          <button className="text-sm bg-[#122483] text-white px-4 py-2 rounded-lg hover:bg-[#0a1650]">
-            Sign up
-          </button>
+          </a>
+          <a
+            href="/signup"
+            className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
+          >
+            Signup
+          </a>
         </div>
       </div>
 
       {/* Main Content */}
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="bg-white rounded-lg shadow">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className=" rounded-lg">
           <div className="px-6 py-8">
             <div className="border-l-4 border-yellow-500 pl-4 mb-4">
               <h2 className="text-3xl font-bold text-gray-900">Terms of Use</h2>
@@ -235,30 +251,34 @@ function App() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-gray-400 py-12 mt-16 rounded-t-xl">
+      <footer className="bg-gray-900 text-gray-400 py-12 mt-16 rounded-t-3xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center mb-4 md:mb-0">
+            <a href="/" className="hover:text-white cursor-pointer">
+           
               <img
                 src="/dsalogo5.png"
                 alt="Digital Scouting Academy"
                 className="h-9"
               />
+ 
+              </a>
             </div>
             <div className="flex space-x-6">
-              <a href="#" className="hover:text-white">
+              <a href="/player-page" className="hover:text-white">
                 Essentials
               </a>
-              <a href="#" className="hover:text-white">
+              <a href="/analytics" className="hover:text-white">
                 Dashboards
               </a>
-              <a href="#" className="hover:text-white">
+              <a href="/contact-us" className="hover:text-white">
                 Contact us
               </a>
-              <a href="#" className="hover:text-white">
+              <a href="/FAQs" className="hover:text-white">
                 FAQs
               </a>
-              <a href="#" className="hover:text-white">
+              <a href="/pricing" className="hover:text-white">
                 Pricing
               </a>
             </div>
@@ -266,14 +286,14 @@ function App() {
           <div className="mt-8 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
             <div className="flex space-x-4 justify-end">
               <a
-                href="#"
+                href="/privacy-policy"
                 className="text-sm hover:text-yellow-300 text-yellow-500"
               >
                 Privacy Policy
               </a>
               <span className="text-yellow-500">and</span>
               <a
-                href="#"
+                href="/terms-of-use"
                 className="text-sm hover:text-yellow-300 text-yellow-500"
               >
                 Terms of Use

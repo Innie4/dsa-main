@@ -28,7 +28,7 @@ const players: Player[] = [
   {
     id: 1,
     name: "Destiny Chambers",
-    image: "/placeholder.svg",
+    image: "/DestinyChambers.png",
     nationality: "Nigeria",
     age: 23,
     position: "Midfielder",
@@ -38,7 +38,7 @@ const players: Player[] = [
   {
     id: 2,
     name: "Champion Ogunekpon",
-    image: "/placeholder.svg",
+    image: "/ChampionOgunekpon.png",
     nationality: "Nigeria",
     age: 20,
     position: "Striker",
@@ -48,7 +48,7 @@ const players: Player[] = [
   {
     id: 3,
     name: "Oluwa Joe",
-    image: "/placeholder.svg",
+    image: "/OluwaJoe.png",
     nationality: "Nigeria",
     age: 24,
     position: "Midfielder",
@@ -58,7 +58,7 @@ const players: Player[] = [
   {
     id: 4,
     name: "Gideon Akpan",
-    image: "/placeholder.svg",
+    image: "/GideonAkpan.png",
     nationality: "Nigeria",
     age: 17,
     position: "Midfielder",
@@ -68,7 +68,7 @@ const players: Player[] = [
   {
     id: 5,
     name: "Udo Ugo",
-    image: "/placeholder.svg",
+    image: "/UdoUgo.png",
     nationality: "Nigeria",
     age: 25,
     position: "Midfielder",
@@ -78,7 +78,7 @@ const players: Player[] = [
   {
     id: 6,
     name: "Hassan Zai",
-    image: "/placeholder.svg",
+    image: "/HassanZai.png",
     nationality: "Nigeria",
     age: 25,
     position: "Goalkeeper",
@@ -88,7 +88,7 @@ const players: Player[] = [
   {
     id: 7,
     name: "Azeez Abubakar",
-    image: "/placeholder.svg",
+    image: "/AzeezAbubakar.png",
     nationality: "Nigeria",
     age: 23,
     position: "Defender",
@@ -98,7 +98,7 @@ const players: Player[] = [
   {
     id: 8,
     name: "Ezinne Mazinwe",
-    image: "/placeholder.svg",
+    image: "/EzinneMazinwe.png",
     nationality: "Nigeria",
     age: 22,
     position: "Fullback",
@@ -108,7 +108,7 @@ const players: Player[] = [
   {
     id: 9,
     name: "Olu Abu",
-    image: "/placeholder.svg",
+    image: "/OluAbu.png",
     nationality: "Nigeria",
     age: 20,
     position: "Striker",
@@ -129,20 +129,20 @@ const players: Player[] = [
 ]
 
 const navItems: NavItem[] = [
-  { label: "Essentials", href: "#", hasDropdown: true },
-  { label: "Dashboards", href: "#", hasDropdown: true },
-  { label: "Teams", href: "#" },
-  { label: "Players", href: "#" },
-  { label: "Scouts", href: "#" },
-  { label: "Competitions", href: "#" },
+  { label: "Essentials", href: "player-page", hasDropdown: true },
+  { label: "Dashboards", href: "analytics", hasDropdown: true },
+  { label: "Teams", href: "teams" },
+  { label: "Players", href: "player-page" },
+  { label: "Scouts", href: "scouts" },
+  { label: "Competitions", href: "competitions" },
 ]
 
 const footerLinks = [
-  { label: "Essentials", href: "#" },
-  { label: "Dashboards", href: "#" },
-  { label: "Contact us", href: "#" },
-  { label: "FAQs", href: "#" },
-  { label: "Pricing", href: "#" },
+  { label: "Essentials", href: "player-page" },
+  { label: "Dashboards", href: "analytics" },
+  { label: "Contact us", href: "contact-us" },
+  { label: "FAQs", href: "FAQs" },
+  { label: "Pricing", href: "pricing" },
 ]
 
 // app/player-page/page.tsx
@@ -197,7 +197,7 @@ export default function PlayersDashboard() {
                 />
                 <div className="text-sm">
                   <p className="font-medium text-gray-900">Samson Adenuga</p>
-                  <Link href="#" className="text-red-600 hover:text-red-700 text-xs flex items-center">
+                  <Link href="login" className="text-red-600 hover:text-red-700 text-xs flex items-center">
                     <LogOut className="h-3 w-3 mr-1" />
                     Logout
                   </Link>
@@ -305,9 +305,9 @@ export default function PlayersDashboard() {
           </div>
           {/* Privacy Policy and Terms of Use */}
           <div className="text-sm text-gray-400 mt-4 text-right">
-            <Link href="#" className="hover:text-gray-300">Privacy Policy</Link>
+            <Link href="privacy-policy" className="hover:text-gray-300">Privacy Policy</Link>
             <span className="mx-2">and</span>
-            <Link href="#" className="hover:text-gray-300">Terms of Use</Link>
+            <Link href="terms-of-use" className="hover:text-gray-300">Terms of Use</Link>
           </div>
         </div>
       </footer>

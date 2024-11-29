@@ -3,6 +3,7 @@
 
 import React from "react";
 import { useRouter } from "next/navigation";
+import Link from 'next/link';
 
 const ResetPasswordPage = () => {
   const router = useRouter();
@@ -16,7 +17,9 @@ const ResetPasswordPage = () => {
     <div className="flex flex-col min-h-screen bg-white">
       {/* Header */}
       <header className="flex items-center justify-between py-4 px-4">
-        <img src="/DSA-logo.png" alt="Logo" className="h-12" />{" "}
+      <Link href="/">
+              <img src="/DSA-logo.png" alt="Logo" className="h-10 cursor-pointer" /> {/* Logo */}
+            </Link>
         {/* Replace with your logo path */}
         <div className="text-sm text-gray-600">
           © Copyright 2024. All Rights Reserved

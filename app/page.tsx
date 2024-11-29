@@ -9,28 +9,27 @@ const LandingPage: React.FC = () => {
     <div className="md:px-20 lg:px-20 p-4">
       <div className="min-h-screen bg-white">
         <Header />
-        {/* Hero Section */}
-        <section
-          className="relative h-96 bg-cover bg-center rounded-xl"
-          style={{ backgroundImage: `url('./pitch.png')` }}
-        >
-          <div className="container mx-auto px-4 py-20">
-            <div className="max-w-2xl">
-              <h1 className="text-4xl font-bold text-white mb-4">
-                Unleashing potential <br /> across Africa
-              </h1>
-              <p className="text-gray-200 mb-8 backdrop-blur-md bg-white/30 p-1 rounded w-1/2">
-                Discovering Africa&apos;s rising stars through <br /> data and
-                dedication
-              </p>
-              <Link href="/signup">
-                <button className="bg-[#F7BF56] hover:bg-[#fab942] text-black px-6 py-3 rounded-lg font-medium">
-                  Get Started
-                </button>
-              </Link>
-            </div>
-          </div>
-        </section>
+{/* Hero Section */}
+<section
+  className="relative h-96 bg-cover bg-center rounded-xl mt-8 md:mt-12" // Added margin-top
+  style={{ backgroundImage: `url('./pitch.png')` }}
+>
+  <div className="container mx-auto px-4 py-20">
+    <div className="max-w-2xl">
+      <h1 className="text-4xl font-bold text-white mb-4 ml-12">
+        Unleashing potential <br /> across Africa
+      </h1>
+      <p className="text-gray-200 mb-8 backdrop-blur-md bg-white/30 p-1 rounded w-1/2 ml-12">
+        Discovering Africa&apos;s rising stars through <br /> data and dedication
+      </p>
+      <Link href="/signup">
+        <button className="bg-[#F7BF56] hover:bg-[#fab942] text-black px-6 py-3 rounded-lg font-medium ml-12">
+          Get Started
+        </button>
+      </Link>
+    </div>
+  </div>
+</section>
 
         {/* Value Proposition */}
         <section
@@ -64,27 +63,28 @@ const LandingPage: React.FC = () => {
         </section>
 
         {/* Metrics */}
-        <section className="bg-white py-10 w-full overflow-hidden">
-          <h2 className="text-3xl font-bold text-[#122483] mb-8">Our Reach</h2>
-          <div className="md:flex lg:flex space-x-8">
-            <div className="text-black">
-              <span className="text-6xl font-bold">90%</span>
-              <p className="text-gray-400 mt-2">players signing for clubs</p>
-            </div>
-            <div className="text-black">
-              <span className="text-6xl font-bold">15+</span>
-              <p className="text-gray-400 mt-2">club partnership</p>
-            </div>
-            <div className="text-black">
-              <span className="text-6xl font-bold">500+</span>
-              <p className="text-gray-400 mt-2">African players</p>
-            </div>
-            <div className="text-black">
-              <span className="text-6xl font-bold">1000+</span>
-              <p className="text-gray-400 mt-2">Matches</p>
-            </div>
-          </div>
-        </section>
+        {/* Metrics */}
+<section className="bg-white py-10 w-full overflow-hidden">
+  <h2 className="text-3xl font-bold text-[#122483] mb-8">Our Reach</h2>
+  <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <div className="text-center">
+      <span className="text-6xl font-bold text-black">90%</span>
+      <p className="text-gray-500 mt-2 text-sm">players signing for clubs</p>
+    </div>
+    <div className="text-center">
+      <span className="text-6xl font-bold text-black">15+</span>
+      <p className="text-gray-500 mt-2 text-sm">club partnership</p>
+    </div>
+    <div className="text-center">
+      <span className="text-6xl font-bold text-black">500+</span>
+      <p className="text-gray-500 mt-2 text-sm">African players</p>
+    </div>
+    <div className="text-center">
+      <span className="text-6xl font-bold text-black">1000+</span>
+      <p className="text-gray-500 mt-2 text-sm">Matches</p>
+    </div>
+  </div>
+</section>
       </div>
 
       {/* Gallery */}
@@ -93,13 +93,18 @@ const LandingPage: React.FC = () => {
       </div>
 
       <div className="md:px-20 lg:px-20 p-4">
-        <div className="flex flex-col md:flex-row bg-white text-white p-6 md:p-10 rounded-xl mx-auto ">
-          <div className="md:w-1/2 flex justify-center md:justify-end">
-            <img
-              src="./baller.png"
-              alt="Oluwa Powers"
-              className="rounded-xl object-cover md:h-auto"
-            />
+      <div className="flex flex-col md:flex-row bg-white p-6 md:p-10 rounded-xl mx-auto">
+  <div className="md:w-1/2 flex justify-center md:justify-end relative"> {/* Added relative positioning */}
+    <img
+      src="./baller.png"
+      alt="Oluwa Powers"
+      className="rounded-xl object-cover md:h-auto"
+    />
+    {/* Yellow rectangular accent */}
+    <div 
+      className="absolute right-[10px] bottom-64 w-5 h-24 bg-[#F7BF56] rounded-l-md"
+      style={{ transform: 'translateX(100%)' }}
+    />
           </div>
 
           <div className="md:w-1/2 mt-6 md:mt-0 md:ml-6 space-y-4">
@@ -208,37 +213,40 @@ const LandingPage: React.FC = () => {
                   />
                 </svg>
                 Rising Ballers
-              </span>
-            </div>
-            <h2 className="text-2xl font-bold text-[#122483]">Oluwa Powers</h2>
-            <p className="text-gray-400 flex items-center">
-              <span className="font-semibold">Midfielder</span> | 23yrs |{" "}
-              <span className="ml-1">🇳🇬 Nigeria</span>
-            </p>
-            <p className="text-gray-400">
-              A creative playmaker with an eye for passes, Oluwa has an 85% pass
-              accuracy rate and is known for his agility on the field. He led
-              his team to the finals with 10 assists this season.
-            </p>
-            <h3 className="text-xl font-bold text-[#122483] mt-4">
-              ...in his own words
-            </h3>
-            <p className="text-gray-500 italic">
-              Using the scouting insights, I discovered my strengths in
-              defensive positioning and improved my ball control, which helped
-              me stand out on the field. The detailed feedback I received showed
-              me areas I hadn’t focused on before, like timing my runs and
-              adjusting my positioning to create more opportunities for my
-              teammates. This new perspective has not only improved my game but
-              also boosted my confidence and determination to push myself even
-              further.
-            </p>
-          </div>
+    </span>
+  </div>
+
+  <h2 className="text-2xl font-bold text-[#122483]">Oluwa Powers</h2>
+  
+  <p className="text-gray-400 flex items-center text-sm">
+  <span className="font-semibold">Midfielder</span> | 23yrs | 
+  <span className="ml-1 flex items-center">
+    <img 
+      src="/carbon_location.png" // Make sure to add the Nigeria flag image to your public folder
+      alt="Nigeria"
+      width={16}
+      height={12}
+      className="inline-block mr-1"
+    />
+    Nigeria
+  </span>
+</p>
+  <p className="text-gray-400 text-base leading-relaxed">
+    A creative playmaker with an eye for passes, Oluwa has an 85% pass accuracy rate and is known for his agility on the field. He led his team to the finals with 10 assists this season.
+  </p>
+
+  <h3 className="text-3xl font-bold text-[#122483]">...in his own words</h3>
+  
+  <p className="text-gray-500 italic text-xl leading-relaxed">
+    "Using the scouting insights, I discovered my strengths in defensive positioning and improved my ball control, which helped me stand out on the field. The detailed feedback I received showed me areas I hadn't focused on before, like timing my runs and adjusting my positioning to create more opportunities for my teammates. This new perspective has not only improved my game but also boosted my confidence and determination to push myself even further."
+  </p>
+</div>
         </div>
 
         {/* Testimonials */}
         <div className="bg-white text-black p-10 space-y-4">
-          <div className="mx-auto grid grid-cols-1 gap-2 sm:grid-cols-3">
+  <h2 className="text-4xl font-bold text-center mb-8">Testimonials</h2>
+  <div className="mx-auto grid grid-cols-1 gap-2 sm:grid-cols-3">
             {[
               {
                 name: "Kwame A.",
