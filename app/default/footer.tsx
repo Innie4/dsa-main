@@ -6,17 +6,15 @@ export function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center mb-4 md:mb-0">
-            <a href="/" className="hover:text-white cursor-pointer">
-           
-              <img
-                src="/dsalogo5.png"
-                alt="Digital Scouting Academy"
-                className="h-9"
-              />
- 
+              <a href="/" className="hover:text-white cursor-pointer">
+                <img
+                  src="/dsalogo5.png"
+                  alt="Digital Scouting Academy"
+                  className="h-9"
+                />
               </a>
             </div>
-            <div className="flex space-x-6">
+            <div className="flex space-x-3">
               <a href="player-page" className="hover:text-white">
                 Essentials
               </a>
@@ -35,7 +33,7 @@ export function Footer() {
             </div>
           </div>
           <div className="mt-8 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
-            <div className="flex space-x-4 justify-end">
+            <div className="flex space-x-2 justify-center items-center">
               <a
                 href="/privacy-policy"
                 className="text-sm hover:text-yellow-300 text-yellow-500"
