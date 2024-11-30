@@ -28,7 +28,6 @@ export default function WhyChooseUs() {
   // State
   const [essentialsOpen, setEssentialsOpen] = useState(false);
   const [dashboardsOpen, setDashboardsOpen] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // Navigation items
   const navItems: NavItem[] = [

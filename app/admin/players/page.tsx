@@ -1,6 +1,6 @@
 import { Users } from "lucide-react";
 import { StatsCard } from "../components/statcard";
-import { DataTable } from "../components/datatable";
+import { DataTable2 } from "../components/datatable2";
 
 const columns = [
   { key: "name", title: "Name" },
@@ -47,7 +47,7 @@ export default function Players() {
         />
       </div>
 
-      <DataTable columns={columns} data={data} type="players" />
+      <DataTable2 columns={columns} data={data} />
     </div>
   );
 }

@@ -1,9 +1,5 @@
 "use client";
 
-import { useState } from "react";
-import { Clock, Flag, Trash2 } from "lucide-react";
-import Image from "next/image";
-import { Pagination } from "./pagination";
 import { Button } from "@/components/button";
 import {
   Table,
@@ -13,26 +9,28 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/table";
+import { Image } from "@radix-ui/react-avatar";
+import { Clock, Flag, Trash2 } from "lucide-react";
+import { Pagination } from "./pagination";
+import { useState } from "react";
 
-type AgencyData = {
-  agencyName: string;
-  image: string;
-  location: string;
-  email: string;
-  signUpDate: string;
-  [key: string]: string;
-};
-
-interface DataTableProps {
-  columns: {
-    key: string;
-    title: string;
-  }[];
-  data: AgencyData[];
-  type: "users" | "agencies" | "players" | "content";
+interface Column {
+  key: string;
+  title: string;
 }
 
-export function DataTable({ columns, data }: DataTableProps) {
+interface DataItem {
+  image?: string;
+  [key: string]: string | number | undefined;
+}
+
+export function DataTable2({
+  columns,
+  data,
+}: {
+  columns: Column[];
+  data: DataItem[];
+}) {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
   const totalPages = Math.ceil(data.length / itemsPerPage);
@@ -62,7 +60,7 @@ export function DataTable({ columns, data }: DataTableProps) {
                     <div className="flex items-center gap-3">
                       <Image
                         src={row.image || "/placeholder.svg"}
-                        alt={row[column.key]}
+                        alt={String(row[column.key])}
                         width={40}
                         height={40}
                         className="rounded-full"

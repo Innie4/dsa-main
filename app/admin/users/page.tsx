@@ -1,6 +1,6 @@
 import { UserPlus, UserCheck } from "lucide-react";
 import { StatsCard } from "../components/statcard";
-import { DataTable } from "../components/datatable";
+import { DataTable2 } from "../components/datatable2";
 
 const columns = [
   { key: "name", title: "Name" },
@@ -32,7 +32,6 @@ export default function Users() {
             value: "10%",
             text: "Up from yesterday",
           }}
-          icon={<Users className="w-6 h-6 text-primary" />}
         />
         <StatsCard
           title="New Signups"
@@ -56,7 +55,7 @@ export default function Users() {
         />
       </div>
 
-      <DataTable columns={columns} data={data} type="users" />
+      <DataTable2 columns={columns} data={data} />
     </div>
   );
 }

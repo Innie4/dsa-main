@@ -1,12 +1,12 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Progress } from "@/components/ui/progress";
+} from "@/components/dropdown";
+import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
+import { Progress } from "@radix-ui/react-progress";
 import {
   ChevronDown,
   Download,
@@ -200,14 +200,14 @@ export default function ScoutProfilePage() {
             <div>
               <h2 className="text-2xl font-bold mb-4">...in his own words</h2>
               <blockquote className="text-gray-600 italic leading-relaxed">
-                "This agency is an invaluable platform for both scouts and
+                This agency is an invaluable platform for both scouts and
                 players. Its comprehensive profiles and video uploads make
                 talent discovery seamless, allowing scouts like me to evaluate
-                players as if we're on the sidelines. It's more than just a
-                tool; it's a community that connects talent with opportunity and
-                drives football forward. For players aiming to get noticed,
-                Digital Scouting Africa is the ultimate stage to showcase their
-                skills."
+                players as if we&apos;re on the sidelines. It&apos;s more than
+                just a tool; it&apos;s a community that connects talent with
+                opportunity and drives football forward. For players aiming to
+                get noticed, Digital Scouting Africa is the ultimate stage to
+                showcase their skills.
               </blockquote>
             </div>
           </div>

@@ -9,7 +9,15 @@ const columns = [
   { key: "signUpDate", title: "Sign-up Date" },
 ];
 
-const data = [
+type AgencyData = {
+  agencyName: string;
+  image: string;
+  location: string;
+  email: string;
+  signUpDate: string;
+};
+
+const data: AgencyData[] = [
   {
     agencyName: "Eagles Academy",
     image: "/placeholder.svg",
