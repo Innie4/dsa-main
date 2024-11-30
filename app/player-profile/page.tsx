@@ -1,30 +1,37 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
-import { ChevronDown, LogOut, Download, Users, Phone, Play } from 'lucide-react'
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import {
+  ChevronDown,
+  LogOut,
+  Download,
+  Users,
+  Phone,
+  Play,
+} from "lucide-react";
 // Types
 interface NavItem {
-  label: string
-  href: string
-  hasDropdown?: boolean
+  label: string;
+  href: string;
+  hasDropdown?: boolean;
 }
 
 interface StatBox {
-  title: string
-  icon?: string
+  title: string;
+  icon?: string;
   stats: Array<{
-    label: string
-    value: number
-  }>
+    label: string;
+    value: number;
+  }>;
 }
 
 interface VideoHighlight {
-  id: string
-  duration: string
-  thumbnail: string
-  opponent: string
+  id: string;
+  duration: string;
+  thumbnail: string;
+  opponent: string;
 }
 
 // Navigation items
@@ -35,22 +42,22 @@ const navItems: NavItem[] = [
   { label: "Players", href: "player-page" },
   { label: "Scouts", href: "scouts" },
   { label: "Competitions", href: "competitions" },
-]
+];
 
 // Performance data
-const performanceData = {
-  labels: ['APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEPT', 'OCT', 'NOV', 'DEC'],
-  datasets: [
-    {
-      fill: true,
-      label: 'Performance',
-      data: [75, 82, 78, 85, 80, 87, 83, 78, 80],
-      borderColor: 'rgb(53, 162, 235)',
-      backgroundColor: 'rgba(53, 162, 235, 0.2)',
-      tension: 0.4,
-    },
-  ],
-}
+// const performanceData = {
+//   labels: ['APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEPT', 'OCT', 'NOV', 'DEC'],
+//   datasets: [
+//     {
+//       fill: true,
+//       label: 'Performance',
+//       data: [75, 82, 78, 85, 80, 87, 83, 78, 80],
+//       borderColor: 'rgb(53, 162, 235)',
+//       backgroundColor: 'rgba(53, 162, 235, 0.2)',
+//       tension: 0.4,
+//     },
+//   ],
+// }
 
 // Stats boxes data
 const statsBoxes: StatBox[] = [
@@ -65,7 +72,7 @@ const statsBoxes: StatBox[] = [
       { label: "Fouls Conceded", value: 2 },
       { label: "Clearance", value: 8 },
       { label: "Aerial Duels", value: 10 },
-    ]
+    ],
   },
   {
     title: "Attacking stats",
@@ -78,7 +85,7 @@ const statsBoxes: StatBox[] = [
       { label: "Ball progression", value: 7 },
       { label: "Dribbles", value: 15 },
       { label: "Freekicks taken", value: 1 },
-    ]
+    ],
   },
   {
     title: "Distribution stats",
@@ -91,7 +98,7 @@ const statsBoxes: StatBox[] = [
       { label: "Crosses", value: 10 },
       { label: "Corners", value: 3 },
       { label: "Through balls", value: 15 },
-    ]
+    ],
   },
   {
     title: "Discipline",
@@ -101,91 +108,131 @@ const statsBoxes: StatBox[] = [
       { label: "Fouls suffered", value: 6 },
       { label: "Yellow cards", value: 2 },
       { label: "Red cards", value: 0 },
-      { label: "Offsides", value: 0},
+      { label: "Offsides", value: 0 },
       { label: "Handballs", value: 0 },
       { label: "Altercations", value: 1 },
-    ]
+    ],
   },
   // Add other stat boxes...
-]
+];
 
 // Video highlights
 const highlights: VideoHighlight[] = [
-  { id: "1", duration: "03:30", thumbnail: "/Highlight1.png", opponent: "Union Stars" },
-  { id: "2", duration: "02:15", thumbnail: "/Highlight.png", opponent: "Jos City Stars" },
-  { id: "3", duration: "04:55", thumbnail: "/Highlight3.png", opponent: "Asokiti Stars" },
-  { id: "4", duration: "05:00", thumbnail: "/Highlight4.png", opponent: "Blue Rivers United" },
-  { id: "5", duration: "01:00", thumbnail: "/Highlight5.png", opponent: "Highflyers United" },
-]
+  {
+    id: "1",
+    duration: "03:30",
+    thumbnail: "/Highlight1.png",
+    opponent: "Union Stars",
+  },
+  {
+    id: "2",
+    duration: "02:15",
+    thumbnail: "/Highlight.png",
+    opponent: "Jos City Stars",
+  },
+  {
+    id: "3",
+    duration: "04:55",
+    thumbnail: "/Highlight3.png",
+    opponent: "Asokiti Stars",
+  },
+  {
+    id: "4",
+    duration: "05:00",
+    thumbnail: "/Highlight4.png",
+    opponent: "Blue Rivers United",
+  },
+  {
+    id: "5",
+    duration: "01:00",
+    thumbnail: "/Highlight5.png",
+    opponent: "Highflyers United",
+  },
+];
 
 export default function PlayerProfile() {
-  const [selectedVideo, setSelectedVideo] = useState<string | null>(null)
+  const [, setSelectedVideo] = useState<string | null>(null);
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
       {/* Header */}
-<header className="bg-white border-b">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="flex justify-between items-center h-16">
-      <div className="flex-shrink-0">
-        <Image
-          src="/DSA-logo.png"
-          alt="Digital Scouting Africa"
-          width={40}
-          height={40}
-          className="h-10 w-auto"
-        />
-      </div>
+      <header className="bg-white border-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <div className="flex-shrink-0">
+              <Image
+                src="/DSA-logo.png"
+                alt="Digital Scouting Africa"
+                width={40}
+                height={40}
+                className="h-10 w-auto"
+              />
+            </div>
 
-      <nav className="hidden md:flex space-x-8 ml-auto"> {/* Added ml-auto */}
-        {navItems.map((item) => (
-          <div key={item.label} className="relative group">
-            <Link
-              href={item.href}
-              className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-700 hover:text-gray-900"
-            >
-              {item.label}
-              {item.hasDropdown && <ChevronDown className="ml-1 h-4 w-4" />}
-            </Link>
-          </div>
-        ))}
-      </nav>
+            <nav className="hidden md:flex space-x-8 ml-auto">
+              {" "}
+              {/* Added ml-auto */}
+              {navItems.map((item) => (
+                <div key={item.label} className="relative group">
+                  <Link
+                    href={item.href}
+                    className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-700 hover:text-gray-900"
+                  >
+                    {item.label}
+                    {item.hasDropdown && (
+                      <ChevronDown className="ml-1 h-4 w-4" />
+                    )}
+                  </Link>
+                </div>
+              ))}
+            </nav>
 
-      <div className="flex items-center space-x-4">
-        <div className="flex items-center space-x-2">
-          <Image
-            src="/Samson.png"
-            alt="Profile"
-            width={32}
-            height={32}
-            className="rounded-full"
-          />
-          <div className="text-sm">
-            <p className="font-medium text-gray-900">Samson Adenuga</p>
-            <Link href="login" className="text-red-600 hover:text-red-700 text-xs flex items-center">
-              <LogOut className="h-3 w-3 mr-1" />
-              Logout
-            </Link>
+            <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-2">
+                <Image
+                  src="/Samson.png"
+                  alt="Profile"
+                  width={32}
+                  height={32}
+                  className="rounded-full"
+                />
+                <div className="text-sm">
+                  <p className="font-medium text-gray-900">Samson Adenuga</p>
+                  <Link
+                    href="login"
+                    className="text-red-600 hover:text-red-700 text-xs flex items-center"
+                  >
+                    <LogOut className="h-3 w-3 mr-1" />
+                    Logout
+                  </Link>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</header>
+      </header>
 
       {/* Breadcrumb */}
-<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-  <nav className="flex items-center space-x-2 text-sm text-gray-500">
-    <Link href="/player-page" className="hover:text-gray-700 flex items-center">
-      <span className="w-2 h-2 bg-blue-900 rounded-full mr-1"></span> {/* Dot */}
-      Players
-    </Link>
-    <Link href="player-profile" className="hover:text-gray-700 flex items-center">
-      <span className="w-2 h-2 bg-blue-900 rounded-full mr-1"></span> {/* Dot */}
-      Destiny Chambers
-    </Link>
-  </nav>
-</div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <nav className="flex items-center space-x-2 text-sm text-gray-500">
+          <Link
+            href="/player-page"
+            className="hover:text-gray-700 flex items-center"
+          >
+            <span className="w-2 h-2 bg-blue-900 rounded-full mr-1"></span>{" "}
+            {/* Dot */}
+            Players
+          </Link>
+          <Link
+            href="player-profile"
+            className="hover:text-gray-700 flex items-center"
+          >
+            <span className="w-2 h-2 bg-blue-900 rounded-full mr-1"></span>{" "}
+            {/* Dot */}
+            Destiny Chambers
+          </Link>
+        </nav>
+      </div>
 
       {/* Main Content */}
       <main className="flex-1 max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -201,9 +248,7 @@ export default function PlayerProfile() {
                 className="w-full h-full object-cover"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4">
-                <div className="flex items-center space-x-2">
-                 
-                </div>
+                <div className="flex items-center space-x-2"></div>
               </div>
               <div className="absolute bottom-[-5px] right-[-10px] w-5 h-7 bg-yellow-500 rounded z-10" />
             </div>
@@ -211,7 +256,9 @@ export default function PlayerProfile() {
             <div className="p-6 md:w-2/3">
               <div className="flex justify-between items-start">
                 <div className="flex items-center space-x-2">
-                  <h1 className="text-2xl font-bold text-gray-900">Destiny Chambers</h1>
+                  <h1 className="text-2xl font-bold text-gray-900">
+                    Destiny Chambers
+                  </h1>
                   <Image
                     src="/carbon_location.png"
                     alt="Nigeria"
@@ -221,7 +268,6 @@ export default function PlayerProfile() {
                   />
                   <span className="text-black">Nigeria</span>
                 </div>
-                
               </div>
 
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-6">
@@ -277,8 +323,10 @@ export default function PlayerProfile() {
 
         {/* Performance Metrics */}
         <div className="mt-8">
-          <h2 className="text-xl font-bold text-gray-900 mb-6">Performance Metrics</h2>
-          
+          <h2 className="text-xl font-bold text-gray-900 mb-6">
+            Performance Metrics
+          </h2>
+
           {/* Flex container for image and text */}
           <div className="flex items-center p-6 rounded-lg mb-6">
             <Image
@@ -288,8 +336,11 @@ export default function PlayerProfile() {
               height={150} // Reduced height
               className="w-1/2 h-auto object-contain" // Ensure it covers the area
             />
-            <div className="border-l-2 border-dotted border-gray-300 h-56 mx-4" /> {/* Vertical dotted line */}
-            <div className="ml-4 text-sm"> {/* Margin left for spacing */}
+            <div className="border-l-2 border-dotted border-gray-300 h-56 mx-4" />{" "}
+            {/* Vertical dotted line */}
+            <div className="ml-4 text-sm">
+              {" "}
+              {/* Margin left for spacing */}
               <h3 className="text-xs font-bold">Key stats</h3>
               <p className="text-xs">Matches played: 8 games</p>
               <p className="text-xs">Goals Scored: 4 goals</p>
@@ -302,12 +353,20 @@ export default function PlayerProfile() {
           {/* Stats Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {statsBoxes.map((box, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow border-2 border-blue-500 w-full">
+              <div
+                key={index}
+                className="bg-white p-6 rounded-lg shadow border-2 border-blue-500 w-full"
+              >
                 <h3 className="font-medium text-gray-900 mb-4">{box.title}</h3>
                 <div className="space-y-3">
                   {box.stats.map((stat, statIndex) => (
-                    <div key={statIndex} className="flex justify-between items-center">
-                      <span className="text-sm text-gray-500">{stat.label}</span>
+                    <div
+                      key={statIndex}
+                      className="flex justify-between items-center"
+                    >
+                      <span className="text-sm text-gray-500">
+                        {stat.label}
+                      </span>
                       <span className="font-medium">{stat.value}</span>
                     </div>
                   ))}
@@ -365,21 +424,49 @@ export default function PlayerProfile() {
               />
             </div>
             <nav className="flex space-x-6">
-              <Link href="player-page" className="text-sm text-gray-300 hover:text-white">Essentials</Link>
-              <Link href="analytics" className="text-sm text-gray-300 hover:text-white">Dashboards</Link>
-              <Link href="contact-us" className="text-sm text-gray-300 hover:text-white">Contact us</Link>
-              <Link href="FAQs" className="text-sm text-gray-300 hover:text-white">FAQs</Link>
-              <Link href="pricing" className="text-sm text-gray-300 hover:text-white">Pricing</Link>
+              <Link
+                href="player-page"
+                className="text-sm text-gray-300 hover:text-white"
+              >
+                Essentials
+              </Link>
+              <Link
+                href="analytics"
+                className="text-sm text-gray-300 hover:text-white"
+              >
+                Dashboards
+              </Link>
+              <Link
+                href="contact-us"
+                className="text-sm text-gray-300 hover:text-white"
+              >
+                Contact us
+              </Link>
+              <Link
+                href="FAQs"
+                className="text-sm text-gray-300 hover:text-white"
+              >
+                FAQs
+              </Link>
+              <Link
+                href="pricing"
+                className="text-sm text-gray-300 hover:text-white"
+              >
+                Pricing
+              </Link>
             </nav>
             <div className="text-sm text-gray-400">
-              <Link href="privacy-policy" className="hover:text-gray-300">Privacy Policy</Link>
-              {' and '}
-              <Link href="terms-of-use" className="hover:text-gray-300">Terms of Use</Link>
+              <Link href="privacy-policy" className="hover:text-gray-300">
+                Privacy Policy
+              </Link>
+              {" and "}
+              <Link href="terms-of-use" className="hover:text-gray-300">
+                Terms of Use
+              </Link>
             </div>
           </div>
         </div>
       </footer>
     </div>
-  )
+  );
 }
-

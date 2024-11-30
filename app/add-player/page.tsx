@@ -1,89 +1,87 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import Image from 'next/image'
-import { ChevronDown, LogOut, Search, X } from 'lucide-react'
+import { useState } from "react";
+import Image from "next/image";
+import { Search, X } from "lucide-react";
 import Header from "@/app/default/signed-inheader";
 import { Footer } from "@/app/default/footer";
 
 // Types
-interface NavItem {
-  label: string
-  href: string
-  hasDropdown?: boolean
-  isActive?: boolean
-}
+// interface NavItem {
+//   label: string
+//   href: string
+//   hasDropdown?: boolean
+//   isActive?: boolean
+// }
 
 interface Player {
-  id: string
-  name: string
-  image: string
-  country: string
-  flag: string
-  age: number
-  position: string
-  club: string
+  id: string;
+  name: string;
+  image: string;
+  country: string;
+  flag: string;
+  age: number;
+  position: string;
+  club: string;
 }
 
 export default function PlayerComparisonList() {
   // State
-  const [searchQuery, setSearchQuery] = useState('')
-  const [essentialsOpen, setEssentialsOpen] = useState(false)
-  const [dashboardsOpen, setDashboardsOpen] = useState(false)
+  const [searchQuery, setSearchQuery] = useState("");
 
   // Navigation items
-  const navItems: NavItem[] = [
-    { label: 'Essentials', href: 'player-page', hasDropdown: true },
-    { label: 'Dashboards', href: '#', hasDropdown: true },
-    { label: 'Teams', href: 'teams' },
-    { label: 'Players', href: 'player-page' },
-    { label: 'Scouts', href: '#', isActive: true },
-    { label: 'Competitions', href: 'competitions' },
-  ]
+  // const navItems: NavItem[] = [
+  //   { label: 'Essentials', href: 'player-page', hasDropdown: true },
+  //   { label: 'Dashboards', href: '#', hasDropdown: true },
+  //   { label: 'Teams', href: 'teams' },
+  //   { label: 'Players', href: 'player-page' },
+  //   { label: 'Scouts', href: '#', isActive: true },
+  //   { label: 'Competitions', href: 'competitions' },
+  // ]
 
   // Sample player data
   const players: Player[] = [
     {
-      id: '1',
-      name: 'Oluwa Powers',
-      image: '/DestinyChambers.png',
-      country: 'Nigeria',
-      flag: '/placeholder.svg',
+      id: "1",
+      name: "Oluwa Powers",
+      image: "/DestinyChambers.png",
+      country: "Nigeria",
+      flag: "/placeholder.svg",
       age: 23,
-      position: 'Midfielder',
-      club: 'Rangers FC'
+      position: "Midfielder",
+      club: "Rangers FC",
     },
     {
-      id: '2',
-      name: 'Eze Flavio Jnr',
-      image: '/placeholder.svg',
-      country: 'Nigeria',
-      flag: '/placeholder.svg',
+      id: "2",
+      name: "Eze Flavio Jnr",
+      image: "/placeholder.svg",
+      country: "Nigeria",
+      flag: "/placeholder.svg",
       age: 23,
-      position: 'Midfielder',
-      club: 'Jos City Stars'
+      position: "Midfielder",
+      club: "Jos City Stars",
     },
     {
-      id: '3',
-      name: 'James Asuquo',
-      image: '/placeholder.svg',
-      country: 'Nigeria',
-      flag: '/placeholder.svg',
+      id: "3",
+      name: "James Asuquo",
+      image: "/placeholder.svg",
+      country: "Nigeria",
+      flag: "/placeholder.svg",
       age: 23,
-      position: 'Midfielder',
-      club: 'Blue Rivers United'
+      position: "Midfielder",
+      club: "Blue Rivers United",
     },
     // Add more players...
-  ]
+  ];
 
-  const filteredPlayers = players.filter(player =>
+  const filteredPlayers = players.filter((player) =>
     player.name.toLowerCase().includes(searchQuery.toLowerCase())
-  )
+  );
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
       {/* Header */}
-      <Header/>
+      <Header />
       {/* Main Content */}
       <main className="flex-grow container mx-auto px-4 py-8">
         <div className="max-w-7xl mx-auto bg-white rounded-lg shadow-sm">
@@ -100,7 +98,7 @@ export default function PlayerComparisonList() {
               />
               {searchQuery && (
                 <button
-                  onClick={() => setSearchQuery('')}
+                  onClick={() => setSearchQuery("")}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
                 >
                   <X className="h-5 w-5" />
@@ -113,13 +111,17 @@ export default function PlayerComparisonList() {
           <div className="divide-y">
             {/* Reference Player */}
             <div className="p-4">
-              <div className="text-sm font-medium text-gray-500 mb-2">Reference</div>
+              <div className="text-sm font-medium text-gray-500 mb-2">
+                Reference
+              </div>
               <PlayerRow player={players[0]} isReference />
             </div>
 
             {/* Compared Players */}
             <div className="p-4">
-              <div className="text-sm font-medium text-gray-500 mb-2">Compared to</div>
+              <div className="text-sm font-medium text-gray-500 mb-2">
+                Compared to
+              </div>
               <div className="space-y-4">
                 {filteredPlayers.slice(1).map((player) => (
                   <PlayerRow key={player.id} player={player} />
@@ -131,13 +133,13 @@ export default function PlayerComparisonList() {
       </main>
 
       {/* Footer */}
-     <Footer/>
+      <Footer />
     </div>
-  )
+  );
 }
 
 // Player Row Component
-function PlayerRow({ player, isReference = false }: { player: Player; isReference?: boolean }) {
+function PlayerRow({ player }: { player: Player; isReference?: boolean }) {
   return (
     <div className="flex items-center space-x-4">
       <div className="relative">
@@ -169,6 +171,5 @@ function PlayerRow({ player, isReference = false }: { player: Player; isReferenc
         <div>{player.club}</div>
       </div>
     </div>
-  )
+  );
 }
-

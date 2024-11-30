@@ -10,8 +10,6 @@ import {
   Users,
   Bell,
   Settings,
-  Menu,
-  X,
 } from "lucide-react";
 
 interface PolicySection {
@@ -24,7 +22,7 @@ interface PolicySection {
 function App() {
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
   const [isDarkMode] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const policySections: PolicySection[] = [
     {
@@ -81,77 +79,77 @@ function App() {
   return (
     <div className=" bg-white ">
       <div className="md:px-20 lg:px-20 p-4 bg-white">
-      <div className="min-h-screen bg-white">
-      <Header/>
-      {/* Main Content */}
-      <main className="container mx-auto px-4 pt-24 pb-12">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-4">
-            <div className="border-l-4 border-yellow-500 pl-4">
-              <h2 className="text-3xl p-1 font-bold text-gray-900">
-                Privacy Policy
-              </h2>
-            </div>
-            <p className="mb-8 text-lg">
-              At Digital Scouting Africa, your privacy is our priority. This
-              Privacy Policy outlines how we collect, use, protect, and share
-              your personal information. By using our platform, you agree to the
-              terms outlined below.
-            </p>
-
-            {/* Policy Sections */}
-            <div className="space-y-4">
-              {policySections.map((section) => (
-                <div
-                  key={section.id}
-                  className={`border rounded-lg ${
-                    isDarkMode
-                      ? "border-gray-700 bg-gray-800"
-                      : "border-gray-200 bg-white"
-                  } transition-all duration-200`}
-                >
-                  <button
-                    onClick={() => toggleSection(section.id)}
-                    className="w-full px-6 py-4 flex items-center justify-between hover:bg-opacity-50"
-                  >
-                    <div className="flex items-center space-x-3">
-                      {section.icon}
-                      <h3 className="text-xl font-semibold">{section.title}</h3>
-                    </div>
-                    {expandedSection === section.id ? (
-                      <ChevronUp className="w-5 h-5" />
-                    ) : (
-                      <ChevronDown className="w-5 h-5" />
-                    )}
-                  </button>
-                  {expandedSection === section.id && (
-                    <div className="px-6 py-4 border-t border-gray-200">
-                      <ul className="space-y-3">
-                        {section.content.map((item, index) => (
-                          <li
-                            key={index}
-                            className="flex items-start space-x-2"
-                          >
-                            <span className="mt-1.5">•</span>
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
+        <div className="min-h-screen bg-white">
+          <Header />
+          {/* Main Content */}
+          <main className="container mx-auto px-4 pt-24 pb-12">
+            <div className="max-w-7xl mx-auto">
+              <div className="mb-4">
+                <div className="border-l-4 border-yellow-500 pl-4">
+                  <h2 className="text-3xl p-1 font-bold text-gray-900">
+                    Privacy Policy
+                  </h2>
                 </div>
-              ))}
+                <p className="mb-8 text-lg">
+                  At Digital Scouting Africa, your privacy is our priority. This
+                  Privacy Policy outlines how we collect, use, protect, and
+                  share your personal information. By using our platform, you
+                  agree to the terms outlined below.
+                </p>
+
+                {/* Policy Sections */}
+                <div className="space-y-4">
+                  {policySections.map((section) => (
+                    <div
+                      key={section.id}
+                      className={`border rounded-lg ${
+                        isDarkMode
+                          ? "border-gray-700 bg-gray-800"
+                          : "border-gray-200 bg-white"
+                      } transition-all duration-200`}
+                    >
+                      <button
+                        onClick={() => toggleSection(section.id)}
+                        className="w-full px-6 py-4 flex items-center justify-between hover:bg-opacity-50"
+                      >
+                        <div className="flex items-center space-x-3">
+                          {section.icon}
+                          <h3 className="text-xl font-semibold">
+                            {section.title}
+                          </h3>
+                        </div>
+                        {expandedSection === section.id ? (
+                          <ChevronUp className="w-5 h-5" />
+                        ) : (
+                          <ChevronDown className="w-5 h-5" />
+                        )}
+                      </button>
+                      {expandedSection === section.id && (
+                        <div className="px-6 py-4 border-t border-gray-200">
+                          <ul className="space-y-3">
+                            {section.content.map((item, index) => (
+                              <li
+                                key={index}
+                                className="flex items-start space-x-2"
+                              >
+                                <span className="mt-1.5">•</span>
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Footer */}
             </div>
-          </div>
-
-          {/* Footer */}
-
+          </main>
         </div>
-      </main>
-    
-    </div>
-    </div>
-    <Footer/>
+      </div>
+      <Footer />
     </div>
   );
 }

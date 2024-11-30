@@ -8,8 +8,6 @@ import {
   ChevronUp,
   Shield,
   Settings,
-  Menu,
-  X,
   Book,
   UserCheck,
   AlertTriangle,
@@ -23,7 +21,7 @@ interface Section {
 }
 
 function App() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [expandedSections, setExpandedSections] = useState<Set<string>>(
     new Set(["welcome"])
   );
@@ -85,68 +83,68 @@ function App() {
   return (
     <div className=" bg-white ">
       <div className="md:px-20 lg:px-20 p-4 bg-white">
-      <div className="min-h-screen bg-white">
-      {/* Navbar */}
-      <Header />
-     
-    
-      {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className=" rounded-lg">
-          <div className="px-6 py-8">
-            <div className="border-l-4 border-yellow-500 pl-4 mb-4">
-              <h2 className="text-3xl font-bold text-gray-900">Terms of Use</h2>
-            </div>
-            <p className="mb-4 text-lg">
-              Welcome to Digital Scouting Africa. By accessing or using our
-              platform, you agree to comply with these Terms of Use. Please read
-              them very carefully and judiciously.
-            </p>
-            <div className="space-y-6">
-              {sections.map((section) => (
-                <div key={section.id} className="border rounded-lg">
-                  <button
-                    onClick={() => toggleSection(section.id)}
-                    className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-50 rounded-lg focus:outline-none"
-                  >
-                    <div className="flex items-center space-x-3">
-                      <div className="text-indigo-600">{section.icon}</div>
-                      <h3 className="text-lg font-medium text-gray-900">
-                        {section.title}
-                      </h3>
-                    </div>
-                    {expandedSections.has(section.id) ? (
-                      <ChevronUp className="w-5 h-5 text-gray-500" />
-                    ) : (
-                      <ChevronDown className="w-5 h-5 text-gray-500" />
-                    )}
-                  </button>
+        <div className="min-h-screen bg-white">
+          {/* Navbar */}
+          <Header />
 
-                  {expandedSections.has(section.id) && (
-                    <div className="px-6 pb-4">
-                      {Array.isArray(section.content) ? (
-                        <ul className="list-disc list-inside space-y-2 text-gray-600">
-                          {section.content.map((item, index) => (
-                            <li key={index}>{item}</li>
-                          ))}
-                        </ul>
-                      ) : (
-                        <p className="text-gray-600">{section.content}</p>
+          {/* Main Content */}
+          <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div className=" rounded-lg">
+              <div className="px-6 py-8">
+                <div className="border-l-4 border-yellow-500 pl-4 mb-4">
+                  <h2 className="text-3xl font-bold text-gray-900">
+                    Terms of Use
+                  </h2>
+                </div>
+                <p className="mb-4 text-lg">
+                  Welcome to Digital Scouting Africa. By accessing or using our
+                  platform, you agree to comply with these Terms of Use. Please
+                  read them very carefully and judiciously.
+                </p>
+                <div className="space-y-6">
+                  {sections.map((section) => (
+                    <div key={section.id} className="border rounded-lg">
+                      <button
+                        onClick={() => toggleSection(section.id)}
+                        className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-50 rounded-lg focus:outline-none"
+                      >
+                        <div className="flex items-center space-x-3">
+                          <div className="text-indigo-600">{section.icon}</div>
+                          <h3 className="text-lg font-medium text-gray-900">
+                            {section.title}
+                          </h3>
+                        </div>
+                        {expandedSections.has(section.id) ? (
+                          <ChevronUp className="w-5 h-5 text-gray-500" />
+                        ) : (
+                          <ChevronDown className="w-5 h-5 text-gray-500" />
+                        )}
+                      </button>
+
+                      {expandedSections.has(section.id) && (
+                        <div className="px-6 pb-4">
+                          {Array.isArray(section.content) ? (
+                            <ul className="list-disc list-inside space-y-2 text-gray-600">
+                              {section.content.map((item, index) => (
+                                <li key={index}>{item}</li>
+                              ))}
+                            </ul>
+                          ) : (
+                            <p className="text-gray-600">{section.content}</p>
+                          )}
+                        </div>
                       )}
                     </div>
-                  )}
+                  ))}
                 </div>
-              ))}
+              </div>
             </div>
-          </div>
+          </main>
+
+          {/* Footer */}
         </div>
-      </main>
-
-      {/* Footer */}
-
-    </div>
-    </div>
-    <Footer/>
+      </div>
+      <Footer />
     </div>
   );
 }

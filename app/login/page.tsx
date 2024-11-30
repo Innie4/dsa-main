@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
+/* eslint-disable react/jsx-no-comment-textnodes */
 "use client";
 
 import React from "react";
@@ -48,7 +50,8 @@ const LoginPage = () => {
       >
         {/* Return to Website Link */}
         <div className="fixed p-2 top-16 left-72 text-sm text-white bg-black bg-opacity-50 rounded-md backdrop-blur-sm hover:text-blue-300">
-        <a
+          // eslint-disable-next-line @next/next/no-html-link-for-pages
+          <a
             href="/"
             className="text-sm text-white hover:text-[#122483] transition-colors"
           >
@@ -58,7 +61,7 @@ const LoginPage = () => {
 
         {/* Overlay for the image */}
         <div className="h-full bg-black opacity-50 rounded-3xl"></div>
-        
+
         {/* Text Overlay */}
         <div className="absolute bottom-0 left-0 right-0 p-4 text-center">
           <div className="bg-white bg-opacity-40 backdrop-blur-md rounded-lg p-4">

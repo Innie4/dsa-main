@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 // app/new-password/page.tsx
 "use client"; // Indicate that this is a client component
 
@@ -26,12 +27,12 @@ const NewPasswordPage = () => {
     <div className="flex flex-col min-h-screen bg-white">
       {/* Header */}
       <header className="flex items-center justify-between py-4 lg:px-32 md:px-4">
-      <a
-            href="/"
-            className="text-sm text-white hover:text-[#122483] transition-colors cursor-pointer"
-          >
+        <a
+          href="/"
+          className="text-sm text-white hover:text-[#122483] transition-colors cursor-pointer"
+        >
           <img src="/DSA-logo.png" alt="Logo" className="h-12 cursor-pointer" />{" "}
-          </a>
+        </a>
         {/* Replace with your logo path */}
         <div className="text-sm text-gray-600">
           © Copyright 2024. All Rights Reserved

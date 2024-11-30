@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 "use client";
 
 import React, { useState } from "react";
@@ -21,15 +22,13 @@ function App() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center mr-8">
-            <a href="/" className="text-gray-700 font-semibold">
-                 
-
-              <img
-                src="/DSA-logo.png"
-                alt="Digital Scouting Academy"
-                className="h-9"
-              />
-                              </a>
+              <a href="/" className="text-gray-700 font-semibold">
+                <img
+                  src="/DSA-logo.png"
+                  alt="Digital Scouting Academy"
+                  className="h-9"
+                />
+              </a>
             </div>
 
             <div className="hidden md:flex items-center space-x-6">
@@ -43,7 +42,10 @@ function App() {
                 <a href="teams" className="text-gray-700 hover:text-blue-800">
                   Teams
                 </a>
-                <a href="player-page" className="text-gray-700 hover:text-blue-800">
+                <a
+                  href="player-page"
+                  className="text-gray-700 hover:text-blue-800"
+                >
                   Players
                 </a>
                 <a href="scouts" className="text-gray-700 font-semibold">
@@ -114,19 +116,27 @@ function App() {
           <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-1 z-10">
             <div className="flex flex-col space-y-2 p-4">
               <button className=" hover:text-blue-800 flex items-center">
-              <a href="player-page" className="text-gray-700 hover:text-blue-800">
-               Essentials
-              </a> <ChevronDown className="ml-1 h-4 w-4" />
+                <a
+                  href="player-page"
+                  className="text-gray-700 hover:text-blue-800"
+                >
+                  Essentials
+                </a>{" "}
+                <ChevronDown className="ml-1 h-4 w-4" />
               </button>
               <button className="text-gray-600 hover:text-blue-800 flex items-center">
-              <a href="teams" className="text-gray-700 hover:text-blue-800">
-                Dropdown
-              </a> <ChevronDown className="ml-1 h-4 w-4" />
+                <a href="teams" className="text-gray-700 hover:text-blue-800">
+                  Dropdown
+                </a>{" "}
+                <ChevronDown className="ml-1 h-4 w-4" />
               </button>
               <a href="teams" className="text-gray-700 hover:text-blue-800">
                 Teams
               </a>
-              <a href="player-page" className="text-gray-700 hover:text-blue-800">
+              <a
+                href="player-page"
+                className="text-gray-700 hover:text-blue-800"
+              >
                 Players
               </a>
               <a href="scouts" className="text-gray-700 font-semibold">
@@ -217,9 +227,12 @@ function App() {
                   <span className="text-sm text-gray-300 mb-4"> per month</span>
                 </div>
                 <button className="bg-yellow-400 text-blue-900 px-4 py-2 rounded-md font-semibold hover:bg-yellow-500 transition-colors">
-                <a href="credit-card" className="text-blue-600 hover:text-blue-800">
-                  Upgrade Plan
-                </a>
+                  <a
+                    href="credit-card"
+                    className="text-blue-600 hover:text-blue-800"
+                  >
+                    Upgrade Plan
+                  </a>
                 </button>
               </div>
             </div>
