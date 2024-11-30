@@ -25,7 +25,7 @@ const NewPasswordPage = () => {
   return (
     <div className="flex flex-col min-h-screen bg-white">
       {/* Header */}
-      <header className="flex items-center justify-between py-4 px-4">
+      <header className="flex items-center justify-between py-4 lg:px-32 md:px-4">
       <a
             href="/"
             className="text-sm text-white hover:text-[#122483] transition-colors cursor-pointer"

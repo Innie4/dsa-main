@@ -16,7 +16,7 @@ const ResetPasswordPage = () => {
   return (
     <div className="flex flex-col min-h-screen bg-white">
       {/* Header */}
-      <header className="flex items-center justify-between py-4 px-4">
+      <header className="flex items-center justify-between py-4 lg:px-32">
       <Link href="/">
               <img src="/DSA-logo.png" alt="Logo" className="h-10 cursor-pointer" /> {/* Logo */}
             </Link>

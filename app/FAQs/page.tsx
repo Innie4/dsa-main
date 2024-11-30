@@ -2,6 +2,8 @@
 
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp, HelpCircle, Mail } from 'lucide-react';
+import Header from "@/app/default/page";
+import { Footer } from "@/app/default/footer";
 
 interface FAQItem {
   question: string;
@@ -48,52 +50,10 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-pink-50">
+      <div className="md:px-20 lg:px-20 p-4 bg-white">
+      <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <img
-                src="/DSA-logo.png"
-                alt="Digital Scouting Academy"
-                className="h-9"
-              />
-            </div>
-            <div className="flex items-center space-x-4">
-              <button className="text-gray-600 hover:text-gray-900">
-              <a href="player-page" className="text-gray-700 hover:text-blue-800">
-                  Essentials
-                </a>
-              </button>
-              <button className="text-gray-600 hover:text-gray-900">
-              <a href="analytics" className="text-gray-600 hover:text-blue-800">
-                  Dashboards
-                </a>
-              </button>
-              <button className="text-gray-600 hover:text-gray-900">
-              <a href="why-choose-us" className="text-gray-600 hover:text-blue-800">
-                  Why choose Us
-                </a>
-              </button>
-              <button className="text-gray-600 hover:text-gray-900">
-              <a href="marketplace" className="text-gray-600 hover:text-blue-800">
-                  Marketplace
-                </a>
-              </button>
-              <button className="px-4 py-2 text-gray-600 hover:text-blue-700">
-              <a href="login" className="text-gray-600 hover:text-blue-800">
-                  Login
-                </a>
-              </button>
-              <button className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">
-                <a href="signup" className="text-white hover:text-blue-800">
-                  Sign Up
-                </a>
-              </button>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Header/>
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -196,53 +156,10 @@ function App() {
       </div>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-gray-400 py-12 mt-16 rounded-t-xl">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex items-center mb-4 md:mb-0">
-              <img
-                src="/dsalogo5.png"
-                alt="Digital Scouting Academy"
-                className="h-9"
-              />
-            </div>
-            <div className="flex space-x-6">
-              <a href="player-page" className="hover:text-white">
-                Essentials
-              </a>
-              <a href="analytics" className="hover:text-white">
-                Dashboards
-              </a>
-              <a href="contact-us" className="hover:text-white">
-                Contact us
-              </a>
-              <a href="FAQs" className="hover:text-white">
-                FAQs
-              </a>
-              <a href="pricing" className="hover:text-white">
-                Pricing
-              </a>
-            </div>
-          </div>
-          <div className="mt-8 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
-            <div className="flex space-x-4 justify-end">
-              <a
-                href="privacy-policy"
-                className="text-sm hover:text-yellow-300 text-yellow-500"
-              >
-                Privacy Policy
-              </a>
-              <span className="text-yellow-500">and</span>
-              <a
-                href="terms-of-use"
-                className="text-sm hover:text-yellow-300 text-yellow-500"
-              >
-                Terms of Use
-              </a>
-            </div>
-          </div>
-        </div>
-      </footer>
+
+    </div>
+    </div>
+    <Footer/>
     </div>
   );
 }

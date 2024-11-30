@@ -44,7 +44,7 @@ const VerificationPage = () => {
   return (
     <div className="flex flex-col min-h-screen bg-white">
       {/* Header */}
-      <header className="flex items-center justify-between py-4 px-4">
+      <header className="flex items-center justify-between py-4 lg:px-32 px-12">
         <img src="/DSA-logo.png" alt="Logo" className="h-12" />{" "}
         {/* Replace with your logo path */}
         <div className="text-sm text-gray-600">

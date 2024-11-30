@@ -43,20 +43,22 @@ const LoginPage = () => {
     <div className="flex min-h-screen bg-gray-100">
       {/* Left Side Image Placeholder */}
       <div
-        className="hidden lg:block relative w-[36%] h-[90vh] mx-auto my-auto bg-cover bg-center rounded-l -lg ml-12"
+        className="hidden lg:block relative w-[70%] h-[90vh] ml-32 my-auto bg-cover bg-center rounded-3xl"
         style={{ backgroundImage: "url('/alex-_AOL4_fDQ3M-unsplash.jpg')" }}
       >
         {/* Return to Website Link */}
-        <Link
-          href="/"
-          className="absolute top-4 left-4 text-sm text-white bg-black bg-opacity-50 rounded-md p-2 backdrop-blur-md hover:text-blue-300"
-        >
-          Return to website
-        </Link>
+        <div className="fixed p-2 top-16 left-72 text-sm text-white bg-black bg-opacity-50 rounded-md backdrop-blur-sm hover:text-blue-300">
+        <a
+            href="/"
+            className="text-sm text-white hover:text-[#122483] transition-colors"
+          >
+            Return to Website
+          </a>
+        </div>
 
         {/* Overlay for the image */}
-        <div className="h-full bg-black opacity-50 rounded-l-lg"></div>
-
+        <div className="h-full bg-black opacity-50 rounded-3xl"></div>
+        
         {/* Text Overlay */}
         <div className="absolute bottom-0 left-0 right-0 p-4 text-center">
           <div className="bg-white bg-opacity-40 backdrop-blur-md rounded-lg p-4">
@@ -70,8 +72,8 @@ const LoginPage = () => {
       </div>
 
       {/* Right Side Form */}
-      <div className="flex items-center justify-center w-full lg:w-1/2 p-4">
-        <div className="bg-white rounded-lg shadow-lg p-8 max-w-md w-full">
+      <div className="flex items-center justify-center w-full lg:w-4/5 p-8">
+        <div className=" p-8 max-w-md w-full">
           <div className="flex justify-between items-center mb-6">
             <Link href="/">
               <img
