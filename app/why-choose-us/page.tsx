@@ -1,8 +1,10 @@
 "use client";
 
-import { useState } from "react";
-import Image from "next/image";
-import { ChevronDown, ArrowRight } from "lucide-react";
+import { useState } from 'react'
+import Image from 'next/image'
+import { ChevronDown, ArrowRight } from 'lucide-react'
+import Header from "@/app/default/page";
+import { Footer } from "@/app/default/footer";
 
 // Types
 interface NavItem {
@@ -143,82 +145,15 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col text-black">
+    <div className="min-h-screen flex flex-col">
+      <div className="md:px-20 lg:px-20 p-4 bg-white">
+      <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="bg-white py-4 px-6 border-b ">
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div className="flex items-center space-x-8">
-            <Image
-              src="/DSA-logo.png"
-              alt="Digital Scouting Africa Logo"
-              width={40}
-              height={40}
-              className="w-10 h-10"
-            />
-
-            <nav className="hidden md:flex items-center space-x-6">
-              {navItems.map((item, index) => (
-                <div
-                  key={index}
-                  className="relative"
-                  onMouseEnter={() => {
-                    if (item.label === "Essentials") setEssentialsOpen(true);
-                    if (item.label === "Dashboards") setDashboardsOpen(true);
-                  }}
-                  onMouseLeave={() => {
-                    if (item.label === "Essentials") setEssentialsOpen(false);
-                    if (item.label === "Dashboards") setDashboardsOpen(false);
-                  }}
-                >
-                  <a
-                    href={item.href}
-                    className={`flex items-center ${
-                      item.isActive
-                        ? "text-blue-700 font-medium"
-                        : "text-gray-700 hover:text-gray-900"
-                    }`}
-                  >
-                    {item.label}
-                    {item.hasDropdown && (
-                      <ChevronDown className="ml-1 h-4 w-4" />
-                    )}
-                  </a>
-                  {item.hasDropdown &&
-                    (item.label === "Essentials"
-                      ? essentialsOpen
-                      : dashboardsOpen) && (
-                      <div className="absolute top-full left-0 w-48 bg-white shadow-lg rounded-md py-2 z-50">
-                        <a
-                          href="player-page"
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                        >
-                          Player Page
-                        </a>
-                        <a
-                          href="player-profile"
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                        >
-                          Player Profile
-                        </a>
-                      </div>
-                    )}
-                </div>
-              ))}
-            </nav>
-          </div>
-          <div className="flex items-center space-x-4">
-            <button className="px-4 py-2 text-blue-700 border border-blue-700 rounded-md hover:bg-blue-50">
-              <a href="login">Login</a>
-            </button>
-            <button className="px-4 py-2 bg-blue-700 text-white rounded-md hover:bg-blue-800">
-              <a href="signup">Sign up</a>
-            </button>
-          </div>
-        </div>
-      </header>
+      <Header />
+      
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-green-500 to-blue-800 py-20">
+      <section className="bg-gradient-to-r from-green-500 to-blue-800 py-20 rounded-xl">
         <div className="max-w-7xl mx-auto px-6">
           <h1 className="text-5xl md:text-6xl font-bold text-white">
             Why Choose Us
@@ -260,7 +195,7 @@ export default function WhyChooseUs() {
       </section>
 
       {/* Players Examples Section */}
-      <section className="py-12 bg-gray-50 ">
+      <section className="py-12 bg-white ">
         <div className="max-w-7xl mx-auto px-6 ">
           <h2 className="text-2xl font-bold mb-8 text-black">A few examples</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
@@ -311,7 +246,7 @@ export default function WhyChooseUs() {
       </section>
 
       {/* Get in Touch Section */}
-      <section className="bg-blue-900 text-white py-16">
+      <section className="bg-blue-900 text-white py-16 rounded-xl">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-3xl font-bold mb-6">Get in Touch</h2>
           <p className="mb-6 max-w-3xl">
@@ -334,52 +269,22 @@ export default function WhyChooseUs() {
             </li>
           </ul>
           <button className="bg-yellow-400 text-gray-900 px-6 py-3 rounded-md hover:bg-yellow-300 transition-colors flex items-center">
-            Get Started
+          <a
+            href="contact-us"
+            className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
+          >
+            Contact Us
+          </a>
             <ArrowRight className="ml-2 h-5 w-5" />
           </button>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-8">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <Image
-              src="/dsalogo5.png"
-              alt="Digital Scouting Africa Logo"
-              width={40}
-              height={40}
-              className="w-10 h-10 mb-4 md:mb-0"
-            />
-            <nav className="flex flex-wrap justify-center gap-6">
-              <div className="flex items-center">
-                Essentials <ChevronDown className="ml-1 h-4 w-4" />
-              </div>
-              <div className="flex items-center">
-                Dashboards <ChevronDown className="ml-1 h-4 w-4" />
-              </div>
-              <a href="contact-us" className="hover:text-gray-300">
-                Contact us
-              </a>
-              <a href="FAQs" className="hover:text-gray-300">
-                FAQs
-              </a>
-              <a href="pricing" className="hover:text-gray-300">
-                Pricing
-              </a>
-            </nav>
-          </div>
-          <div className="text-right text-sm text-gray-400 mt-4">
-            <a href="privacy-policy" className="hover:text-white">
-              Privacy Policy
-            </a>{" "}
-            and{" "}
-            <a href="/terms-of-use" className="hover:text-white">
-              Terms of Use
-            </a>
-          </div>
-        </div>
-      </footer>
+   
+    </div>
+    </div>
+    <Footer/>
     </div>
   );
 }

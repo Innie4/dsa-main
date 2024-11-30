@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "./default/page";
 import Gallery from "./gallery/page";
 import Link from "next/link";
+import Header from "./default/page";
 import { Footer } from "./default/footer";
 
 const LandingPage: React.FC = () => {
