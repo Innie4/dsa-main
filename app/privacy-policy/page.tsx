@@ -85,7 +85,7 @@ function App() {
           <main className="container mx-auto px-4 pt-24 pb-12">
             <div className="max-w-7xl mx-auto">
               <div className="mb-4">
-                <div className="border-l-4 border-yellow-500 pl-4">
+                <div className="border-l-8 my-4 rounded-lg border-yellow-500 pl-4">
                   <h2 className="text-3xl p-1 font-bold text-gray-900">
                     Privacy Policy
                   </h2>

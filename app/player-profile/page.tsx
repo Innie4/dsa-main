@@ -3,20 +3,11 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  ChevronDown,
-  LogOut,
-  Download,
-  Users,
-  Phone,
-  Play,
-} from "lucide-react";
+import { Download, Users, Phone, Play } from "lucide-react";
+import Header from "../default/signed-inheader";
+import Graph from "@/components/graph";
+import { Footer } from "../default/footer";
 // Types
-interface NavItem {
-  label: string;
-  href: string;
-  hasDropdown?: boolean;
-}
 
 interface StatBox {
   title: string;
@@ -33,16 +24,6 @@ interface VideoHighlight {
   thumbnail: string;
   opponent: string;
 }
-
-// Navigation items
-const navItems: NavItem[] = [
-  { label: "Essentials", href: "player-page", hasDropdown: true },
-  { label: "Dashboards", href: "analytics", hasDropdown: true },
-  { label: "Teams", href: "teams" },
-  { label: "Players", href: "player-page" },
-  { label: "Scouts", href: "scouts" },
-  { label: "Competitions", href: "competitions" },
-];
 
 // Performance data
 // const performanceData = {
@@ -156,90 +137,35 @@ export default function PlayerProfile() {
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
       {/* Header */}
-      <header className="bg-white border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex-shrink-0">
-              <Image
-                src="/DSA-logo.png"
-                alt="Digital Scouting Africa"
-                width={40}
-                height={40}
-                className="h-10 w-auto"
-              />
-            </div>
-
-            <nav className="hidden md:flex space-x-8 ml-auto">
-              {" "}
-              {/* Added ml-auto */}
-              {navItems.map((item) => (
-                <div key={item.label} className="relative group">
-                  <Link
-                    href={item.href}
-                    className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-700 hover:text-gray-900"
-                  >
-                    {item.label}
-                    {item.hasDropdown && (
-                      <ChevronDown className="ml-1 h-4 w-4" />
-                    )}
-                  </Link>
-                </div>
-              ))}
-            </nav>
-
-            <div className="flex items-center space-x-4">
-              <div className="flex items-center space-x-2">
-                <Image
-                  src="/Samson.png"
-                  alt="Profile"
-                  width={32}
-                  height={32}
-                  className="rounded-full"
-                />
-                <div className="text-sm">
-                  <p className="font-medium text-gray-900">Samson Adenuga</p>
-                  <Link
-                    href="login"
-                    className="text-red-600 hover:text-red-700 text-xs flex items-center"
-                  >
-                    <LogOut className="h-3 w-3 mr-1" />
-                    Logout
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      {/* Breadcrumb */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-        <nav className="flex items-center space-x-2 text-sm text-gray-500">
-          <Link
-            href="/player-page"
-            className="hover:text-gray-700 flex items-center"
-          >
-            <span className="w-2 h-2 bg-blue-900 rounded-full mr-1"></span>{" "}
-            {/* Dot */}
-            Players
-          </Link>
-          <Link
-            href="player-profile"
-            className="hover:text-gray-700 flex items-center"
-          >
-            <span className="w-2 h-2 bg-blue-900 rounded-full mr-1"></span>{" "}
-            {/* Dot */}
-            Destiny Chambers
-          </Link>
-        </nav>
-      </div>
+      <Header />
 
       {/* Main Content */}
-      <main className="flex-1 max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="flex-1 max-w-3/4 mx-auto px-4 py-8">
         {/* Player Info */}
         <div className="bg-white rounded-lg shadow overflow-hidden">
           <div className="md:flex">
             <div className="relative md:w-1/3">
+              {/* Breadcrumb */}
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+                <nav className="flex items-center space-x-2 text-sm text-gray-500">
+                  <Link
+                    href="/player-page"
+                    className="hover:text-gray-700 flex items-center"
+                  >
+                    <span className="w-2 h-2 bg-blue-900 rounded-full mr-1"></span>{" "}
+                    {/* Dot */}
+                    Players
+                  </Link>
+                  <Link
+                    href="player-profile"
+                    className="hover:text-gray-700 flex items-center"
+                  >
+                    <span className="w-2 h-2 bg-blue-900 rounded-full mr-1"></span>{" "}
+                    {/* Dot */}
+                    Destiny Chambers
+                  </Link>
+                </nav>
+              </div>
               <Image
                 src="/destiny.png"
                 alt="Destiny Chambers"
@@ -308,10 +234,13 @@ export default function PlayerProfile() {
                   <Download className="h-4 w-4 mr-2" />
                   Download report
                 </button>
-                <button className="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+                <a
+                  href="/compare-players"
+                  className="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
+                >
                   <Users className="h-4 w-4 mr-2" />
                   Compare players
-                </button>
+                </a>
                 <button className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700">
                   <Phone className="h-4 w-4 mr-2" />
                   Book a call
@@ -328,17 +257,13 @@ export default function PlayerProfile() {
           </h2>
 
           {/* Flex container for image and text */}
-          <div className="flex items-center p-6 rounded-lg mb-6">
-            <Image
-              src="/metrics.png" // Replace with your actual image path
-              alt="Performance Metrics"
-              width={200} // Reduced width
-              height={150} // Reduced height
-              className="w-1/2 h-auto object-contain" // Ensure it covers the area
-            />
-            <div className="border-l-2 border-dotted border-gray-300 h-56 mx-4" />{" "}
+          <div className="md:flex items-center p-6 rounded-lg mb-6">
+            <div className="w-full md:w-1/2">
+              <Graph />
+            </div>
+            <div className="border-l-2 border-dotted border-gray-300 h-56 mx-4  hidden md:block" />{" "}
             {/* Vertical dotted line */}
-            <div className="ml-4 text-sm">
+            <div className="md:ml-4 text-sm pt-4 md:pt-0">
               {" "}
               {/* Margin left for spacing */}
               <h3 className="text-xs font-bold">Key stats</h3>
@@ -411,62 +336,7 @@ export default function PlayerProfile() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white mt-12 rounded-t-3xl">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="flex-shrink-0">
-              <Image
-                src="/dsalogo5.png"
-                alt="Digital Scouting Africa"
-                width={40}
-                height={40}
-                className="h-10 w-auto"
-              />
-            </div>
-            <nav className="flex space-x-6">
-              <Link
-                href="player-page"
-                className="text-sm text-gray-300 hover:text-white"
-              >
-                Essentials
-              </Link>
-              <Link
-                href="analytics"
-                className="text-sm text-gray-300 hover:text-white"
-              >
-                Dashboards
-              </Link>
-              <Link
-                href="contact-us"
-                className="text-sm text-gray-300 hover:text-white"
-              >
-                Contact us
-              </Link>
-              <Link
-                href="FAQs"
-                className="text-sm text-gray-300 hover:text-white"
-              >
-                FAQs
-              </Link>
-              <Link
-                href="pricing"
-                className="text-sm text-gray-300 hover:text-white"
-              >
-                Pricing
-              </Link>
-            </nav>
-            <div className="text-sm text-gray-400">
-              <Link href="privacy-policy" className="hover:text-gray-300">
-                Privacy Policy
-              </Link>
-              {" and "}
-              <Link href="terms-of-use" className="hover:text-gray-300">
-                Terms of Use
-              </Link>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

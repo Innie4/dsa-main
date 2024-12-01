@@ -1,9 +1,11 @@
+/* eslint-disable @next/next/no-img-element */
 // app/page.tsx
 "use client";
 
 import React, { useState } from "react";
 import Link from "next/link";
 import { Eye, EyeOff } from "lucide-react"; // Import icons from lucide-react
+import ReturnButton from "@/components/return-button";
 
 const HomePage = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -21,25 +23,20 @@ const HomePage = () => {
     <div className="flex min-h-screen bg-gray-100">
       {/* Left Side Image Placeholder */}
       <div
-        className="hidden lg:block relative w-[40%] h-[90vh] mx-auto my-auto bg-cover bg-center rounded-lg ml-12"
+        className="hidden lg:block relative w-1/2 h-[90vh] mx-auto my-auto bg-cover bg-center rounded-lg ml-12"
         style={{ backgroundImage: "url('/soccer-player-action-stadium.jpg')" }}
       >
         {/* Return to Website Link with Blur and Padding */}
-        <div className="absolute top-4 left-4 bg-black bg-opacity-50 rounded-md p-2 backdrop-blur-md">
-          <Link
-            href="/"
-            className="text-white text-xs hover:text-blue-300"
-          >
-            Return to website
-          </Link>
-        </div>
+        <ReturnButton />
 
         {/* Overlay for the image */}
-        <div className="h-full bg-black opacity-50 rounded-lg"></div>
+        <div className="h-full bg-black opacity-10 rounded-lg"></div>
         {/* Text Overlay */}
-        <div className="absolute bottom-0 left-0 right-0 p-4 text-center">
+        <div className="absolute bottom-0 left-0 right-0 p-4">
           <div className="bg-white bg-opacity-40 backdrop-blur-md rounded-lg p-4">
-            <p className="text-white mb-2">Let&apos;s get started</p>
+            <p className="text-white text-3xl font-bold mb-2">
+              Let&apos;s get started
+            </p>
             <p className="text-white">
               Sign up to join the network that discovers top talent across all
               positions of the beautiful game!
@@ -49,18 +46,20 @@ const HomePage = () => {
       </div>
 
       {/* Right Side Form */}
-      <div className="flex items-center justify-center w-full lg:w-2/3 p-8"> 
-      <div className="p-8 w-full max-w-2xl"> {/* Added max-width for better form control */}
-      <div className="flex justify-between items-center mb-6">
-  <Link href="/">
-    <img 
-      src="/DSA-logo.png" 
-      alt="Digital Scouting Africa Logo" 
-      className="h-10 cursor-pointer" 
-    />
-  </Link>
+      <div className="flex items-center justify-center w-full lg:w-1/2 md:w-1/2 p-4">
+        <div className=" w-full max-w-2xl">
+          {" "}
+          {/* Added max-width for better form control */}
+          <div className="flex justify-between items-center mb-6">
+            <Link href="/">
+              <img
+                src="/DSA-logo.png"
+                alt="Digital Scouting Africa Logo"
+                className="h-16 cursor-pointer"
+              />
+            </Link>
           </div>
-          <h2 className="text-2xl font-bold mb-4">Create an account</h2>
+          <h2 className="text-4xl font-bold mb-4">Create an account</h2>
           {/* Added Login Link */}
           <p className="mt-4 mb-4 text-left text-sm text-gray-600">
             Already have an account?{" "}
@@ -70,8 +69,24 @@ const HomePage = () => {
             .
           </p>
           <form>
-            <div className="flex mb-4">
-              <div className="w-1/2 pr-2">
+            <div className=" mb-4">
+              <label className="block text-sm font-medium text-gray-700">
+                Please select the option that best represents you
+              </label>
+              <div className="flex items-center space-x-4">
+                <span>
+                  <input type="radio" name="user_type" value="user" /> User{" "}
+                </span>
+                <span>
+                  <input type="radio" name="user_type" value="scout" /> Scout{" "}
+                </span>
+                <span>
+                  <input type="radio" name="user_type" value="agency" /> Agency{" "}
+                </span>
+              </div>
+            </div>
+            <div className="md:flex lg:flex mb-4">
+              <div className="md:w-1/2 lg:w-1/2 md:pr-2">
                 <label className="block text-sm font-medium text-gray-700">
                   First name
                 </label>
@@ -81,7 +96,7 @@ const HomePage = () => {
                   className="mt-1 block w-full border border-gray-300 rounded-md p-2"
                 />
               </div>
-              <div className="w-1/2 pl-2">
+              <div className="md:w-1/2 lg:w-1/2 md:pl-2 my-4 md:mt-0">
                 <label className="block text-sm font-medium text-gray-700">
                   Last name
                 </label>
@@ -102,8 +117,8 @@ const HomePage = () => {
                 className="mt-1 block w-full border border-gray-300 rounded-md p-2"
               />
             </div>
-            <div className="flex mb-4">
-              <div className="w-1/2 pr-2 relative">
+            <div className="md:flex mb-4">
+              <div className="md:w-1/2 md:pr-2 relative">
                 <label className="block text-sm font-medium text-gray-700">
                   Password
                 </label>
@@ -124,7 +139,7 @@ const HomePage = () => {
                   )}
                 </button>
               </div>
-              <div className="w-1/2 pl-2 relative">
+              <div className="md:w-1/2 md:pl-2 relative mt-4 md:mt-0">
                 <label className="block text-sm font-medium text-gray-700">
                   Confirm password
                 </label>

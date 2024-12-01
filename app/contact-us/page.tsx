@@ -4,6 +4,7 @@
 import React, { useState } from "react";
 // import { Menu, X } from "lucide-react";
 import Header from "@/app/default/page";
+import { Footer } from "../default/footer";
 // import { Footer } from "@/app/default/footer";
 
 interface FormData {
@@ -151,17 +152,11 @@ function App() {
                       type="submit"
                       className="w-full bg-blue-700 text-white py-3 px-4 rounded-lg hover:bg-blue-800 flex items-center justify-center space-x-2"
                     >
-                      <svg
-                        className="w-5 h-5"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M4 4h16v12H5.17L4 17.17V4zm0-2c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2H4z"
-                          fill="currentColor"
-                        />
-                      </svg>
+                      <img
+                        src="/icons/sent.png"
+                        alt="Sent icon"
+                        className="w-5"
+                      />
                       <span>Send message</span>
                     </button>
                   </form>
@@ -171,6 +166,7 @@ function App() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

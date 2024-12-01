@@ -6,6 +6,7 @@ import React from "react";
 import Link from "next/link";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import ReturnButton from "@/components/return-button";
 
 const LoginPage = () => {
   const router = useRouter();
@@ -45,19 +46,11 @@ const LoginPage = () => {
     <div className="flex min-h-screen bg-gray-100">
       {/* Left Side Image Placeholder */}
       <div
-        className="hidden lg:block relative w-[70%] h-[90vh] ml-32 my-auto bg-cover bg-center rounded-3xl"
+        className="hidden lg:block relative w-1/2 h-[90vh] ml-32 my-auto bg-cover bg-center rounded-3xl"
         style={{ backgroundImage: "url('/alex-_AOL4_fDQ3M-unsplash.jpg')" }}
       >
         {/* Return to Website Link */}
-        <div className="fixed p-2 top-16 left-72 text-sm text-white bg-black bg-opacity-50 rounded-md backdrop-blur-sm hover:text-blue-300">
-          // eslint-disable-next-line @next/next/no-html-link-for-pages
-          <a
-            href="/"
-            className="text-sm text-white hover:text-[#122483] transition-colors"
-          >
-            Return to Website
-          </a>
-        </div>
+        <ReturnButton />
 
         {/* Overlay for the image */}
         <div className="h-full bg-black opacity-50 rounded-3xl"></div>
@@ -75,8 +68,8 @@ const LoginPage = () => {
       </div>
 
       {/* Right Side Form */}
-      <div className="flex items-center justify-center w-full lg:w-4/5 p-8">
-        <div className=" p-8 max-w-md w-full">
+      <div className="flex items-center justify-center w-full md:1/2 lg:w-1/2 p-4">
+        <div className=" max-w-md w-full">
           <div className="flex justify-between items-center mb-6">
             <Link href="/">
               <img

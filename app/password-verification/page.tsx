@@ -4,6 +4,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import AltHeader from "@/components/alt-header";
 
 const VerificationPage = () => {
   const [code, setCode] = useState(["", "", "", "", "", ""]); // State to hold the 6-digit code
@@ -44,13 +45,7 @@ const VerificationPage = () => {
   return (
     <div className="flex flex-col min-h-screen bg-white">
       {/* Header */}
-      <header className="flex items-center justify-between py-4 lg:px-32 px-12">
-        <img src="/DSA-logo.png" alt="Logo" className="h-12" />{" "}
-        {/* Replace with your logo path */}
-        <div className="text-sm text-gray-600">
-          © Copyright 2024. All Rights Reserved
-        </div>
-      </header>
+      <AltHeader />
 
       {/* Main Content */}
       <main className="flex-grow flex items-center justify-center p-4">
