@@ -9,99 +9,16 @@ import {
 import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import Header from '@/app/default/signed-inheader'
+import {Footer} from'@/app/default/footer'
 
 export default function ScoutsPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="border-b">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-8">
-              <Image
-                src="/placeholder.svg"
-                alt="Digital Scouting Africa"
-                width={120}
-                height={40}
-                className="h-10 w-auto"
-              />
-              <nav className="hidden md:flex items-center space-x-6">
-                <DropdownMenu>
-                  <DropdownMenuTrigger className="flex items-center text-sm font-medium text-gray-600 hover:text-gray-900">
-                    Essentials <ChevronDown className="ml-1 h-4 w-4" />
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent>
-                    <DropdownMenuItem>Option 1</DropdownMenuItem>
-                    <DropdownMenuItem>Option 2</DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
-                <DropdownMenu>
-                  <DropdownMenuTrigger className="flex items-center text-sm font-medium text-gray-600 hover:text-gray-900">
-                    Dashboards <ChevronDown className="ml-1 h-4 w-4" />
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent>
-                    <DropdownMenuItem>Dashboard 1</DropdownMenuItem>
-                    <DropdownMenuItem>Dashboard 2</DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
-                <Link
-                  href="#"
-                  className="text-sm font-medium text-gray-600 hover:text-gray-900"
-                >
-                  Teams
-                </Link>
-                <Link
-                  href="#"
-                  className="text-sm font-medium text-gray-600 hover:text-gray-900"
-                >
-                  Players
-                </Link>
-                <Link
-                  href="#"
-                  className="text-sm font-medium text-gray-600 hover:text-gray-900"
-                >
-                  Scouts
-                </Link>
-                <Link
-                  href="#"
-                  className="text-sm font-medium text-gray-600 hover:text-gray-900"
-                >
-                  Competitions
-                </Link>
-              </nav>
-            </div>
-            <div className="flex items-center space-x-4">
-              <div className="flex items-center space-x-2">
-                <Avatar className="h-8 w-8">
-                  <AvatarImage src="/placeholder.svg" alt="User" />
-                  <AvatarFallback>SA</AvatarFallback>
-                </Avatar>
-                <div className="hidden md:block">
-                  <p className="text-sm font-medium">Samson Adenuga</p>
-                  <div className="flex items-center space-x-2">
-                    <Link
-                      href="#"
-                      className="text-sm text-gray-600 hover:text-gray-900"
-                    >
-                      Profile
-                    </Link>
-                    <span className="text-gray-300">|</span>
-                    <Link
-                      href="#"
-                      className="text-sm text-red-600 hover:text-red-700"
-                    >
-                      Logout
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
-
+      <Header/>
       {/* Main Content */}
-      <main className="container mx-auto px-4 py-8">
+      <main className=" max-w-7xl container mx-auto px-4 py-8">
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>
@@ -145,7 +62,7 @@ export default function ScoutsPage() {
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="flex items-center">
                       <Image
-                        src="/placeholder.svg"
+                        src="/carbon_location.png"
                         alt="Nigeria"
                         width={20}
                         height={15}
@@ -187,61 +104,7 @@ export default function ScoutsPage() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-[#1A1A1A] text-white mt-auto">
-        <div className="container mx-auto px-4 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-4 md:mb-0">
-              <Image
-                src="/placeholder.svg"
-                alt="Digital Scouting Africa"
-                width={120}
-                height={40}
-                className="h-10 w-auto"
-              />
-            </div>
-            <nav className="flex flex-wrap justify-center md:justify-end space-x-6">
-              <DropdownMenu>
-                <DropdownMenuTrigger className="text-sm text-gray-300 hover:text-white">
-                  Essentials{" "}
-                  <ChevronDown className="inline-block ml-1 h-4 w-4" />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent>
-                  <DropdownMenuItem>Option 1</DropdownMenuItem>
-                  <DropdownMenuItem>Option 2</DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-              <DropdownMenu>
-                <DropdownMenuTrigger className="text-sm text-gray-300 hover:text-white">
-                  Dashboards{" "}
-                  <ChevronDown className="inline-block ml-1 h-4 w-4" />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent>
-                  <DropdownMenuItem>Dashboard 1</DropdownMenuItem>
-                  <DropdownMenuItem>Dashboard 2</DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-              <Link href="#" className="text-sm text-gray-300 hover:text-white">
-                Contact us
-              </Link>
-              <Link href="#" className="text-sm text-gray-300 hover:text-white">
-                FAQs
-              </Link>
-              <Link href="#" className="text-sm text-gray-300 hover:text-white">
-                Pricing
-              </Link>
-            </nav>
-            <div className="mt-4 md:mt-0 text-sm text-gray-300">
-              <Link href="#" className="hover:text-white">
-                Privacy Policy
-              </Link>{" "}
-              and{" "}
-              <Link href="#" className="hover:text-white">
-                Terms of Use
-              </Link>
-            </div>
-          </div>
-        </div>
-      </footer>
+     <Footer/>
     </div>
   );
 }

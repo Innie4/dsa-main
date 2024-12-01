@@ -49,8 +49,8 @@ const LoginPage = () => {
         style={{ backgroundImage: "url('/alex-_AOL4_fDQ3M-unsplash.jpg')" }}
       >
         {/* Return to Website Link */}
-        <div className="fixed p-2 top-16 left-72 text-sm text-white bg-black bg-opacity-50 rounded-md backdrop-blur-sm hover:text-blue-300">
-          // eslint-disable-next-line @next/next/no-html-link-for-pages
+        <div className="fixed p-2 top-16 left-36 text-sm text-white bg-black bg-opacity-50 rounded-md backdrop-blur-sm hover:text-blue-300">
+
           <a
             href="/"
             className="text-sm text-white hover:text-[#122483] transition-colors"
@@ -119,13 +119,22 @@ const LoginPage = () => {
                 required
               />
             </div>
-            <div className="flex items-center mb-4">
+            <div className="flex items mb-6">
               <input type="checkbox" className="mr-2" />
               <label className="text-sm text-gray-600">Remember me</label>
+
+              <div className="mt-0 text-right ml-28 lg:ml-32">
+              <Link
+                href="/forgot-password"
+                className="text-blue-500 hover:text-blue-700"
+              >
+                Forgot password?
+              </Link>
+            </div>
             </div>
             <button
               type="submit"
-              className="w-full bg-gray-600 text-white font-bold py-2 rounded-md hover:bg-gray-700"
+              className="w-full bg-gray-300 text-gray-700 font-bold py-2 rounded-md hover:bg-gray-400"
             >
               Sign in
             </button>
@@ -135,14 +144,7 @@ const LoginPage = () => {
             <button className="w-full bg-gray-300 text-gray-700 font-bold py-2 rounded-md mt-2 hover:bg-gray-400">
               Continue with Google
             </button>
-            <div className="mt-4 text-center">
-              <Link
-                href="/forgot-password"
-                className="text-blue-500 hover:text-blue-700"
-              >
-                Forgot password?
-              </Link>
-            </div>
+
           </form>
         </div>
       </div>

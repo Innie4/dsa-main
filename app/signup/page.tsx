@@ -18,10 +18,10 @@ const HomePage = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-gray-100">
+    <div className="flex min-h-screen bg-gray-100 rounded-3xl">
       {/* Left Side Image Placeholder */}
       <div
-        className="hidden lg:block relative w-[40%] h-[90vh] mx-auto my-auto bg-cover bg-center rounded-lg ml-12"
+        className="hidden lg:block relative w-[40%] h-[90vh] mx-auto my-auto bg-cover bg-center rounded-3xl ml-12"
         style={{ backgroundImage: "url('/soccer-player-action-stadium.jpg')" }}
       >
         {/* Return to Website Link with Blur and Padding */}
@@ -35,7 +35,7 @@ const HomePage = () => {
         </div>
 
         {/* Overlay for the image */}
-        <div className="h-full bg-black opacity-50 rounded-lg"></div>
+        <div className="h-full bg-black opacity-50 rounded-3xl"></div>
         {/* Text Overlay */}
         <div className="absolute bottom-0 left-0 right-0 p-4 text-center">
           <div className="bg-white bg-opacity-40 backdrop-blur-md rounded-lg p-4">

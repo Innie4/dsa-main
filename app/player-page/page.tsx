@@ -4,6 +4,8 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronDown, ChevronUp, LogOut } from "lucide-react";
+import Header from "@/app/default/signed-inheader";
+import { Footer } from "@/app/default/footer";
 
 // Types
 type Player = {
@@ -155,61 +157,8 @@ export default function PlayersDashboard() {
     <div className="min-h-screen flex flex-col bg-gray-50 text-black">
       {/* Header */}
       <header className="bg-white border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            {/* Logo */}
-            <div className="flex-shrink-0">
-              <Image
-                src="/DSA-logo.png"
-                alt="Digital Scouting Africa"
-                width={40}
-                height={40}
-                className="h-10 w-auto"
-              />
-            </div>
-
-            {/* Navigation */}
-            <nav className="hidden md:flex space-x-8 ml-auto">
-              {navItems.map((item) => (
-                <div key={item.label} className="relative group">
-                  <Link
-                    href={item.href}
-                    className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-700 hover:text-gray-900"
-                  >
-                    {item.label}
-                    {item.hasDropdown && (
-                      <ChevronDown className="ml-1 h-4 w-4" />
-                    )}
-                  </Link>
-                </div>
-              ))}
-            </nav>
-
-            {/* Profile */}
-            <div className="flex items-center space-x-4">
-              <div className="flex items-center space-x-2">
-                <Image
-                  src="/Samson.png"
-                  alt="Profile"
-                  width={32}
-                  height={32}
-                  className="rounded-full"
-                />
-                <div className="text-sm">
-                  <p className="font-medium text-gray-900">Samson Adenuga</p>
-                  <Link
-                    href="login"
-                    className="text-red-600 hover:text-red-700 text-xs flex items-center"
-                  >
-                    <LogOut className="h-3 w-3 mr-1" />
-                    Logout
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
+        <Header/>
+              </header>
 
       {/* Main Content */}
       <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -293,33 +242,7 @@ export default function PlayersDashboard() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white rounded-t-3xl">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="flex flex-col md:flex-row justify-end items-center space-y-4 md:space-y-0">
-            <nav className="flex space-x-6">
-              {footerLinks.map((link) => (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  className="text-sm text-gray-300 hover:text-white"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
+      <Footer/>
           </div>
-          {/* Privacy Policy and Terms of Use */}
-          <div className="text-sm text-gray-400 mt-4 text-right">
-            <Link href="privacy-policy" className="hover:text-gray-300">
-              Privacy Policy
-            </Link>
-            <span className="mx-2">and</span>
-            <Link href="terms-of-use" className="hover:text-gray-300">
-              Terms of Use
-            </Link>
-          </div>
-        </div>
-      </footer>
-    </div>
   );
 }
