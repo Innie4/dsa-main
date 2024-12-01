@@ -1,8 +1,9 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 // import { useState } from "react";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
 import Header from "@/app/default/page";
 import { Footer } from "@/app/default/footer";
 
@@ -141,7 +142,7 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-white">
       <div className="md:px-20 lg:px-20 p-4 bg-white">
         <div className="min-h-screen bg-white">
           {/* Header */}
@@ -150,7 +151,7 @@ export default function WhyChooseUs() {
           {/* Hero Section */}
           <section className="bg-gradient-to-r from-green-500 to-blue-800 py-20 rounded-xl">
             <div className="max-w-7xl mx-auto px-6">
-              <h1 className="text-5xl md:text-6xl font-bold text-white">
+              <h1 className="text-5xl md:text-6xl font-bold text-center text-white">
                 Why Choose Us
               </h1>
             </div>
@@ -158,14 +159,14 @@ export default function WhyChooseUs() {
 
           {/* Content Section */}
           <section className="py-12">
-            <div className="max-w-7xl mx-auto px-6 space-y-8">
-              <p className="text-white leading-relaxed">
+            <div className="max-w-7xl mx-auto space-y-8">
+              <p className="text-black leading-relaxed">
                 The tide in sourcing Football Talents is slowly turning to West
                 Africa and by extension Africa as the prices for European and
                 South American players is simply becoming unaffordable to Non
                 European Clubs.
               </p>
-              <p className="text-white leading-relaxed">
+              <p className="text-black leading-relaxed">
                 In order to place players from Nigeria and other West African
                 countries on the global football market, meticulous planning and
                 strategy have to be adopted in offering visibility to such
@@ -177,7 +178,7 @@ export default function WhyChooseUs() {
                 talent can all be identified early and promoted through the data
                 at Digital Scouting which we seek to offer.
               </p>
-              <p className="text-white leading-relaxed">
+              <p className="text-black leading-relaxed">
                 The biggest currency in sourcing emerging African Talents are
                 scouting videos. The Digital Scouting Africa have been
                 structured in a way where club scouts and/or officials already
@@ -191,7 +192,7 @@ export default function WhyChooseUs() {
 
           {/* Players Examples Section */}
           <section className="py-12 bg-white ">
-            <div className="max-w-7xl mx-auto px-6 ">
+            <div className="max-w-7xl mx-auto ">
               <h2 className="text-2xl font-bold mb-8 text-black">
                 A few examples
               </h2>
@@ -267,14 +268,14 @@ export default function WhyChooseUs() {
                   • Partner with us to drive football excellence across Africa.
                 </li>
               </ul>
-              <button className="bg-yellow-400 text-gray-900 px-6 py-3 rounded-md hover:bg-yellow-300 transition-colors flex items-center">
+              <button className="bg-yellow-400 space-x-2 text-gray-900 px-6 py-3 rounded-md hover:bg-yellow-300 transition-colors flex items-center">
                 <a
                   href="contact-us"
                   className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
                 >
                   Contact Us
                 </a>
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <img src="/arrow-side.png" className="w-5" />
               </button>
             </div>
           </section>

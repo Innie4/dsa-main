@@ -82,16 +82,16 @@ function App() {
 
   return (
     <div className=" bg-white ">
-      <div className="md:px-20 lg:px-20 p-4 bg-white">
+      <div className="md:px-20 lg:px-20 bg-white">
         <div className="min-h-screen bg-white">
           {/* Navbar */}
           <Header />
 
           {/* Main Content */}
-          <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <main className="max-w-7xl mx-auto sm:px-6 lg:px-8 py-8">
             <div className=" rounded-lg">
               <div className="px-6 py-8">
-                <div className="border-l-4 border-yellow-500 pl-4 mb-4">
+                <div className="border-l-8 rounded-lg border-yellow-500 pl-4 mb-4">
                   <h2 className="text-3xl font-bold text-gray-900">
                     Terms of Use
                   </h2>

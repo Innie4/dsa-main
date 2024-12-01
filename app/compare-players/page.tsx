@@ -1,158 +1,95 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import Image from 'next/image'
-import { ChevronDown, Plus, LogOut } from 'lucide-react'
+import { useState } from "react";
+import Image from "next/image";
+import { ChevronDown, Plus, LogOut } from "lucide-react";
+import Header from "../default/page";
+import { Footer } from "../default/footer";
 
 // Types
 interface NavItem {
-  label: string
-  href: string
-  hasDropdown?: boolean
-  isActive?: boolean
+  label: string;
+  href: string;
+  hasDropdown?: boolean;
+  isActive?: boolean;
 }
 
 interface PlayerStat {
-  label: string
-  value: number | string
-  unit?: string
+  label: string;
+  value: number | string;
+  unit?: string;
 }
 
 interface PlayerBadge {
-  label: string
-  color: string
+  label: string;
+  color: string;
 }
 
 export default function PlayerComparison() {
   // State
-  const [essentialsOpen, setEssentialsOpen] = useState(false)
-  const [dashboardsOpen, setDashboardsOpen] = useState(false)
+  const [essentialsOpen, setEssentialsOpen] = useState(false);
+  const [dashboardsOpen, setDashboardsOpen] = useState(false);
 
   // Navigation items
   const navItems: NavItem[] = [
-    { label: 'Essentials', href: '#', hasDropdown: true },
-    { label: 'Dashboards', href: '#', hasDropdown: true },
-    { label: 'Teams', href: '#' },
-    { label: 'Players', href: '#' },
-    { label: 'Scouts', href: '#', isActive: true },
-    { label: 'Competitions', href: '#' },
-  ]
+    { label: "Essentials", href: "#", hasDropdown: true },
+    { label: "Dashboards", href: "#", hasDropdown: true },
+    { label: "Teams", href: "#" },
+    { label: "Players", href: "#" },
+    { label: "Scouts", href: "#", isActive: true },
+    { label: "Competitions", href: "#" },
+  ];
 
   // Player badges
   const badges: PlayerBadge[] = [
-    { label: 'DM', color: 'bg-yellow-500' },
-    { label: 'AM', color: 'bg-blue-500' },
-    { label: 'CM', color: 'bg-green-500' },
-  ]
+    { label: "DM", color: "bg-yellow-500" },
+    { label: "AM", color: "bg-blue-500" },
+    { label: "CM", color: "bg-green-500" },
+  ];
 
   // Player stats
   const playerStats: PlayerStat[] = [
-    { label: 'Matches played', value: 8 },
-    { label: 'Goals scored', value: 4 },
-    { label: 'Assists', value: 2 },
-    { label: 'Pass completion rate', value: 87, unit: '%' },
-    { label: 'Tackles Per Game', value: 2.5 },
-    { label: 'Interceptions Per Game', value: 1.8 },
-    { label: 'Distance Covered (Km)', value: 10.2 },
-    { label: 'Yellow Cards', value: 2 },
-    { label: 'Red Cards', value: 0 },
-    { label: 'Market Value ($)', value: '2.5 Million' },
-  ]
+    { label: "Matches played", value: 8 },
+    { label: "Goals scored", value: 4 },
+    { label: "Assists", value: 2 },
+    { label: "Pass completion rate", value: 87, unit: "%" },
+    { label: "Tackles Per Game", value: 2.5 },
+    { label: "Interceptions Per Game", value: 1.8 },
+    { label: "Distance Covered (Km)", value: 10.2 },
+    { label: "Yellow Cards", value: 2 },
+    { label: "Red Cards", value: 0 },
+    { label: "Market Value ($)", value: "2.5 Million" },
+  ];
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
       {/* Header */}
-      <header className="bg-white py-4 px-6 border-b">
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div className="flex items-center space-x-8">
-            <Image
-              src="/placeholder.svg"
-              alt="Digital Scouting Africa Logo"
-              width={40}
-              height={40}
-              className="w-10 h-10"
-            />
-            <nav className="hidden md:flex items-center space-x-6">
-              {navItems.map((item, index) => (
-                <div
-                  key={index}
-                  className="relative"
-                  onMouseEnter={() => {
-                    if (item.label === 'Essentials') setEssentialsOpen(true)
-                    if (item.label === 'Dashboards') setDashboardsOpen(true)
-                  }}
-                  onMouseLeave={() => {
-                    if (item.label === 'Essentials') setEssentialsOpen(false)
-                    if (item.label === 'Dashboards') setDashboardsOpen(false)
-                  }}
-                >
-                  <a
-                    href={item.href}
-                    className={`flex items-center ${
-                      item.isActive ? 'text-blue-700 font-medium' : 'text-gray-700 hover:text-gray-900'
-                    }`}
-                  >
-                    {item.label}
-                    {item.hasDropdown && <ChevronDown className="ml-1 h-4 w-4" />}
-                  </a>
-                  {item.hasDropdown && (item.label === 'Essentials' ? essentialsOpen : dashboardsOpen) && (
-                    <div className="absolute top-full left-0 w-48 bg-white shadow-lg rounded-md py-2 z-50">
-                      <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                        Option 1
-                      </a>
-                      <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                        Option 2
-                      </a>
-                    </div>
-                  )}
-                </div>
-              ))}
-            </nav>
-          </div>
-          <div className="flex items-center space-x-4">
-            <div className="flex items-center space-x-2">
-              <Image
-                src="/placeholder.svg"
-                alt="User Avatar"
-                width={40}
-                height={40}
-                className="w-10 h-10 rounded-full"
-              />
-              <div className="hidden md:block">
-                <div className="font-medium">Samson Adenuga</div>
-                <div className="flex items-center text-sm text-gray-500">
-                  <a href="#" className="hover:text-gray-700">Profile</a>
-                  <span className="mx-2">•</span>
-                  <a href="#" className="flex items-center text-red-600 hover:text-red-700">
-                    <LogOut className="h-4 w-4 mr-1" />
-                    Logout
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      {/* Breadcrumb */}
-      <div className="max-w-7xl mx-auto px-4 py-4">
-        <nav className="flex space-x-2 text-sm">
-          <a href="#" className="text-gray-500 hover:text-gray-700">Players</a>
-          <span className="text-gray-500">•</span>
-          <a href="#" className="text-gray-500 hover:text-gray-700">Destiny Chambers</a>
-          <span className="text-gray-500">•</span>
-          <span className="text-blue-700 font-medium">Compare Players</span>
-        </nav>
-      </div>
+      <Header />
 
       {/* Main Content */}
       <main className="flex-grow container mx-auto px-4 py-8">
         <div className="grid md:grid-cols-2 gap-8">
           {/* Player 1 */}
           <div className="space-y-6">
+            {/* Breadcrumb */}
+            <div className="max-w-7xl mx-auto px-4 py-4">
+              <nav className="flex space-x-2 text-sm">
+                <a href="#" className="text-gray-500 hover:text-gray-700">
+                  Players
+                </a>
+                <span className="text-gray-500">•</span>
+                <a href="#" className="text-gray-500 hover:text-gray-700">
+                  Destiny Chambers
+                </a>
+                <span className="text-gray-500">•</span>
+                <span className="text-blue-700 font-medium">
+                  Compare Players
+                </span>
+              </nav>
+            </div>
             <div className="relative rounded-lg overflow-hidden">
               <Image
-                src="/placeholder.svg"
+                src="/destiny.png"
                 alt="Destiny Chambers"
                 width={600}
                 height={400}
@@ -164,14 +101,42 @@ export default function PlayerComparison() {
             <div>
               <h2 className="text-2xl font-bold flex items-center space-x-2">
                 <span>Destiny Chambers</span>
-                <Image
-                  src="/placeholder.svg"
-                  alt="Nigeria flag"
-                  width={24}
-                  height={16}
-                  className="inline-block"
-                />
-                <span className="text-sm font-normal text-gray-600">Nigeria</span>
+                <svg
+                  width="20"
+                  height="14"
+                  viewBox="0 0 20 14"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_317_2415)">
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M0 1H16V12H0V1Z"
+                      fill="white"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M10.6656 1H16V12H10.6656V1ZM0 1H5.33437V12H0V1Z"
+                      fill="#008753"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_317_2415">
+                      <rect
+                        width="16"
+                        height="11"
+                        fill="white"
+                        transform="translate(0 1)"
+                      />
+                    </clipPath>
+                  </defs>
+                </svg>
+
+                <span className="text-sm font-normal text-gray-600">
+                  Nigeria
+                </span>
               </h2>
 
               <div className="flex space-x-2 mt-2">
@@ -208,7 +173,11 @@ export default function PlayerComparison() {
                 <div className="text-sm text-gray-600">Avg. rating:</div>
                 <div className="flex items-center">
                   <span className="text-2xl font-bold">8.0</span>
-                  <svg className="w-5 h-5 text-yellow-400 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                  <svg
+                    className="w-5 h-5 text-yellow-400 ml-1"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                   </svg>
                 </div>
@@ -218,14 +187,25 @@ export default function PlayerComparison() {
             <div>
               <h3 className="text-lg font-semibold mb-4 flex items-center">
                 Player stats
-                <svg className="w-5 h-5 text-green-500 ml-2" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                <svg
+                  className="w-5 h-5 text-green-500 ml-2"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clipRule="evenodd"
+                  />
                 </svg>
               </h3>
 
               <div className="space-y-3">
                 {playerStats.map((stat, index) => (
-                  <div key={index} className="flex justify-between items-center">
+                  <div
+                    key={index}
+                    className="flex justify-between items-center"
+                  >
                     <span className="text-gray-600">{stat.label}</span>
                     <span className="font-medium">
                       {stat.value}
@@ -258,36 +238,7 @@ export default function PlayerComparison() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-8">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <Image
-              src="/placeholder.svg"
-              alt="Digital Scouting Africa Logo"
-              width={40}
-              height={40}
-              className="w-10 h-10 mb-4 md:mb-0"
-            />
-            <nav className="flex flex-wrap justify-center gap-6">
-              <div className="flex items-center">
-                Essentials <ChevronDown className="ml-1 h-4 w-4" />
-              </div>
-              <div className="flex items-center">
-                Dashboards <ChevronDown className="ml-1 h-4 w-4" />
-              </div>
-              <a href="#" className="hover:text-gray-300">Contact us</a>
-              <a href="#" className="hover:text-gray-300">FAQs</a>
-              <a href="#" className="hover:text-gray-300">Pricing</a>
-            </nav>
-          </div>
-          <div className="text-right text-sm text-gray-400 mt-4">
-            <a href="#" className="hover:text-white">Privacy Policy</a>
-            {' '}and{' '}
-            <a href="#" className="hover:text-white">Terms of Use</a>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
-  )
+  );
 }
-

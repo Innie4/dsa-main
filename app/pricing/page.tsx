@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import React from "react";
@@ -11,25 +12,31 @@ function App() {
   return (
     <div className="min-h-screen bg-white">
       <div className="md:px-20 lg:px-20 p-4 bg-white">
-        <div className="min-h-screen bg-white">
+        <div className=" bg-white">
           {/* Navbar */}
           <Header />
           {/* Hero Section */}
+        </div>
+      </div>
+      <div className="border-l-8 rounded-lg border-yellow-500 pl-4 mb-4 md:mx-20 lg:mx-20 mx-4">
+        <h2 className="text-3xl font-bold text-gray-900">Pricing</h2>
+      </div>
+      <div className="md:flex lg:flex justify-between items-center bg-[#E7E9F3] md:px-20 lg:px-20 p-4 md:py-4 lg:py-4 ">
+        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
+          We&apos;ve got that perfect plan for
+          <br />
+          all our ballers!
+        </h1>
+        <img
+          src="Blurred-Ball.png"
+          alt="Soccer Ball"
+          className="w-[330px] h-[245px] object-cover rounded-full"
+        />
+      </div>
+      <div className="md:px-20 lg:px-20 p-4 bg-white">
+        <div className=" bg-white">
           <div className="relative overflow-hidden bg-gradient-to-r from-lightblue-200 to-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-              <div className="flex justify-between items-center">
-                <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
-                  We&apos;ve got that perfect plan for
-                  <br />
-                  all our ballers!
-                </h1>
-                <img
-                  src="Blurred-Ball.png"
-                  alt="Soccer Ball"
-                  className="w-[330px] h-[245px] object-cover rounded-full"
-                />
-              </div>
-
               {/* Pricing Cards */}
               <div className="mt-16 grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                 {/* Free Plan */}
@@ -45,7 +52,7 @@ function App() {
                   <button className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition flex items-center justify-center group">
                     <a
                       href="free-plan"
-                      className="text-sm text-white hover:text-[#122483] transition-colors"
+                      className="text-sm text-white hover:text-whitetransition-colors"
                     >
                       Get Started
                     </a>
@@ -86,7 +93,7 @@ function App() {
                   <button className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition flex items-center justify-center group">
                     <a
                       href="pro-plan"
-                      className="text-sm text-white hover:text-[#122483] transition-colors"
+                      className="text-sm text-white hover:white transition-colors"
                     >
                       Get Started
                     </a>

@@ -4,6 +4,7 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation"; // Import useRouter
+import AltHeader from "@/components/alt-header";
 
 const NewPasswordPage = () => {
   const [newPassword, setNewPassword] = useState("");
@@ -26,18 +27,7 @@ const NewPasswordPage = () => {
   return (
     <div className="flex flex-col min-h-screen bg-white">
       {/* Header */}
-      <header className="flex items-center justify-between py-4 lg:px-32 md:px-4">
-        <a
-          href="/"
-          className="text-sm text-white hover:text-[#122483] transition-colors cursor-pointer"
-        >
-          <img src="/DSA-logo.png" alt="Logo" className="h-12 cursor-pointer" />{" "}
-        </a>
-        {/* Replace with your logo path */}
-        <div className="text-sm text-gray-600">
-          © Copyright 2024. All Rights Reserved
-        </div>
-      </header>
+      <AltHeader />
 
       {/* Main Content */}
       <main className="flex-grow flex items-center justify-center p-4">

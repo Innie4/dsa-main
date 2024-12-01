@@ -3,9 +3,9 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronDown, ChevronUp, LogOut } from "lucide-react";
-import Header from "@/app/default/signed-inheader";
-import { Footer } from "@/app/default/footer";
+import { ChevronDown, ChevronUp } from "lucide-react";
+import Header from "../default/signed-inheader";
+import { Footer } from "../default/footer";
 
 // Types
 type Player = {
@@ -17,12 +17,6 @@ type Player = {
   position: string;
   club: string;
   roles: string[];
-};
-
-type NavItem = {
-  label: string;
-  href: string;
-  hasDropdown?: boolean;
 };
 
 // Sample data
@@ -130,23 +124,6 @@ const players: Player[] = [
   // Add more players as needed...
 ];
 
-const navItems: NavItem[] = [
-  { label: "Essentials", href: "player-page", hasDropdown: true },
-  { label: "Dashboards", href: "analytics", hasDropdown: true },
-  { label: "Teams", href: "teams" },
-  { label: "Players", href: "player-page" },
-  { label: "Scouts", href: "scouts" },
-  { label: "Competitions", href: "competitions" },
-];
-
-const footerLinks = [
-  { label: "Essentials", href: "player-page" },
-  { label: "Dashboards", href: "analytics" },
-  { label: "Contact us", href: "contact-us" },
-  { label: "FAQs", href: "FAQs" },
-  { label: "Pricing", href: "pricing" },
-];
-
 // app/player-page/page.tsx
 export default function PlayersDashboard() {
   const [showAllPlayers, setShowAllPlayers] = useState(false);
@@ -154,79 +131,80 @@ export default function PlayersDashboard() {
   const displayedPlayers = showAllPlayers ? players : players.slice(0, 10);
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50 text-black">
+    <div className="min-h-screen flex flex-col bg-gray-50 text-black overflow-hidden">
       {/* Header */}
-      <header className="bg-white border-b">
-        <Header/>
-              </header>
+      <Header />
 
       {/* Main Content */}
-      <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="bg-white rounded-lg shadow overflow-hidden">
-          {/* Table Header */}
-          <div className="grid grid-cols-6 gap-4 px-6 py-4 bg-gray-50 text-sm font-medium text-gray-500 uppercase tracking-wider">
-            <div>Name</div>
-            <div>Nationality</div>
-            <div>Age</div>
-            <div>Position</div>
-            <div>Club</div>
-            <div>Roles</div>
-          </div>
+      <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 overflow-hidden">
+        {/* Add an outer div with overflow handling */}
+        <div className="overflow-x-hidden">
+          <div className="bg-white rounded-lg shadow overflow-hidden min-w-[900px]">
+            {/* Table Header */}
+            <div className="grid grid-cols-6 gap-4 px-6 py-4 bg-gray-50 text-sm font-medium text-gray-500 uppercase tracking-wider">
+              <div>Name</div>
+              <div>Nationality</div>
+              <div>Age</div>
+              <div>Position</div>
+              <div>Club</div>
+              <div>Roles</div>
+            </div>
 
-          {/* Table Body */}
-          <div className="divide-y divide-gray-200">
-            {displayedPlayers.map((player) => (
-              <Link
-                key={player.id}
-                href={`/player-profile/${player.id}`} // Assuming dynamic routing
-                className="block hover:bg-gray-50 transition-colors"
-              >
-                <div className="grid grid-cols-6 gap-4 px-6 py-4">
-                  <div className="flex items-center space-x-3">
-                    <Image
-                      src={player.image}
-                      alt={player.name}
-                      width={40}
-                      height={40}
-                      className="rounded-full"
-                    />
-                    <span className="font-medium text-gray-900">
-                      {player.name}
-                    </span>
-                  </div>
-                  <div className="flex items-center">
-                    <span className="flex items-center">
+            {/* Table Body */}
+            <div className="divide-y divide-gray-200">
+              {displayedPlayers.map((player) => (
+                <Link
+                  key={player.id}
+                  href={`/player-profile`} // Assuming dynamic routing
+                  className="block hover:bg-gray-50 transition-colors"
+                >
+                  <div className="grid grid-cols-6 gap-4 px-6 py-4">
+                    <div className="flex items-center space-x-3">
                       <Image
-                        src="/carbon_location.png"
-                        alt={player.nationality}
-                        width={20}
-                        height={15}
-                        className="mr-2"
+                        src={player.image}
+                        alt={player.name}
+                        width={40}
+                        height={40}
+                        className="rounded-full"
                       />
-                      {player.nationality}
-                    </span>
-                  </div>
-                  <div className="flex items-center">{player.age} yrs</div>
-                  <div className="flex items-center">{player.position}</div>
-                  <div className="flex items-center">{player.club}</div>
-                  <div className="flex items-center space-x-1">
-                    {player.roles.map((role) => (
-                      <span
-                        key={role}
-                        className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800"
-                      >
-                        {role}
+                      <span className="font-medium text-gray-900">
+                        {player.name}
                       </span>
-                    ))}
+                    </div>
+                    <div className="flex items-center">
+                      <span className="flex items-center">
+                        <Image
+                          src="/carbon_location.png"
+                          alt={player.nationality}
+                          width={20}
+                          height={15}
+                          className="mr-2"
+                        />
+                        {player.nationality}
+                      </span>
+                    </div>
+                    <div className="flex items-center">{player.age} yrs</div>
+                    <div className="flex items-center">{player.position}</div>
+                    <div className="flex items-center">{player.club}</div>
+                    <div className="flex items-center space-x-1">
+                      {player.roles.map((role) => (
+                        <span
+                          key={role}
+                          className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800"
+                        >
+                          {role}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              </Link>
-            ))}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
 
         {/* View All Button */}
-        <div className="mt-4 flex justify-center">
+        <div className="mt-4 flex justify-left">
           <button
             onClick={() => setShowAllPlayers(!showAllPlayers)}
             className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-900 hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
@@ -242,7 +220,7 @@ export default function PlayersDashboard() {
       </main>
 
       {/* Footer */}
-      <Footer/>
-          </div>
+      <Footer />
+    </div>
   );
 }
