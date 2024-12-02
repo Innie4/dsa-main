@@ -1,18 +1,9 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
-import { ChevronDown, Plus, LogOut } from "lucide-react";
+import { Plus } from "lucide-react";
 import Header from "../default/page";
 import { Footer } from "../default/footer";
-
-// Types
-interface NavItem {
-  label: string;
-  href: string;
-  hasDropdown?: boolean;
-  isActive?: boolean;
-}
 
 interface PlayerStat {
   label: string;
@@ -26,20 +17,6 @@ interface PlayerBadge {
 }
 
 export default function PlayerComparison() {
-  // State
-  const [essentialsOpen, setEssentialsOpen] = useState(false);
-  const [dashboardsOpen, setDashboardsOpen] = useState(false);
-
-  // Navigation items
-  const navItems: NavItem[] = [
-    { label: "Essentials", href: "#", hasDropdown: true },
-    { label: "Dashboards", href: "#", hasDropdown: true },
-    { label: "Teams", href: "#" },
-    { label: "Players", href: "#" },
-    { label: "Scouts", href: "#", isActive: true },
-    { label: "Competitions", href: "#" },
-  ];
-
   // Player badges
   const badges: PlayerBadge[] = [
     { label: "DM", color: "bg-yellow-500" },
