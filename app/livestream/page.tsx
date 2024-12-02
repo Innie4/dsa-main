@@ -2,56 +2,16 @@ import Image from "next/image";
 import { PlayCircle } from "lucide-react";
 import { Button } from "@/components/button";
 import { Avatar } from "@/components/avatar";
+import Header from "@/app/default/signed-inheader";
+import {Footer} from '@/app/default/footer'
 
 export default function Page() {
   return (
     <div className="min-h-screen bg-background">
+           <div className="md:px-20 lg:px-20 p-4 bg-white">
+           <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="border-b">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-8">
-              <Image
-                src="/placeholder.svg"
-                alt="Digital Scouting Logo"
-                width={120}
-                height={40}
-                className="h-10 w-auto"
-              />
-              <div className="hidden md:flex items-center space-x-6">
-                <Button variant="ghost">Essentials</Button>
-                <Button variant="ghost">Dashboards</Button>
-                <Button variant="ghost">Teams</Button>
-                <Button variant="ghost">Players</Button>
-                <Button variant="ghost">Scouts</Button>
-                <Button variant="ghost">Competitions</Button>
-              </div>
-            </div>
-            <div className="flex items-center space-x-4">
-              <div className="flex items-center space-x-2">
-                <Avatar className="h-10 w-10">
-                  <Image
-                    src="/placeholder.svg"
-                    alt="User"
-                    width={40}
-                    height={40}
-                  />
-                </Avatar>
-                <div className="hidden md:block">
-                  <p className="text-sm font-medium">Samson Adenuga</p>
-                  <Button
-                    variant="link"
-                    className="h-auto p-0 text-sm text-red-500"
-                  >
-                    Logout
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
-
+      <Header/>
       <main className="container mx-auto px-4 py-8">
         {/* Live Now Section */}
         <div className="mb-12">
@@ -149,45 +109,9 @@ export default function Page() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-black text-white mt-16">
-        <div className="container mx-auto px-4 py-8">
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <Image
-              src="/placeholder.svg"
-              alt="Digital Scouting Logo"
-              width={120}
-              height={40}
-              className="h-10 w-auto mb-4 md:mb-0"
-            />
-            <div className="flex flex-wrap items-center justify-center md:justify-end gap-4">
-              <Button variant="link" className="text-white">
-                Essentials
-              </Button>
-              <Button variant="link" className="text-white">
-                Dashboards
-              </Button>
-              <Button variant="link" className="text-white">
-                Contact us
-              </Button>
-              <Button variant="link" className="text-white">
-                FAQs
-              </Button>
-              <Button variant="link" className="text-white">
-                Pricing
-              </Button>
-            </div>
-          </div>
-          <div className="flex justify-center md:justify-end mt-4 text-sm text-gray-400">
-            <Button variant="link" className="text-gray-400">
-              Privacy Policy
-            </Button>
-            <span className="mx-2">and</span>
-            <Button variant="link" className="text-gray-400">
-              Terms of Use
-            </Button>
-          </div>
-        </div>
-      </footer>
+      </div>
+      </div>
+     <Footer/>
     </div>
   );
 }
