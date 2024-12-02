@@ -1,22 +1,14 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/avatar";
 import { Button } from "@/components/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/dropdown";
-import { ChevronDown } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
-import Header from '@/app/default/signed-inheader'
-import {Footer} from'@/app/default/footer'
+import Header from "@/app/default/signed-inheader";
+import { Footer } from "@/app/default/footer";
 
 export default function ScoutsPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <Header/>
+      <Header />
       {/* Main Content */}
       <main className=" max-w-7xl container mx-auto px-4 py-8">
         <div className="overflow-x-auto">
@@ -104,7 +96,7 @@ export default function ScoutsPage() {
       </main>
 
       {/* Footer */}
-     <Footer/>
+      <Footer />
     </div>
   );
 }

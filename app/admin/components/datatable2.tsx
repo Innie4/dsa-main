@@ -9,10 +9,10 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/table";
-import { Image } from "@radix-ui/react-avatar";
 import { Clock, Flag, Trash2 } from "lucide-react";
 import { Pagination } from "./pagination";
 import { useState } from "react";
+import Image from "next/image";
 
 interface Column {
   key: string;
