@@ -116,7 +116,7 @@ const LoginPage = () => {
               <input type="checkbox" className="mr-2" />
               <label className="text-sm text-gray-600">Remember me</label>
 
-              <div className="mt-0 text-right ml-28 lg:ml-32">
+              <div className="mt-0 text-right ml-32 lg:ml-48">
               <Link
                 href="/forgot-password"
                 className="text-blue-500 hover:text-blue-700"

@@ -59,7 +59,8 @@ const HomePage = () => {
               />
             </Link>
           </div>
-          <h2 className="text-4xl font-bold mb-4">Create an account</h2>
+          <h2 className="text-4xl font-bold mb-4">Sign Up to get <span className="text-green-800">one month</span> <br />free all exclusive access!</h2>
+
           {/* Added Login Link */}
           <p className="mt-4 mb-4 text-left text-sm text-gray-600">
             Already have an account?{" "}

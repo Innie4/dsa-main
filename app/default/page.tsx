@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-html-link-for-pages */
+
 "use client";
 
 import React, { useState } from "react";
@@ -8,7 +8,7 @@ import Link from "next/link";
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
-    <div className=" bg-white">
+    <div className=" bg-white font-Bricolage-Grotesque">
       {/* Navbar */}
       <nav className="bg-white flex justify-between items-center h-16 px-4">
         <div className="flex items-center">

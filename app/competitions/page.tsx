@@ -1,80 +1,26 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import Header from '@/app/default/signed-inheader'
+import {Footer} from '@/app/default/footer'
 
 export default function CompetitionsPage() {
   return (
     <div className="min-h-screen bg-white">
+            <div className="md:px-20 lg:px-20 p-4 bg-white">
+            <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="border-b">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center space-x-8">
-            <Image
-              src="/placeholder.svg"
-              alt="Digital Scouting Logo"
-              width={40}
-              height={40}
-              className="w-10 h-10"
-            />
-            <div className="hidden md:flex items-center space-x-6">
-              <Link
-                href="#"
-                className="text-sm text-gray-600 hover:text-gray-900"
-              >
-                Essentials
-              </Link>
-              <Link
-                href="#"
-                className="text-sm text-gray-600 hover:text-gray-900"
-              >
-                Dashboards
-              </Link>
-              <Link
-                href="#"
-                className="text-sm text-gray-600 hover:text-gray-900"
-              >
-                Teams
-              </Link>
-              <Link
-                href="#"
-                className="text-sm text-gray-600 hover:text-gray-900"
-              >
-                Players
-              </Link>
-              <Link
-                href="#"
-                className="text-sm text-gray-600 hover:text-gray-900"
-              >
-                Scouts
-              </Link>
-              <Link href="#" className="text-sm text-primary font-medium">
-                Competitions
-              </Link>
-            </div>
-          </div>
-          <div className="flex items-center space-x-3">
-            <span className="text-sm text-gray-900">Samson Ademola</span>
-            <Image
-              src="/placeholder.svg"
-              alt="Profile"
-              width={32}
-              height={32}
-              className="w-8 h-8 rounded-full"
-            />
-          </div>
-        </div>
-      </nav>
-
+      <Header/>
       {/* Main Content */}
       <main className="container mx-auto px-4 py-8">
-        <h1 className="text-lg font-medium mb-6">
+        <h1 className="text-lg font-bold mb-6 text-blue-600">
           Competitions we are involved in
         </h1>
 
         {/* Hero Image */}
         <div className="relative w-full h-48 md:h-64 lg:h-80 rounded-2xl overflow-hidden mb-12">
           <Image
-            src="/placeholder.svg"
+            src="/comp-header.png"
             alt="Trophy on field"
             fill
             className="object-cover"
@@ -87,18 +33,31 @@ export default function CompetitionsPage() {
           <div>
             <h2 className="text-2xl font-bold mb-2">Principal&apos;s Cup</h2>
             <div className="flex items-center mb-4">
-              <span className="text-sm text-gray-600">Event status:</span>
+              <span className="text-sm text-blue-900 font-bold">Event status:</span>
               <span className="text-sm ml-2">Upcoming</span>
             </div>
             <div className="space-y-4 text-gray-600">
               <p>
-                The Principal&apos;s Cup is a pivotal initiative for Digital
-                Scouting Africa (DSA) designed to harness the energy and
-                potential of youth through grassroots football development...
+              The Principal&apos;s Cup is a pivotal initiative for Digital Scouting Africa (DSA), designed to harness the energy and potential of youth through grassroots football development. With a focus on engaging the vibrant youth market, DSA aims to connect directly and indirectly with indigenes across local government areas, creating opportunities for young players to showcase their talents and rise to prominence.
               </p>
               <p>
-                This initiative underscores DSA&apos;s commitment to expanding
-                its reach to all 36 states of the federation and the FCT...
+                
+This initiative underscores DSA&apos;s commitment to expanding its reach to all 36 states of the federation and the FCT, ensuring that the impact of the tournament is felt nationwide. By fostering a robust network of grassroots talent, the Principal&apos;s Cup not only elevates the visibility of grassroots football but also establishes a pathway for players to access professional platforms and career-defining opportunities.
+              </p>
+              <p>
+              The Principal&apos;s Cup is a pivotal initiative for Digital Scouting Africa (DSA), designed to harness the energy and potential of youth through grassroots football development. With a focus on engaging the vibrant youth market, DSA aims to connect directly and indirectly with indigenes across local government areas, creating opportunities for young players to showcase their talents and rise to prominence.
+
+This initiative underscores DSA&apos;s commitment to expanding its reach to all 36 states of the federation and the FCT, ensuring that the impact of the tournament is felt nationwide. By fostering a robust network of grassroots talent, the Principal&apos;s Cup not only elevates the visibility of grassroots football but also establishes a pathway for players to access professional platforms and career-defining opportunities.
+</p>
+<p>
+Aligned with the vision of this sports-focused organization to nurture role models and leverage sports as a catalyst for academic excellence among secondary school students, the Principal&apos;s Cup has become a vital platform for creating football stars who represent Nigeria on the international stage. It also plays a crucial role in the discovery, career development, and economic empowerment of grassroots football talent.
+Football, as a unifying phenomenon, has proven its power to foster camaraderie among youth. The Principal&apos;s Cup continues to uncover local football talent at the grassroots level while promoting healthy competition and fostering a sense of community.
+</p>
+<p>
+The Principal&apos;s Cup is an annual football competition that kicks off with the start of the academic year in secondary schools and concludes in mid-June. Since its inception in Lagos in 2009, the competition has not only encouraged school dropouts to return to education but has also expanded its reach to Ogun and Rivers States, driving greater impact across the region.
+</p>
+<p>
+Beyond football, the tournament drives community engagement and inspires local pride, reinforcing the importance of sports in uniting people and nurturing ambition. Through the Principal&apos;s Cup, Digital Scouting Africa envisions a future where every community is empowered, and young talents have the support they need to achieve greatness
               </p>
             </div>
           </div>
@@ -109,27 +68,31 @@ export default function CompetitionsPage() {
               Elite School Cup – Where Champions Begin
             </h2>
             <div className="flex items-center mb-4">
-              <span className="text-sm text-gray-600">Event status:</span>
+              <span className="text-sm text-blue-900">Event status:</span>
               <span className="text-sm ml-2">Upcoming</span>
             </div>
             <p className="text-gray-600">
-              The Elite School Cup is more than just a competition—it&apos;s a
-              launchpad for exceptional young football talents...
+            The Elite School Cup is more than just a competition—it&apos;s a launchpad for exceptional young football talents. Bringing together the best secondary school teams, this tournament celebrates skill, teamwork, and sportsmanship at the grassroots level.
+            </p><br />
+            <p className="text-gray-600">
+
+
+Digital Scouting Africa (DSA) plays a pivotal role in this journey. As the official scouting partner, DSA identifies standout players during the competition, connecting them to professional opportunities and nurturing their development. By leveraging advanced scouting tools and expertise, DSA ensures that every promising talent is recognized and guided toward a brighter future in football. Step onto the field, showcase your skills, and let your journey to greatness begin at the Elite School
             </p>
           </div>
         </section>
 
         {/* Our Competitions */}
-        <section className="bg-green-600 -mx-4 px-4 py-12 md:-mx-8 md:px-8 lg:-mx-16 lg:px-16">
+        <section className="bg-gradient-to-r from-green-500 to-blue-800 -mx-4 px-4 py-12 md:-mx-8 md:px-8 md:py-8 lg:-mx-24 lg:px-16">
           <h2 className="text-2xl font-bold text-white mb-8">
             Our Competitions
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-1">
             {/* U-17 Card */}
-            <div className="bg-green-500/50 rounded-lg p-6 backdrop-blur-sm">
+            <div className="bg-green-500/50 rounded-lg p-6 backdrop-blur-sm w-72">
               <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mb-4">
                 <Image
-                  src="/placeholder.svg"
+                  src="/our-comp.png"
                   alt="Football icon"
                   width={32}
                   height={32}
@@ -149,10 +112,10 @@ export default function CompetitionsPage() {
             </div>
 
             {/* U-20 Card */}
-            <div className="bg-green-500/50 rounded-lg p-6 backdrop-blur-sm">
+            <div className="bg-green-500/50 rounded-lg p-6 backdrop-blur-sm w-72">
               <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mb-4">
                 <Image
-                  src="/placeholder.svg"
+                  src="/our-comp.png"
                   alt="Football icon"
                   width={32}
                   height={32}
@@ -172,10 +135,10 @@ export default function CompetitionsPage() {
             </div>
 
             {/* Championship Card */}
-            <div className="bg-blue-600 rounded-lg p-6">
+            <div className="bg-blue-600 rounded-lg p-6 w-72">
               <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mb-4">
                 <Image
-                  src="/placeholder.svg"
+                  src="/our-comp.png"
                   alt="Football icon"
                   width={32}
                   height={32}
@@ -211,45 +174,10 @@ export default function CompetitionsPage() {
           </button>
         </section>
       </main>
-
+</div>
+</div>
       {/* Footer */}
-      <footer className="border-t mt-16">
-        <div className="container mx-auto px-4 py-6 flex flex-col md:flex-row items-center justify-between">
-          <Image
-            src="/placeholder.svg"
-            alt="Digital Scouting Logo"
-            width={40}
-            height={40}
-            className="w-10 h-10 mb-4 md:mb-0"
-          />
-          <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-600">
-            <Link href="#" className="hover:text-gray-900">
-              Essentials
-            </Link>
-            <Link href="#" className="hover:text-gray-900">
-              Dashboards
-            </Link>
-            <Link href="#" className="hover:text-gray-900">
-              Contact us
-            </Link>
-            <Link href="#" className="hover:text-gray-900">
-              FAQs
-            </Link>
-            <Link href="#" className="hover:text-gray-900">
-              Pricing
-            </Link>
+      <Footer/>
           </div>
-          <div className="flex items-center gap-4 text-sm text-gray-600 mt-4 md:mt-0">
-            <Link href="#" className="hover:text-gray-900">
-              Privacy Policy
-            </Link>
-            <span>and</span>
-            <Link href="#" className="hover:text-gray-900">
-              Terms of Use
-            </Link>
-          </div>
-        </div>
-      </footer>
-    </div>
   );
 }

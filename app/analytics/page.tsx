@@ -21,78 +21,14 @@ import {
   SelectValue,
 } from "./components/select";
 import { Progress } from "./components/progress";
+import Header from '@/app/default/signed-inheader'
+import {Footer} from '@/app/default/footer'
 
 export default function AnalyticsDashboard() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="border-b">
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-8">
-            <Image
-              src="/placeholder.svg"
-              alt="Digital Scouting Africa Logo"
-              width={40}
-              height={40}
-              className="h-10 w-10"
-            />
-            <NavigationMenu>
-              <NavigationMenuList className="hidden gap-6 md:flex">
-                <NavigationMenuItem>
-                  <NavigationMenuLink className="text-sm font-medium text-gray-700 hover:text-gray-900">
-                    Essentials
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <NavigationMenuLink className="text-sm font-medium text-gray-700 hover:text-gray-900">
-                    Dashboards
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <NavigationMenuLink className="text-sm font-medium text-gray-700 hover:text-gray-900">
-                    Teams
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <NavigationMenuLink className="text-sm font-medium text-gray-700 hover:text-gray-900">
-                    Players
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <NavigationMenuLink className="text-sm font-medium text-gray-700 hover:text-gray-900">
-                    Scouts
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <NavigationMenuLink className="text-sm font-medium text-gray-700 hover:text-gray-900">
-                    Competitions
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
-          </div>
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2">
-              <Image
-                src="/placeholder.svg"
-                alt="Profile"
-                width={40}
-                height={40}
-                className="h-10 w-10 rounded-full"
-              />
-              <div className="hidden sm:block">
-                <div className="text-sm font-medium">Samson Adenuga</div>
-                <div className="flex items-center gap-2">
-                  <span className="text-sm text-gray-500">Profile</span>
-                  <span className="text-sm text-red-500">Logout</span>
-                  <LogOut className="h-4 w-4 text-red-500" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
-
+     <Header/>
       {/* Main Content */}
       <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         <div className="grid gap-8 lg:grid-cols-2">
@@ -155,8 +91,8 @@ export default function AnalyticsDashboard() {
                     {["M", "T", "W", "T", "F", "S", "S"].map((day, i) => (
                       <div key={i} className="text-center">
                         <div
-                          className={`h-24 rounded-md bg-gray-100 ${
-                            i === 3 ? "bg-yellow-400" : ""
+                          className={`h-24 w-5 rounded-lg bg-gray-100 ml-6 ${
+                            i === 3 ? "bg-yellow-400 h-30" : ""
                           }`}
                         />
                         <div className="mt-2 text-sm">{day}</div>
@@ -299,59 +235,7 @@ export default function AnalyticsDashboard() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t bg-black text-white">
-        <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between">
-            <Image
-              src="/placeholder.svg"
-              alt="Digital Scouting Africa Logo"
-              width={40}
-              height={40}
-              className="h-10 w-10"
-            />
-            <div className="flex items-center gap-6">
-              <NavigationMenu>
-                <NavigationMenuList className="hidden gap-6 md:flex">
-                  <NavigationMenuItem>
-                    <NavigationMenuLink className="text-sm text-gray-300 hover:text-white">
-                      Essentials
-                    </NavigationMenuLink>
-                  </NavigationMenuItem>
-                  <NavigationMenuItem>
-                    <NavigationMenuLink className="text-sm text-gray-300 hover:text-white">
-                      Dashboards
-                    </NavigationMenuLink>
-                  </NavigationMenuItem>
-                  <NavigationMenuItem>
-                    <NavigationMenuLink className="text-sm text-gray-300 hover:text-white">
-                      Contact us
-                    </NavigationMenuLink>
-                  </NavigationMenuItem>
-                  <NavigationMenuItem>
-                    <NavigationMenuLink className="text-sm text-gray-300 hover:text-white">
-                      FAQs
-                    </NavigationMenuLink>
-                  </NavigationMenuItem>
-                  <NavigationMenuItem>
-                    <NavigationMenuLink className="text-sm text-gray-300 hover:text-white">
-                      Pricing
-                    </NavigationMenuLink>
-                  </NavigationMenuItem>
-                </NavigationMenuList>
-              </NavigationMenu>
-              <div className="flex items-center gap-4 text-sm text-gray-300">
-                <a href="#" className="hover:text-white">
-                  Privacy Policy
-                </a>
-                <span>and</span>
-                <a href="#" className="hover:text-white">
-                  Terms of Use
-                </a>
-              </div>
-            </div>
+      <Footer/>
           </div>
-        </div>
-      </footer>
-    </div>
   );
 }

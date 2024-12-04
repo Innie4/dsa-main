@@ -4,6 +4,8 @@ import { useState } from 'react'
 import Image from 'next/image'
 import { ChevronDown, LogOut } from 'lucide-react'
 import { useRouter } from 'next/navigation';
+import Header from '@/app/default/signed-inheader'
+import {Footer} from '@/app/default/footer'
 
 interface NavItem {
   label: string
@@ -12,26 +14,10 @@ interface NavItem {
 }
 
 export default function BillingHistoryPage() {
-  const [essentialsOpen, setEssentialsOpen] = useState(false)
-  const [dashboardsOpen, setDashboardsOpen] = useState(false)
+  
   const router = useRouter();
 
-  const navItems: NavItem[] = [
-    { label: 'Essentials', href: '#', hasDropdown: true },
-    { label: 'Dashboards', href: '#', hasDropdown: true },
-    { label: 'Teams', href: '#' },
-    { label: 'Players', href: '#' },
-    { label: 'Scouts', href: '#' },
-    { label: 'My Subscription', href: '#' },
-  ]
 
-  const footerNavItems = [
-    { label: 'Essentials', href: '#', hasDropdown: true },
-    { label: 'Dashboards', href: '#', hasDropdown: true },
-    { label: 'Contact us', href: '#' },
-    { label: 'FAQs', href: '#' },
-    { label: 'Pricing', href: '#' },
-  ]
 
   const handleSubscriptionPlanClick = () => {
     router.push('/pricing');
@@ -40,85 +26,7 @@ export default function BillingHistoryPage() {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Header */}
-      <header className="bg-white py-4 px-6 border-b">
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div className="flex items-center space-x-8">
-            <Image
-              src="/DSA-logo.png"
-              alt="Digital Scouting Africa Logo"
-              width={40}
-              height={40}
-              className="w-10 h-10"
-            />
-            <nav className="hidden md:flex items-center space-x-6">
-              {navItems.map((item, index) => (
-                <div
-                  key={index}
-                  className="relative"
-                  onMouseEnter={() => {
-                    if (item.label === 'Essentials') setEssentialsOpen(true)
-                    if (item.label === 'Dashboards') setDashboardsOpen(true)
-                  }}
-                  onMouseLeave={() => {
-                    if (item.label === 'Essentials') setEssentialsOpen(false)
-                    if (item.label === 'Dashboards') setDashboardsOpen(false)
-                  }}
-                >
-                  <a
-                    href={item.href}
-                    className={`flex items-center text-gray-700 hover:text-gray-900 ${
-                      item.label === 'Scouts' ? 'text-blue-700 font-medium' : ''
-                    }`}
-                  >
-                    {item.label}
-                    {item.hasDropdown && <ChevronDown className="ml-1 h-4 w-4" />}
-                  </a>
-                  {item.hasDropdown && (item.label === 'Essentials' ? essentialsOpen : dashboardsOpen) && (
-                    <div className="absolute top-full left-0 w-48 bg-white shadow-lg rounded-md py-2 z-50">
-                      <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                        Option 1
-                      </a>
-                      <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                        Option 2
-                      </a>
-                      <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                        Option 3
-                      </a>
-                    </div>
-                  )}
-                </div>
-              ))}
-
-              <button onClick={handleSubscriptionPlanClick} className="text-blue-600 hover:text-blue-800">
-                Subscription plan
-              </button>
-            </nav>
-          </div>
-          <div className="flex items-center space-x-4">
-            <div className="flex items-center space-x-2">
-              <Image
-                src="/placeholder.svg"
-                alt="User Avatar"
-                width={40}
-                height={40}
-                className="w-10 h-10 rounded-full"
-              />
-              <div className="hidden md:block">
-                <div className="font-medium">Samson Adenuga</div>
-                <div className="flex items-center text-sm text-gray-500">
-                  <a href="#" className="hover:text-gray-700">Profile</a>
-                  <span className="mx-2">•</span>
-                  <a href="#" className="flex items-center text-red-600 hover:text-red-700">
-                    <LogOut className="h-4 w-4 mr-1" />
-                    Logout
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
-
+      <Header/>
       {/* Main Content */}
       <main className="flex-grow container mx-auto px-4 py-8">
         <div className="max-w-7xl mx-auto">
@@ -165,37 +73,8 @@ export default function BillingHistoryPage() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-8 px-6 rounded-t-3xl">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-center mb-8">
-            <Image
-              src="/dsalogo5.png"
-              alt="Digital Scouting Africa Logo"
-              width={40}
-              height={40}
-              className="w-10 h-10 mb-4 md:mb-0"
-            />
-            <nav className="flex flex-wrap justify-center md:justify-end gap-6">
-              {footerNavItems.map((item, index) => (
-                <a
-                  key={index}
-                  href={item.href}
-                  className="flex items-center text-gray-300 hover:text-white"
-                >
-                  {item.label}
-                  {item.hasDropdown && <ChevronDown className="ml-1 h-4 w-4" />}
-                </a>
-              ))}
-            </nav>
+      <Footer/>
           </div>
-          <div className="text-right text-sm text-gray-400">
-            <a href="#" className="hover:text-white">Privacy Policy</a>
-            {' '}and{' '}
-            <a href="#" className="hover:text-white">Terms of Use</a>
-          </div>
-        </div>
-      </footer>
-    </div>
   )
 }
 

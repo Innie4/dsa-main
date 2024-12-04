@@ -11,10 +11,10 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { label: 'Essentials', href: '#' },
+  { label: 'Essentials', href: 'player-page' },
   { label: 'Dashboards', href: '#' },
-  { label: 'Why choose us', href: '#', isActive: true },
-  { label: 'Competitions', href: '#' },
+  { label: 'Why choose us', href: 'why-choose-us', isActive: true },
+  { label: 'Competitions', href: 'competitions' },
   { label: 'Marketplace', href: '#' },
 ]
 
@@ -63,9 +63,9 @@ export default function Header() {
               <div>
                 <div className="font-medium">Samson Adenuga</div>
                 <div className="flex items-center text-sm text-gray-500">
-                  <a href="#" className="hover:text-gray-700">Profile</a>
+                  <a href="my-profile" className="hover:text-gray-700">Profile</a>
                   <span className="mx-2">•</span>
-                  <a href="#" className="flex items-center text-red-600 hover:text-red-700">
+                  <a href="login" className="flex items-center text-red-600 hover:text-red-700">
                     <LogOut className="h-4 w-4 mr-1" />
                     Logout
                   </a>
