@@ -28,31 +28,31 @@ function Header() {
         <div className="hidden md:flex items-center space-x-8">
           <a
             href="player-page"
-            className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
+            className="text-sm text-gray-600 hover:text-[#122483] transition-colors"
           >
             Essentials
           </a>
           <a
             href="analytics"
-            className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
+            className="text-sm text-gray-600 hover:text-[#122483] transition-colors"
           >
             Dashboard
           </a>
           <a
             href="/why-choose-us"
-            className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
+            className="text-sm text-gray-600 hover:text-[#122483] transition-colors"
           >
             Why choose DSA
           </a>
           <a
             href="/marketplace"
-            className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
+            className="text-sm text-gray-600 hover:text-[#122483] transition-colors"
           >
             Marketplace
           </a>
           <a
             href="/competitions"
-            className="text-sm text-gray-700 hover:text-[#122483] transition-colors"
+            className="text-sm text-gray-600 hover:text-[#122483] transition-colors"
           >
             Competitions
           </a>

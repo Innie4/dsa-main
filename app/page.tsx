@@ -17,7 +17,7 @@ const LandingPage: React.FC = () => {
           >
             <div className="container mx-auto md:px-4 lg:px-4  md:py-20 lg:py-20 py-10">
               <div className="max-w-2xl">
-                <h1 className="text-4xl font-bold text-white mb-4 ml-12">
+                <h1 className="text-4xl font-bold text-white mb-4 ml-12 font-family-'bricolage', cursive">
                   Unleashing potential <br /> across Africa
                 </h1>
                 <p className="text-gray-200 mb-8 backdrop-blur-md bg-white/30 p-3 rounded-2xl w-1/2 ml-12">
@@ -325,7 +325,7 @@ const LandingPage: React.FC = () => {
           <div
             className="bg-blue-900 bg-cover bg-center py-20 text-white rounded-xl"
             style={{
-              backgroundImage: "url('./map.png')",
+              backgroundImage: "url('map.png')",
             }}
           >
             <div className="text-center px-4">
