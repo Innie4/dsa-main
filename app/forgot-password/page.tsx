@@ -1,16 +1,33 @@
 // app/reset-password.tsx
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import AltHeader from "@/components/alt-header";
+import { postRequest } from "@/helpers/api"; // Import the postRequest function
+import { toast } from "react-hot-toast"; // Import the toast function
 
 const ResetPasswordPage = () => {
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (event: React.FormEvent) => {
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    router.push("/password-verification");
+    const email = (event.target as HTMLFormElement).email.value; // Get the email from the form
+
+    setLoading(true);
+
+    try {
+      const data = await postRequest("/auth/send-otp", { email }); // Use the postRequest helper
+
+      toast.success(data.message); // Show success message using toast
+      router.push(`/password-verification?email=${email}`); // Navigate to the next screen
+    } catch (error) {
+      toast.error("Failed to send OTP"); // Show error message using toast
+      console.error(error); // Handle error appropriately
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -35,6 +52,7 @@ const ResetPasswordPage = () => {
               </label>
               <input
                 type="email"
+                name="email"
                 placeholder="Enter your email address"
                 className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
@@ -42,9 +60,12 @@ const ResetPasswordPage = () => {
             </div>
             <button
               type="submit"
-              className="w-full bg-blue-600 text-white font-bold py-2 rounded-md hover:bg-blue-700 transition duration-200"
+              className={`w-full bg-blue-600 text-white font-bold py-2 rounded-md hover:bg-blue-700 transition duration-200 ${
+                loading ? "opacity-50 cursor-not-allowed" : ""
+              }`}
+              disabled={loading}
             >
-              Get 6-digit code
+              {loading ? "Loading..." : "Get 6-digit code"}
             </button>
           </form>
         </div>

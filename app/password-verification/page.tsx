@@ -3,16 +3,33 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import AltHeader from "@/components/alt-header";
+import { toast } from "react-hot-toast"; // Import toast
+import { postRequest } from "@/helpers/api"; // Import postRequest helper
 
 const VerificationPage = () => {
   const [code, setCode] = useState(["", "", "", "", "", ""]); // State to hold the 6-digit code
   const router = useRouter();
+  const searchParams = useSearchParams(); // Use useSearchParams to get query params
+  const email = searchParams.get("email"); // Get email from search params
+  const [isLoading, setIsLoading] = useState(false); // State to manage loading
 
   const handleChange = (index: number, value: string) => {
     const newCode = [...code];
-    newCode[index] = value;
+
+    // Handle pasting of multiple characters
+    if (value.length > 1) {
+      const digits = value.split("").slice(0, 6); // Limit to 6 digits
+      for (let i = 0; i < digits.length; i++) {
+        if (i < 6) {
+          newCode[i] = digits[i]; // Fill in the new code
+        }
+      }
+    } else {
+      newCode[index] = value; // Handle single character input
+    }
+
     setCode(newCode);
 
     // Move to the next input if the current one is filled
@@ -34,9 +51,25 @@ const VerificationPage = () => {
     }
   };
 
-  const handleContinue = () => {
-    // Redirect to the new password page
-    router.push("/new-password");
+  const handleContinue = async () => {
+    const otpCode = code.join(""); // Join the code array to form the OTP
+    setIsLoading(true); // Set loading to true
+
+    try {
+      const data = await postRequest("/auth/verify-otp", {
+        email,
+        code: otpCode,
+      }); // Call the verify-otp endpoint
+      toast.success(data.message); // Show success message
+      router.push(`/new-password?email=${email}&code=${otpCode}`); // Navigate to the new password page
+    } catch (error) {
+      const errorMessage =
+        (error as { response?: { data?: { message?: string } } })?.response
+          ?.data?.message || "Invalid or expired OTP"; // Extract error message
+      toast.error(errorMessage); // Show error message
+    } finally {
+      setIsLoading(false); // Reset loading state
+    }
   };
 
   // Check if the code is fully entered
@@ -70,17 +103,21 @@ const VerificationPage = () => {
           <button
             type="button"
             onClick={handleContinue}
-            disabled={!isCodeComplete} // Disable button if code is not complete
+            disabled={!isCodeComplete || isLoading} // Disable button if code is not complete or loading
             className={`w-full text-white font-bold py-2 rounded-md transition duration-200 ${
-              isCodeComplete
+              isCodeComplete && !isLoading
                 ? "bg-blue-600 hover:bg-blue-700"
                 : "bg-gray-400 cursor-not-allowed"
-            }`} // Change class based on code completion
+            }`} // Change class based on code completion and loading state
           >
-            Continue
+            {isLoading ? "Loading..." : "Continue"}
           </button>
           <div className="text-center mt-4">
-            <Link href="#" className="text-blue-500 hover:text-blue-700">
+            <Link
+              href="/forgot-password"
+              onClick={() => router.back()}
+              className="text-blue-500 hover:text-blue-700"
+            >
               Resend code
             </Link>
           </div>

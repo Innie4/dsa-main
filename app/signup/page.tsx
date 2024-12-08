@@ -6,10 +6,23 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { Eye, EyeOff } from "lucide-react"; // Import icons from lucide-react
 import ReturnButton from "@/components/return-button";
+import { postRequest } from "@/helpers/api"; // Import the postRequest helper function
+import { toast } from "react-hot-toast"; // Import toast for notifications
+import { useRouter } from "next/navigation"; // Import useRouter for navigation
 
 const HomePage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    nationality: "",
+    userType: "user", // Default user type
+  });
+  const [loading, setLoading] = useState(false); // Loading state
+  const router = useRouter(); // Initialize router for navigation
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -17,6 +30,52 @@ const HomePage = () => {
 
   const toggleConfirmPasswordVisibility = () => {
     setShowConfirmPassword(!showConfirmPassword);
+  };
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault(); // Prevent default form submission
+    setLoading(true); // Set loading to true
+    try {
+      const response = await postRequest("/auth/register", {
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        password: formData.password,
+        nationality: formData.nationality,
+      });
+      // Show success message
+      toast.success(response.message);
+      // Save token to local storage
+      localStorage.setItem("token", response.token);
+      // Redirect to home page
+      router.push("/");
+    } catch (error: unknown) {
+      // Show error message
+      const errorMessage =
+        (error as { message?: string }).message ||
+        "An error occurred during registration";
+      toast.error(errorMessage);
+    } finally {
+      setLoading(false); // Reset loading state
+    }
+  };
+
+  // Function to check if all fields are filled
+  const isFormValid = () => {
+    return (
+      formData.firstName &&
+      formData.lastName &&
+      formData.email &&
+      formData.password &&
+      formData.nationality
+    );
   };
 
   return (
@@ -48,8 +107,6 @@ const HomePage = () => {
       {/* Right Side Form */}
       <div className="flex items-center justify-center w-full lg:w-1/2 md:w-1/2 p-4">
         <div className=" w-full max-w-2xl">
-          {" "}
-          {/* Added max-width for better form control */}
           <div className="flex justify-between items-center mb-6">
             <Link href="/">
               <img
@@ -59,7 +116,11 @@ const HomePage = () => {
               />
             </Link>
           </div>
-          <h2 className="text-4xl font-bold mb-4">Sign Up to get <span className="text-green-800">one month</span> <br />free all exclusive access!</h2>
+          <h2 className="text-4xl font-bold mb-4">
+            Sign Up to get <span className="text-green-800">one month</span>{" "}
+            <br />
+            free all exclusive access!
+          </h2>
 
           {/* Added Login Link */}
           <p className="mt-4 mb-4 text-left text-sm text-gray-600">
@@ -69,20 +130,43 @@ const HomePage = () => {
             </Link>
             .
           </p>
-          <form>
+          <form onSubmit={handleSubmit}>
+            {" "}
+            {/* Attach handleSubmit to form */}
             <div className=" mb-4">
               <label className="block text-sm font-medium text-gray-700">
                 Please select the option that best represents you
               </label>
               <div className="flex items-center space-x-4">
                 <span>
-                  <input type="radio" name="user_type" value="user" /> User{" "}
+                  <input
+                    type="radio"
+                    name="userType"
+                    value="user"
+                    checked={formData.userType === "user"}
+                    onChange={handleChange}
+                  />{" "}
+                  User{" "}
                 </span>
                 <span>
-                  <input type="radio" name="user_type" value="scout" /> Scout{" "}
+                  <input
+                    type="radio"
+                    name="userType"
+                    value="scout"
+                    checked={formData.userType === "scout"}
+                    onChange={handleChange}
+                  />{" "}
+                  Scout{" "}
                 </span>
                 <span>
-                  <input type="radio" name="user_type" value="agency" /> Agency{" "}
+                  <input
+                    type="radio"
+                    name="userType"
+                    value="agency"
+                    checked={formData.userType === "agency"}
+                    onChange={handleChange}
+                  />{" "}
+                  Agency{" "}
                 </span>
               </div>
             </div>
@@ -93,8 +177,11 @@ const HomePage = () => {
                 </label>
                 <input
                   type="text"
+                  name="firstName" // Add name attribute
                   placeholder="Enter your first name"
                   className="mt-1 block w-full border border-gray-300 rounded-md p-2"
+                  value={formData.firstName} // Bind value
+                  onChange={handleChange} // Handle change
                 />
               </div>
               <div className="md:w-1/2 lg:w-1/2 md:pl-2 my-4 md:mt-0">
@@ -103,8 +190,11 @@ const HomePage = () => {
                 </label>
                 <input
                   type="text"
+                  name="lastName" // Add name attribute
                   placeholder="Enter your last name"
                   className="mt-1 block w-full border border-gray-300 rounded-md p-2"
+                  value={formData.lastName} // Bind value
+                  onChange={handleChange} // Handle change
                 />
               </div>
             </div>
@@ -114,8 +204,11 @@ const HomePage = () => {
               </label>
               <input
                 type="email"
+                name="email" // Add name attribute
                 placeholder="Enter your email address"
                 className="mt-1 block w-full border border-gray-300 rounded-md p-2"
+                value={formData.email} // Bind value
+                onChange={handleChange} // Handle change
               />
             </div>
             <div className="md:flex mb-4">
@@ -125,8 +218,11 @@ const HomePage = () => {
                 </label>
                 <input
                   type={showPassword ? "text" : "password"}
+                  name="password" // Add name attribute
                   placeholder="Enter your password"
                   className="mt-1 block w-full border border-gray-300 rounded-md p-2 text-sm"
+                  value={formData.password} // Bind value
+                  onChange={handleChange} // Handle change
                 />
                 <button
                   type="button"
@@ -166,7 +262,12 @@ const HomePage = () => {
               <label className="block text-sm font-medium text-gray-700">
                 Nationality
               </label>
-              <select className="mt-1 block w-full border border-gray-300 rounded-md p-2 overflow-y-auto max-h-40">
+              <select
+                name="nationality" // Add name attribute
+                className="mt-1 block w-full border border-gray-300 rounded-md p-2 overflow-y-auto max-h-40"
+                value={formData.nationality} // Bind value
+                onChange={handleChange} // Handle change
+              >
                 <option>Select nationality</option>
                 <option value="benin">Benin</option>
                 <option value="burkina_faso">Burkina Faso</option>
@@ -196,10 +297,19 @@ const HomePage = () => {
               </label>
             </div>
             <button
-              type="submit"
-              className="w-full bg-gray-300 text-gray-700 font-bold py-2 rounded-md hover:bg-gray-400"
+              type="submit" // Submit button
+              className={`w-full text-gray-700 font-bold py-2 rounded-md hover:bg-gray-400 ${
+                isFormValid()
+                  ? "bg-[#0D1A5D] text-white"
+                  : "bg-gray-300 opacity-50 cursor-not-allowed"
+              }`}
+              disabled={!isFormValid() || loading} // Disable button when form is invalid or loading
             >
-              Create account
+              {loading ? (
+                <span>Loading...</span> // Show loading text
+              ) : (
+                "Create account"
+              )}
             </button>
             <div className="flex items-center justify-center mt-4">
               <span className="text-gray-500">Or</span>

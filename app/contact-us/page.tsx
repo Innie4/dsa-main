@@ -5,6 +5,8 @@ import React, { useState } from "react";
 // import { Menu, X } from "lucide-react";
 import Header from "@/app/default/page";
 import { Footer } from "../default/footer";
+import { toast } from "react-hot-toast";
+import { postRequest } from "@/helpers/api";
 // import { Footer } from "@/app/default/footer";
 
 interface FormData {
@@ -34,9 +36,18 @@ function App() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    try {
+      const response = await postRequest("/contact", formData);
+      toast.success(response.message);
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        toast.error(error.message || "Failed to send message");
+      } else {
+        toast.error("Failed to send message");
+      }
+    }
   };
 
   return (

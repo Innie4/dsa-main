@@ -2,9 +2,11 @@
 "use client";
 
 import React, { useState } from "react";
-import { CreditCard, Building } from "lucide-react";
 import { Footer } from "../default/footer";
 import Header from "../default/page";
+import { FlutterWaveButton } from "flutterwave-react-v3";
+import { toast } from "react-hot-toast";
+import { postRequest } from "../../helpers/api";
 
 // interface Section {
 //   id: string;
@@ -14,52 +16,59 @@ import Header from "../default/page";
 // }
 
 function App() {
-  // const [expandedSection, setExpandedSection] = useState<string | null>(null);
-  const [paymentMethod, setPaymentMethod] = useState<string>(""); // Define paymentMethod state
+  const [accountName, setAccountName] = useState("");
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  // const sections: Section[] = [
-  //   {
-  //     id: 'welcome',
-  //     title: 'Welcome to Digital Scouting Africa',
-  //     content: 'By accessing or using our platform, you agree to comply with these Terms of Use. Please read them very carefully and judiciously.',
-  //     icon: <Book className="w-6 h-6" />,
-  //   },
-  //   {
-  //     id: 'acceptance',
-  //     title: 'Acceptance of Terms',
-  //     content: 'By creating an account or using Digital Scouting Africa, you agree to these terms and our Privacy Policy. If you do not agree, you must not use the platform.',
-  //     icon: <UserCheck className="w-6 h-6" />,
-  //   },
-  //   {
-  //     id: 'responsibilities',
-  //     title: 'User Responsibilities',
-  //     content: [
-  //       'Accuracy of Information: Users must provide accurate and up-to-date information during registration and profile creation.',
-  //       'Appropriate Use: The platform must only be used for scouting, recruitment, and related purposes. Any misuse, including harassment, unauthorized access, or fraudulent activities, is strictly prohibited.',
-  //       'Compliance: Users must comply with all applicable laws and regulations while using Digital Scouting Africa.',
-  //     ],
-  //     icon: <Shield className="w-6 h-6" />,
-  //   },
-  //   {
-  //     id: 'content',
-  //     title: 'Platform Content',
-  //     content: [
-  //       'Ownership: All content on Digital Scouting Africa, including designs, text, and media, is owned by or licensed to us and protected by copyright laws.',
-  //       'User Content: By uploading content (e.g., videos or profiles), you grant us a license to use, display, and distribute it for scouting-related purposes.',
-  //       'Prohibited Content: Users must not post content that is offensive, illegal, or violates intellectual property rights.',
-  //     ],
-  //     icon: <Settings className="w-6 h-6" />,
-  //   },
-  //   {
-  //     id: 'liability',
-  //     title: 'Limitation of Liability',
-  //     content: 'Digital Scouting Africa is not liable for any direct, indirect, or consequential damages arising from the use of the platform, including missed opportunities or disputes between users.',
-  //     icon: <AlertTriangle className="w-6 h-6" />,
-  //   },
-  // ];
+  const handlePaymentSuccess = async () => {
+    setLoading(true);
+    try {
+      const billingData = {
+        userId: 1,
+        amount: 4900,
+        status: "COMPLETED",
+      };
+      const result = await postRequest("/billing", billingData);
+      toast.success("Payment successful!");
+      console.log(result);
+      window.location.href = "/billing-history";
+    } catch (error) {
+      toast.error("Payment failed!");
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const componentProps = {
+    tx_ref: Date.now().toString(),
+    amount: 4900,
+    currency: "NGN",
+    payment_type: "card",
+    email: email,
+    phone_number: "1234567890",
+    callback: handlePaymentSuccess,
+    onClose: () => {
+      console.log("Payment modal closed");
+    },
+    text: "Subscribe",
+    public_key: "FLWPUBK-228d9711c3de4c3b2d6f6febd9a43a08-X",
+    customer: {
+      email: email,
+      phone_number: "1234567890",
+      name: accountName,
+    },
+    customizations: {
+      title: "Upgrade to Pro",
+      description: "Payment for your subscription",
+      logo: "https://your-logo-url.com/logo.png",
+    },
+    payment_options: "card",
+  };
 
   return (
     <div className="min-h-screen bg-white">
+      {loading && <div className="loading-indicator">Loading...</div>}
       <Header />
 
       {/* Main Content */}
@@ -90,6 +99,8 @@ function App() {
                   <input
                     type="text"
                     placeholder="Account name"
+                    value={accountName}
+                    onChange={(e) => setAccountName(e.target.value)}
                     className="w-full px-4 py-3 rounded-md border border-gray-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none"
                   />
                 </div>
@@ -101,49 +112,25 @@ function App() {
                   <input
                     type="email"
                     placeholder="Enter your email address"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     className="w-full px-4 py-3 rounded-md border border-gray-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none"
                   />
-                </div>
-
-                <div>
-                  <label className="block text-blue-900 font-medium mb-2">
-                    Payment details
-                  </label>
-                  <div className="grid grid-cols-2 gap-4">
-                    <button
-                      type="button"
-                      onClick={() => setPaymentMethod("credit")}
-                      className={`p-4 border rounded-md flex items-center justify-center space-x-2 transition-colors ${
-                        paymentMethod === "credit"
-                          ? "border-blue-500 bg-blue-50"
-                          : "border-gray-300"
-                      }`}
-                    >
-                      <CreditCard className="h-5 w-5 text-gray-600" />
-                      <span className="text-gray-700">Credit Card</span>
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setPaymentMethod("bank")}
-                      className={`p-4 border rounded-md flex items-center justify-center space-x-2 transition-colors ${
-                        paymentMethod === "bank"
-                          ? "border-blue-500 bg-blue-50"
-                          : "border-gray-300"
-                      }`}
-                    >
-                      <Building className="h-5 w-5 text-gray-600" />
-                      <span className="text-gray-700">Bank transfer</span>
-                    </button>
-                  </div>
                 </div>
 
                 <div className="grid grid-cols-2 gap-4 pt-4">
                   <button className="w-full py-3 text-gray-600 bg-gray-100 rounded-md hover:bg-gray-200 transition-colors">
                     Cancel
                   </button>
-                  <button className="w-full py-3 text-blue-600 bg-blue-50 rounded-md hover:bg-blue-100 transition-colors">
+                  {/* <button
+                    onClick={handleSubscribe}
+                     >
                     Subscribe
-                  </button>
+                  </button> */}
+                  <FlutterWaveButton
+                    className="w-full py-3 text-blue-600 bg-blue-50 rounded-md hover:bg-blue-100 transition-colors"
+                    {...componentProps}
+                  />
                 </div>
 
                 <p className="text-sm text-gray-600 pt-2">
