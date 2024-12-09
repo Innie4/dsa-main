@@ -1,5 +1,4 @@
-const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
-
+const backendUrl = "https://demo-dsa-81ec0d-ad9f78-195-26-253-184.traefik.me";
 const handleResponse = async (response) => {
   if (!response.ok) {
     const error = await response.json();
