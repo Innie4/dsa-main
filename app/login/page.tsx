@@ -2,44 +2,51 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import ReturnButton from "@/components/return-button";
+import { postRequest } from "@/helpers/api";
 
 const LoginPage = () => {
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const email = formData.get("email");
-    const password = formData.get("password");
-
+    setLoading(true);
     try {
-      const response = await fetch("https://dsa2-1.onrender.com/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
+      const response = await postRequest("/auth/login", {
+        email: formData.email,
+        password: formData.password,
       });
 
-      const data = await response.json();
-
-      if (response.ok) {
-        toast.success("Login successful");
-        // You might want to store the token and user data here
-        localStorage.setItem("token", data.token);
-        router.push("/dashboard");
+      toast.success(response.message);
+      localStorage.setItem("token", response.token);
+      router.push("/");
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        toast.error(error.message || "Login failed");
       } else {
-        toast.error(data.message || "Login failed");
+        toast.error("Login failed");
       }
-    } catch (error) {
-      console.error(error);
-      toast.error("Network error occurred");
+    } finally {
+      setLoading(false);
     }
+  };
+
+  const isFormValid = () => {
+    return formData.email && formData.password;
   };
 
   return (
@@ -69,7 +76,7 @@ const LoginPage = () => {
 
       {/* Right Side Form */}
       <div className="flex items-center justify-center w-full md:1/2 lg:w-1/2 p-4">
-        <div className=" max-w-md w-full">
+        <div className="max-w-md w-full">
           <div className="flex justify-between items-center mb-6">
             <Link href="/">
               <img
@@ -98,6 +105,8 @@ const LoginPage = () => {
                 placeholder="Enter your email address"
                 className="mt-1 block w-full border border-gray-300 rounded-md p-2"
                 required
+                value={formData.email}
+                onChange={handleChange}
               />
             </div>
             <div className="mb-4">
@@ -110,6 +119,8 @@ const LoginPage = () => {
                 placeholder="Enter your password"
                 className="mt-1 block w-full border border-gray-300 rounded-md p-2"
                 required
+                value={formData.password}
+                onChange={handleChange}
               />
             </div>
             <div className="flex items mb-6">
@@ -117,19 +128,24 @@ const LoginPage = () => {
               <label className="text-sm text-gray-600">Remember me</label>
 
               <div className="mt-0 text-right ml-32 lg:ml-48">
-              <Link
-                href="/forgot-password"
-                className="text-blue-500 hover:text-blue-700"
-              >
-                Forgot password?
-              </Link>
-            </div>
+                <Link
+                  href="/forgot-password"
+                  className="text-blue-500 hover:text-blue-700"
+                >
+                  Forgot password?
+                </Link>
+              </div>
             </div>
             <button
               type="submit"
-              className="w-full bg-gray-300 text-gray-700 font-bold py-2 rounded-md hover:bg-gray-400"
+              className={`w-full font-bold py-2 rounded-md ${
+                isFormValid()
+                  ? "bg-[#0D1A5D] text-white"
+                  : "bg-gray-300 text-gray-700 opacity-50 cursor-not-allowed"
+              }`}
+              disabled={!isFormValid() || loading}
             >
-              Sign in
+              {loading ? <span>Loading...</span> : "Sign in"}
             </button>
             <div className="flex items-center justify-center mt-4">
               <span className="text-gray-500">Or</span>
@@ -137,7 +153,6 @@ const LoginPage = () => {
             <button className="w-full bg-gray-300 text-gray-700 font-bold py-2 rounded-md mt-2 hover:bg-gray-400">
               Continue with Google
             </button>
-
           </form>
         </div>
       </div>
