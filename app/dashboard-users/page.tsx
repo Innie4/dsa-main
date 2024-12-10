@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
+import { Input } from "@/app/dashboard/input"
 import { Bell, Search, History, MessageSquare, Trash2, ChevronLeft, ChevronRight, LogOut } from 'lucide-react'
 
 
@@ -138,9 +139,9 @@ export default function UserDashboard() {
         {/* Header */}
         <header className="bg-white border-b">
           <div className="flex items-center justify-between px-6 py-4">
-            <div className="relative w-96 border-blue-900 rounded-lg flex items-center">
-              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400  border-blue-900 p-2" />
-              <input
+            <div className="relative w-96">
+              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
+              <Input
                 type="search"
                 placeholder="Search"
                 className="pl-10"

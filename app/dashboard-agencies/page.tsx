@@ -1,100 +1,64 @@
 'use client'
 
-import { useState } from 'react'
+import * as React from 'react'
 import Image from 'next/image'
-import { Bell, Search, History, MessageSquare, Trash2, ChevronLeft, ChevronRight, LogOut } from 'lucide-react'
-
+import Link from 'next/link'
+import { Bell, ChevronLeft, ChevronRight, History, LogOut, MessageSquare, Search, Trash2 } from 'lucide-react'
+import { Input } from "@/app/dashboard/input"
+import { Button } from "@/app/dashboard/button"
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/app/dashboard/table"
+import { Card, CardContent } from "@/app/dashboard/page"
 
 // Types
-interface User {
-  id: string
+interface Agency {
+  id: number
   name: string
-  avatar: string
-  nationality: string
+  logo: string
+  location: string
   email: string
   signUpDate: string
+  isInactive?: boolean
+}
+
+interface NavItem {
+  name: string
+  href: string
   isActive?: boolean
 }
 
-interface MetricCard {
-  title: string
-  value: string
-  trend: string
-  percentage: string
-}
-
-// Sample Data
-const users: User[] = [
-  {
-    id: '1',
-    name: 'Omo Destiny',
-    avatar: '/GideonAkpan.png?height=40&width=40',
-    nationality: 'Nigeria',
-    email: 'Omodestiny@yahoo.com',
-    signUpDate: '19. 10. 2024'
-  },
-  {
-    id: '2',
-    name: 'Oluwa Powers',
-    avatar: '/DestinyChambers.png?height=40&width=40',
-    nationality: 'Nigeria',
-    email: 'Omodestiny@yahoo.com',
-    signUpDate: '19. 10. 2024'
-  },
-  {
-    id: '3',
-    name: 'Oluwa Powers',
-    avatar: '/DestinyChambers.png?height=40&width=40',
-    nationality: 'Nigeria',
-    email: 'Omodestiny@yahoo.com',
-    signUpDate: '19. 10. 2024'
-  },
-  {
-    id: '4',
-    name: 'Oluwa Powers',
-    avatar: '/DestinyChambers.png?height=40&width=40',
-    nationality: 'Nigeria',
-    email: 'Omodestiny@yahoo.com',
-    signUpDate: '19. 10. 2024'
-  },
-  {
-    id: '5',
-    name: 'Oluwa Powers',
-    avatar: '/DestinyChambers.png?height=40&width=40',
-    nationality: 'Nigeria',
-    email: 'Omodestiny@yahoo.com',
-    signUpDate: '19. 10. 2024'
-  },
-
-  // Repeat the same structure for remaining users...
+// Sample data
+const agencies: Agency[] = [
+  { id: 1, name: 'Eagles Academy', logo: '/placeholder.svg?height=40&width=40', location: 'Nigeria', email: 'eaglesacademy@yahoo.com', signUpDate: '19. 10. 2024' },
+  { id: 2, name: 'Rising Stars', logo: '/placeholder.svg?height=40&width=40', location: 'Nigeria', email: 'risingstars@gmail.com', signUpDate: '19. 10. 2024' },
+  { id: 3, name: 'Blue Blooms', logo: '/placeholder.svg?height=40&width=40', location: 'Nigeria', email: 'Omodestiny@yahoo.com', signUpDate: '19. 10. 2024' },
+  { id: 4, name: 'Power Boys', logo: '/placeholder.svg?height=40&width=40', location: 'Nigeria', email: 'Omodestiny@yahoo.com', signUpDate: '19. 10. 2024' },
+  { id: 5, name: 'Fly Higher Academy', logo: '/placeholder.svg?height=40&width=40', location: 'Nigeria', email: 'Omodestiny@yahoo.com', signUpDate: '19. 10. 2024' },
+  { id: 6, name: 'Jubilee Roadstars', logo: '/placeholder.svg?height=40&width=40', location: 'Nigeria', email: 'Omodestiny@yahoo.com', signUpDate: '19. 10. 2024' },
+  { id: 7, name: 'Showout Trials', logo: '/placeholder.svg?height=40&width=40', location: 'Nigeria', email: 'Omodestiny@yahoo.com', signUpDate: '19. 10. 2024' },
+  { id: 8, name: 'BamBam Stars', logo: '/placeholder.svg?height=40&width=40', location: 'Nigeria', email: 'Omodestiny@yahoo.com', signUpDate: '19. 10. 2024', isInactive: true },
+  { id: 9, name: 'Best Academy', logo: '/placeholder.svg?height=40&width=40', location: 'Nigeria', email: 'Omodestiny@yahoo.com', signUpDate: '19. 10. 2024' },
 ]
 
-const metrics: MetricCard[] = [
-  {
-    title: 'Total Users',
-    value: '40,800',
-    trend: 'Up from yesterday',
-    percentage: '10%'
-  },
-  {
-    title: 'New Signups',
-    value: '300',
-    trend: 'On the rise for this month',
-    percentage: '10%'
-  },
-  {
-    title: 'Active Users',
-    value: '3,500',
-    trend: '',
-    percentage: '10%'
-  }
+const navItems: NavItem[] = [
+  { name: 'Overview', href: 'dashboard-overview' },
+  { name: 'Players', href: 'dashboard-players' },
+  { name: 'Users', href: 'dashboard-users' },
+  { name: 'Agencies', href: 'dashboard-agencies', isActive: true },
+  { name: 'Content management', href: 'dashboard-content-management' },
 ]
 
-export default function UserDashboard() {
-  const [searchQuery, setSearchQuery] = useState('')
+export default function AgenciesDashboard() {
+  const [searchQuery, setSearchQuery] = React.useState('')
 
   return (
-    <div className="flex min-h-screen bg-gray-50">
+    <div className="flex min-h-screen">
       {/* Sidebar */}
       <aside className="fixed left-0 top-0 z-40 h-screen w-64 bg-[#0A0E29] text-white">
         <div className="flex h-full flex-col">
@@ -108,24 +72,22 @@ export default function UserDashboard() {
             />
           </div>
           <nav className="flex-1 space-y-1 p-4">
-            <a href="dashboard-overview" className="flex items-center px-4 py-3 text-gray-300 hover:bg-blue-900/20 rounded-lg">
-              Overview
-            </a>
-            <a href="player-page" className="flex items-center px-4 py-3 text-gray-300 hover:bg-blue-900/20 rounded-lg">
-              Players
-            </a>
-            <a href="dashboard-users" className="flex items-center px-4 py-3 text-blue-900 bg-white rounded-lg">
-              Users
-            </a>
-            <a href="dashboard-agencies" className="flex items-center px-4 py-3 text-gray-300 hover:bg-blue-900/20 rounded-lg">
-              Agencies
-            </a>
-            <a href="dashboard-content-management" className="flex items-center px-4 py-3 text-gray-300 hover:bg-blue-900/20 rounded-lg">
-              Content management
-            </a>
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className={`flex items-center px-4 py-3 rounded-lg ${
+                  item.isActive 
+                    ? 'bg-white text-[#0A0E29]' 
+                    : 'text-gray-300 hover:bg-white/5'
+                }`}
+              >
+                {item.name}
+              </Link>
+            ))}
           </nav>
           <div className="p-4">
-            <button className="flex items-center px-4 py-3 text-gray-300 hover:bg-blue-900/20 rounded-lg w-full">
+            <button className="flex items-center px-4 py-3 text-gray-300 hover:bg-white/5 rounded-lg w-full">
               <LogOut className="mr-2 h-4 w-4" />
               Logout
             </button>
@@ -134,13 +96,13 @@ export default function UserDashboard() {
       </aside>
 
       {/* Main Content */}
-      <main className="ml-64 flex-1">
+      <main className="ml-64 flex-1 bg-gray-50">
         {/* Header */}
         <header className="bg-white border-b">
           <div className="flex items-center justify-between px-6 py-4">
-            <div className="relative w-96 border-blue-900 rounded-lg flex items-center">
-              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400  border-blue-900 p-2" />
-              <input
+            <div className="relative w-96">
+              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
+              <Input
                 type="search"
                 placeholder="Search"
                 className="pl-10"
@@ -151,7 +113,7 @@ export default function UserDashboard() {
             <div className="flex items-center space-x-4">
               <button className="relative">
                 <Bell className="h-6 w-6 text-gray-600" />
-
+                
               </button>
               <div className="flex items-center space-x-3">
                 <Image
@@ -162,8 +124,8 @@ export default function UserDashboard() {
                   className="h-10 w-10 rounded-full"
                 />
                 <div>
-                  <div className="font-medium"><a href="my-profile">Admin Jega</a></div>
-                  <div className="text-sm text-gray-600"> <a href="my-profile">Profile</a> </div>
+                  <div className="font-medium">Admin Jega</div>
+                  <div className="text-sm text-gray-600"><a href="my-profile">Profile</a></div>
                 </div>
               </div>
             </div>
@@ -171,116 +133,119 @@ export default function UserDashboard() {
         </header>
 
         {/* Content */}
-        <div className="p-6 ">
-          {/* Metric Cards */}
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 mb-8">
-            {metrics.map((metric, index) => (
-              <div key={index} className="bg-white rounded-lg p-6 shadow-sm">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <h3 className="text-sm font-medium text-gray-500">{metric.title}</h3>
-                    <p className="text-2xl font-bold mt-1">{metric.value}</p>
-                  </div>
-                  <div className="h-10 w-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                    <svg className="h-6 w-6 text-blue-600" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
-                      <path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/>
-                    </svg>
-                  </div>
+        <div className="p-6">
+          {/* Stats Grid */}
+          <div className="grid gap-6 md:grid-cols-3 mb-8">
+            <Card>
+              <CardContent className="p-6">
+                <h3 className="text-sm font-medium text-blue-600">Total Agencies</h3>
+                <div className="text-2xl font-bold mt-2">800+</div>
+                <div className="flex items-center mt-2 text-sm text-green-600">
+                  <svg className="w-4 h-4 mr-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 7L12 3M12 3L16 7M12 3V21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  10% Up from yesterday
                 </div>
-                {metric.trend && (
-                  <div className="mt-4 flex items-center text-sm">
-                    <svg className="h-4 w-4 text-green-500 mr-1" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M12 7a1 1 0 10-2 0v4a1 1 0 102 0V7z" clipRule="evenodd"/>
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm0 2a10 10 0 100-20 10 10 0 000 20z" clipRule="evenodd"/>
-                    </svg>
-                    <span className="text-green-500">{metric.percentage}</span>
-                    <span className="ml-1 text-gray-500">{metric.trend}</span>
-                  </div>
-                )}
-              </div>
-            ))}
+              </CardContent>
+            </Card>
+            <Card>
+              <CardContent className="p-6">
+                <h3 className="text-sm font-medium text-blue-600">New Agencies</h3>
+                <div className="text-2xl font-bold mt-2">50+</div>
+                <div className="flex items-center mt-2 text-sm text-green-600">
+                  <svg className="w-4 h-4 mr-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 7L12 3M12 3L16 7M12 3V21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  10% Up from yesterday
+                </div>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardContent className="p-6">
+                <h3 className="text-sm font-medium text-blue-600">Success ratio</h3>
+                <div className="text-2xl font-bold mt-2">90%</div>
+                <div className="flex items-center mt-2 text-sm text-green-600">
+                  <svg className="w-4 h-4 mr-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 7L12 3M12 3L16 7M12 3V21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  10%
+                </div>
+              </CardContent>
+            </Card>
           </div>
 
-          {/* Users Table */}
-          <div className="bg-white rounded-lg shadow-sm">
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead>
-                  <tr className="bg-blue-100 border-b">
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">NAME</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">NATIONALITY</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">
-                      E-MAIL ADDRESS
-                      <button className="ml-1 text-gray-400 hover:text-gray-600">
-                        ?
-                      </button>
-                    </th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">
-                      SIGN-UP DATE
-                      <button className="ml-1 text-gray-400 hover:text-gray-600">
-                        ?
-                      </button>
-                    </th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">ACTIONS</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {users.map((user, index) => (
-                    <tr key={user.id} className="border-b last:border-b-0">
-                      <td className="px-6 py-4">
-                        <div className="flex items-center">
-                          <Image
-                            src={user.avatar}
-                            alt={user.name}
-                            width={40}
-                            height={40}
-                            className="h-10 w-10 rounded-full mr-3"
-                          />
-                          <span className="font-medium">{user.name}</span>
-                        </div>
-                      </td>
-                      <td className="px-6 py-4">
-                        <div className="flex items-center">
+          {/* Agencies Table */}
+          <div className="bg-white rounded-lg shadow">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>AGENCY NAME</TableHead>
+                  <TableHead>LOCATION</TableHead>
+                  <TableHead>
+                    E-MAIL ADDRESS
+                    <Button variant="ghost" size="sm" className="ml-1">
+                      ?
+                    </Button>
+                  </TableHead>
+                  <TableHead>
+                    SIGN-UP DATE
+                    <Button variant="ghost" size="sm" className="ml-1">
+                      ?
+                    </Button>
+                  </TableHead>
+                  <TableHead>ACTIONS</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {agencies.map((agency) => (
+                  <TableRow key={agency.id}>
+                    <TableCell>
+                      <div className="flex items-center space-x-3">
                         <Image
-                            src='/carbon_location.png'
-                            alt={user.name}
-                            width={40}
-                            height={40}
-                            className="h-3 w-3 mr-1"
-                          />
-                          {user.nationality}
+                          src={agency.logo}
+                          alt={agency.name}
+                          width={40}
+                          height={40}
+                          className="rounded-full"
+                        />
+                        <div>
+                         
                         </div>
-                      </td>
-                      <td className="px-6 py-4">{user.email}</td>
-                      <td className="px-6 py-4">{user.signUpDate}</td>
-                      <td className="px-6 py-4">
-                        <div className="flex items-center space-x-3">
-                          <button className="text-gray-400 hover:text-gray-600">
-                            <History className="h-5 w-5" />
-                          </button>
-                          <button className="text-gray-400 hover:text-gray-600">
-                            <MessageSquare className="h-5 w-5" />
-                          </button>
-                          <button className="text-red-400 hover:text-red-600">
-                            <Trash2 className="h-5 w-5" />
-                          </button>
-                        </div>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-            {/* Pagination */}
-            <div className="flex items-center justify-between px-6 py-4 border-t">
-              <div className="text-sm text-gray-500">
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="flex items-center">
+                        <span className="mr-2"><img src="carbon_location.png" alt="" /></span>
+                        {agency.location}
+                      </div>
+                    </TableCell>
+                    <TableCell>{agency.email}</TableCell>
+                    <TableCell>{agency.signUpDate}</TableCell>
+                    <TableCell>
+                      <div className="flex items-center space-x-2">
+                        <Button variant="ghost" size="icon" className="text-gray-500 hover:text-gray-700">
+                          <History className="h-4 w-4" />
+                        </Button>
+                        <Button variant="ghost" size="icon" className="text-gray-500 hover:text-gray-700">
+                          <MessageSquare className="h-4 w-4" />
+                        </Button>
+                        <Button variant="ghost" size="icon" className="text-red-500 hover:text-red-700">
+                          <Trash2 className="h-4 w-4" />
+                        </Button>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+            <div className="flex items-center justify-between px-4 py-4 border-t">
+            <div className="text-sm text-gray-500">
                 • Inactive user
               </div>
+              <div className="flex items-center space-x-6 text-sm">
 
+              </div>
             </div>
-
           </div>
         </div>
         <div className="flex items-center space-x-5 lg:justify-center mt-4 mb-12">
@@ -292,14 +257,8 @@ export default function UserDashboard() {
                 </button>
               </div>
       </main>
-
-      {/* Digital Scouting Africa Watermark */}
-      <div className="fixed bottom-6 right-6 bg-[#0A0E29] text-white py-3 px-4 rounded-lg">
-        <div className="text-sm">Digital</div>
-        <div className="text-sm">Scouting</div>
-        <div className="text-sm">Africa</div>
-      </div>
     </div>
   )
 }
 
+4
