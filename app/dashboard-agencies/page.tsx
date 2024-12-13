@@ -35,15 +35,15 @@ interface NavItem {
 
 // Sample data
 const agencies: Agency[] = [
-  { id: 1, name: 'Eagles Academy', logo: '/placeholder.svg?height=40&width=40', location: 'Nigeria', email: 'eaglesacademy@yahoo.com', signUpDate: '19. 10. 2024' },
-  { id: 2, name: 'Rising Stars', logo: '/placeholder.svg?height=40&width=40', location: 'Nigeria', email: 'risingstars@gmail.com', signUpDate: '19. 10. 2024' },
-  { id: 3, name: 'Blue Blooms', logo: '/placeholder.svg?height=40&width=40', location: 'Nigeria', email: 'Omodestiny@yahoo.com', signUpDate: '19. 10. 2024' },
-  { id: 4, name: 'Power Boys', logo: '/placeholder.svg?height=40&width=40', location: 'Nigeria', email: 'Omodestiny@yahoo.com', signUpDate: '19. 10. 2024' },
-  { id: 5, name: 'Fly Higher Academy', logo: '/placeholder.svg?height=40&width=40', location: 'Nigeria', email: 'Omodestiny@yahoo.com', signUpDate: '19. 10. 2024' },
-  { id: 6, name: 'Jubilee Roadstars', logo: '/placeholder.svg?height=40&width=40', location: 'Nigeria', email: 'Omodestiny@yahoo.com', signUpDate: '19. 10. 2024' },
-  { id: 7, name: 'Showout Trials', logo: '/placeholder.svg?height=40&width=40', location: 'Nigeria', email: 'Omodestiny@yahoo.com', signUpDate: '19. 10. 2024' },
-  { id: 8, name: 'BamBam Stars', logo: '/placeholder.svg?height=40&width=40', location: 'Nigeria', email: 'Omodestiny@yahoo.com', signUpDate: '19. 10. 2024', isInactive: true },
-  { id: 9, name: 'Best Academy', logo: '/placeholder.svg?height=40&width=40', location: 'Nigeria', email: 'Omodestiny@yahoo.com', signUpDate: '19. 10. 2024' },
+  { id: 1, name: 'Eagles Academy', logo: '/Eagles.png?height=40&width=40', location: 'Nigeria', email: 'eaglesacademy@yahoo.com', signUpDate: '19. 10. 2024' },
+  { id: 2, name: 'Rising Stars', logo: '/Rising.png?height=40&width=40', location: 'Nigeria', email: 'risingstars@gmail.com', signUpDate: '19. 10. 2024' },
+  { id: 3, name: 'Blue Blooms', logo: '/Blooms.png?height=40&width=40', location: 'Nigeria', email: 'Omodestiny@yahoo.com', signUpDate: '19. 10. 2024' },
+  { id: 4, name: 'Power Boys', logo: '/powerboys.png?height=40&width=40', location: 'Nigeria', email: 'Omodestiny@yahoo.com', signUpDate: '19. 10. 2024' },
+  { id: 5, name: 'Fly Higher Academy', logo: '/flyhigher.png?height=40&width=40', location: 'Nigeria', email: 'Omodestiny@yahoo.com', signUpDate: '19. 10. 2024' },
+  { id: 6, name: 'Jubilee Roadstars', logo: '/jubilee.png?height=40&width=40', location: 'Nigeria', email: 'Omodestiny@yahoo.com', signUpDate: '19. 10. 2024' },
+  { id: 7, name: 'Showout Trials', logo: '/showout.png?height=40&width=40', location: 'Nigeria', email: 'Omodestiny@yahoo.com', signUpDate: '19. 10. 2024' },
+  { id: 8, name: 'BamBam Stars', logo: '/bambam.png?height=40&width=40', location: 'Nigeria', email: 'Omodestiny@yahoo.com', signUpDate: '19. 10. 2024', isInactive: true },
+  { id: 9, name: 'Best Academy', logo: '/best.png?height=40&width=40', location: 'Nigeria', email: 'Omodestiny@yahoo.com', signUpDate: '19. 10. 2024' },
 ]
 
 const navItems: NavItem[] = [
@@ -208,6 +208,7 @@ export default function AgenciesDashboard() {
                           height={40}
                           className="rounded-full"
                         />
+                        <span className="font-medium">{agency.name}</span>
                         <div>
                          
                         </div>
